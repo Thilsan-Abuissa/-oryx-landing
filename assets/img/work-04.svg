@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1700 440" width="1700" height="440">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#242931"/><stop offset=".55" stop-color="#13161B"/><stop offset="1" stop-color="#0B0D10"/>
+</linearGradient>
+<radialGradient id="glow"><stop offset="0" stop-color="#9A3243" stop-opacity=".62"/><stop offset="1" stop-color="#9A3243" stop-opacity="0"/></radialGradient>
+<radialGradient id="halo"><stop offset="0" stop-color="#FFF" stop-opacity=".2"/><stop offset="1" stop-color="#FFF" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+<path d="M44 0H0V44" fill="none" stroke="#fff" stroke-opacity=".045" stroke-width="1"/></pattern>
+<linearGradient id="tint" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#2A2F36" stop-opacity=".55"/><stop offset="1" stop-color="#04060A" stop-opacity=".95"/></linearGradient>
+<linearGradient id="clear" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#FFF" stop-opacity=".17"/><stop offset="1" stop-color="#FFF" stop-opacity=".04"/></linearGradient>
+<linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#FFF" stop-opacity=".32"/><stop offset="1" stop-color="#FFF" stop-opacity="0"/></linearGradient>
+</defs>
+<style>
+.an-lamp{ animation:lamp 4.4s ease-in-out infinite; animation-delay:calc(var(--i) * .34s); }
+@keyframes lamp{ 0%,55%,100%{ opacity:.35 } 22%{ opacity:1 } }
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<rect width="1700" height="440" fill="url(#bg)"/>
+<rect width="1700" height="440" fill="url(#grid)"/>
+<circle cx="1420" cy="360" r="520" fill="url(#glow)"/>
+<g transform="translate(646.4 71.2) scale(0.72)"><g fill="none" stroke="#C6CDD3" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round">
+<path d="M44 268 L46 200 C48 176 62 162 88 157 L250 148 C262 146 270 140 276 130
+ L336 62 C346 50 360 44 378 44 L762 44 C778 44 790 50 798 62 L838 126
+ C844 136 854 142 866 144 L930 152 C952 156 962 170 963 190 L966 268
+ C966 288 956 298 936 298 L878 298 A96 96 0 0 0 686 298 L330 298 A96 96 0 0 0 138 298
+ L76 298 C56 298 44 288 44 268 Z"/>
+<path d="M292 128 L344 64 C350 56 358 52 368 52 L500 52 L500 128 Z"/>
+<path d="M520 52 L660 52 L660 128 L520 128 Z"/>
+<path d="M680 52 L756 52 C768 52 776 56 782 64 L822 128 L680 128 Z"/>
+<path d="M292 128 H822" opacity=".55"/>
+<path d="M508 138 V286 M670 138 V286" opacity=".7"/>
+<path d="M330 272 H686" opacity=".45"/>
+<path d="M48 214 H140 M900 210 H960" opacity=".8"/>
+
+<circle cx="234" cy="298" r="96"/><circle cx="234" cy="298" r="54"/>
+<circle cx="782" cy="298" r="96"/><circle cx="782" cy="298" r="54"/>
+<g opacity=".5"><path d="M234 246v-16M234 350v16M182 298h-16M286 298h16"/>
+<path d="M782 246v-16M782 350v16M730 298h-16M834 298h16"/></g>
+</g></g>
+<g fill="none" stroke="#9A3243" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round">
+<path d="M840 120 h330 v-20 h-330 Z"/>
+<path d="M862 100 v-12 M928 100 v-12 M1082 100 v-12 M1148 100 v-12"/>
+<circle class="an-lamp" style="--i:0" cx="892" cy="76" r="14"/><circle class="an-lamp" style="--i:1" cx="968" cy="76" r="14"/>
+<circle class="an-lamp" style="--i:2" cx="1042" cy="76" r="14"/><circle class="an-lamp" style="--i:3" cx="1118" cy="76" r="14"/>
+<path d="M742 280 v62 M742 310 h68 M716 256 v110"/>
+<path d="M1306 272 v60 M1306 304 h-64"/>
+<path d="M886 336 h230"/></g>
+<path d="M560 384 h980" stroke="#7E868D" stroke-width="2.4" opacity=".45" fill="none"/>
+<g fill="none" stroke="#7E868D" stroke-width="1.6" opacity=".4"><path d="M560 398h980"/><path d="M560 398v12"/><path d="M630 398v6"/><path d="M700 398v6"/><path d="M770 398v12"/><path d="M840 398v6"/><path d="M910 398v6"/><path d="M980 398v12"/><path d="M1050 398v6"/><path d="M1120 398v6"/><path d="M1190 398v12"/><path d="M1260 398v6"/><path d="M1330 398v6"/><path d="M1400 398v12"/><path d="M1470 398v6"/><path d="M1540 398v6"/></g>
+</svg>

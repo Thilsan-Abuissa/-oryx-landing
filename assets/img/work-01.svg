@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" width="900" height="1100">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#242931"/><stop offset=".55" stop-color="#13161B"/><stop offset="1" stop-color="#0B0D10"/>
+</linearGradient>
+<radialGradient id="glow"><stop offset="0" stop-color="#9A3243" stop-opacity=".62"/><stop offset="1" stop-color="#9A3243" stop-opacity="0"/></radialGradient>
+<radialGradient id="halo"><stop offset="0" stop-color="#FFF" stop-opacity=".2"/><stop offset="1" stop-color="#FFF" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+<path d="M44 0H0V44" fill="none" stroke="#fff" stroke-opacity=".045" stroke-width="1"/></pattern>
+<linearGradient id="tint" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#2A2F36" stop-opacity=".55"/><stop offset="1" stop-color="#04060A" stop-opacity=".95"/></linearGradient>
+<linearGradient id="clear" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#FFF" stop-opacity=".17"/><stop offset="1" stop-color="#FFF" stop-opacity=".04"/></linearGradient>
+<linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#FFF" stop-opacity=".32"/><stop offset="1" stop-color="#FFF" stop-opacity="0"/></linearGradient>
+</defs>
+<style>
+.an-stitch{ animation:stitch 7.5s linear infinite; }
+@keyframes stitch{ from{ stroke-dashoffset:0 } to{ stroke-dashoffset:42 } }
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<rect width="900" height="1100" fill="url(#bg)"/>
+<rect width="900" height="1100" fill="url(#grid)"/>
+<circle cx="230" cy="900" r="460" fill="url(#glow)"/>
+<g fill="none" stroke="#C6CDD3" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<path d="M382 176 h140 a34 34 0 0 1 34 34 v60 a34 34 0 0 1-34 34 h-140 a34 34 0 0 1-34-34 v-60 a34 34 0 0 1 34-34 Z"/>
+<path d="M410 304 v34 M494 304 v34"/>
+<path d="M352 372 C352 352 366 338 386 338 L538 338 C558 338 574 354 574 374
+ L584 622 C585 646 567 664 543 664 L378 664 C354 664 336 646 338 622 Z"/>
+<path d="M344 664 L598 664 C638 664 662 686 666 722 L670 766 C672 790 654 808 630 808
+ L336 808 C310 808 292 790 294 764 L300 706 C302 684 322 664 344 664 Z"/>
+<path d="M324 808 v52 M604 808 v52 M310 860 h308"/>
+<path d="M380 352 C368 424 366 546 376 652" opacity=".55"/>
+<path d="M546 352 C558 424 560 546 550 652" opacity=".55"/>
+</g>
+<g class="an-stitch" fill="none" stroke="#9A3243" stroke-width="2.6" stroke-dasharray="9 12" opacity=".9"><path d="M398 372 v272"/><path d="M456 372 v272"/><path d="M514 372 v272"/><path d="M368 700 v104"/><path d="M428 700 v104"/><path d="M488 700 v104"/><path d="M548 700 v104"/></g>
+<g fill="none" stroke="#7E868D" stroke-width="1.6" opacity=".4"><path d="M190 960h520"/><path d="M190 960v12"/><path d="M255 960v6"/><path d="M320 960v6"/><path d="M385 960v12"/><path d="M450 960v6"/><path d="M515 960v6"/><path d="M580 960v12"/><path d="M645 960v6"/><path d="M710 960v6"/></g>
+</svg>

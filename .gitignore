@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+._*
+
+# editor / OS cruft
+*.swp
+Thumbs.db
+
+# local scratch copies (the flattened/test pages used while building)
+_*.html

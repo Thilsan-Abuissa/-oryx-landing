@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 400" width="1400" height="400">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#242931"/><stop offset=".55" stop-color="#13161B"/><stop offset="1" stop-color="#0B0D10"/>
+</linearGradient>
+<radialGradient id="glow"><stop offset="0" stop-color="#9A3243" stop-opacity=".62"/><stop offset="1" stop-color="#9A3243" stop-opacity="0"/></radialGradient>
+<radialGradient id="halo"><stop offset="0" stop-color="#FFF" stop-opacity=".2"/><stop offset="1" stop-color="#FFF" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+<path d="M44 0H0V44" fill="none" stroke="#fff" stroke-opacity=".045" stroke-width="1"/></pattern>
+<linearGradient id="tint" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#2A2F36" stop-opacity=".55"/><stop offset="1" stop-color="#04060A" stop-opacity=".95"/></linearGradient>
+<linearGradient id="clear" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#FFF" stop-opacity=".17"/><stop offset="1" stop-color="#FFF" stop-opacity=".04"/></linearGradient>
+<linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#FFF" stop-opacity=".32"/><stop offset="1" stop-color="#FFF" stop-opacity="0"/></linearGradient>
+</defs>
+<style>
+.an-bolt{ animation:bolt 3.8s ease-in-out infinite alternate; }
+@keyframes bolt{ from{ opacity:.45 } to{ opacity:1 } }
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<rect width="1400" height="400" fill="url(#bg)"/>
+<rect width="1400" height="400" fill="url(#grid)"/>
+<circle cx="380" cy="320" r="440" fill="url(#glow)"/>
+<g fill="none" stroke="#C6CDD3" stroke-width="4" stroke-linejoin="round">
+<path d="M710 148 h340 a22 22 0 0 1 22 22 v132 a22 22 0 0 1-22 22 H710 a22 22 0 0 1-22-22 V170 a22 22 0 0 1 22-22 Z"/>
+<path d="M732 148 v-28 h50 v28 M978 148 v-28 h50 v28"/>
+<path d="M688 198 h384" opacity=".5"/></g>
+<g fill="none" stroke="#7E868D" stroke-width="2.2" opacity=".45"><path d="M746 168 v134"/><path d="M808 168 v134"/><path d="M870 168 v134"/><path d="M932 168 v134"/><path d="M994 168 v134"/></g>
+<g fill="none" stroke="#9A3243" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+<path class="an-bolt" d="M898 200 l-36 60 h45 l-36 60"/>
+<path d="M757 120 v-26 h-58 M1003 120 v-26 h58"/>
+<path d="M699 94 h-86 a28 28 0 0 0-28 28 v86"/>
+<path d="M1061 94 h86 a28 28 0 0 1 28 28 v86"/>
+<path d="M572 190 h32 M588 174 v32" opacity=".8"/>
+<path d="M1162 190 h32" opacity=".8"/></g>
+<g fill="none" stroke="#7E868D" stroke-width="1.6" opacity=".4"><path d="M688 344h384"/><path d="M688 344v12"/><path d="M743 344v6"/><path d="M798 344v6"/><path d="M853 344v12"/><path d="M907 344v6"/><path d="M962 344v6"/><path d="M1017 344v12"/><path d="M1072 344v6"/></g>
+</svg>

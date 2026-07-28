@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="1000" height="620">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#242931"/><stop offset=".55" stop-color="#13161B"/><stop offset="1" stop-color="#0B0D10"/>
+</linearGradient>
+<radialGradient id="glow"><stop offset="0" stop-color="#9A3243" stop-opacity=".62"/><stop offset="1" stop-color="#9A3243" stop-opacity="0"/></radialGradient>
+<radialGradient id="halo"><stop offset="0" stop-color="#FFF" stop-opacity=".2"/><stop offset="1" stop-color="#FFF" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+<path d="M44 0H0V44" fill="none" stroke="#fff" stroke-opacity=".045" stroke-width="1"/></pattern>
+<linearGradient id="tint" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#2A2F36" stop-opacity=".55"/><stop offset="1" stop-color="#04060A" stop-opacity=".95"/></linearGradient>
+<linearGradient id="clear" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#FFF" stop-opacity=".17"/><stop offset="1" stop-color="#FFF" stop-opacity=".04"/></linearGradient>
+<linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#FFF" stop-opacity=".32"/><stop offset="1" stop-color="#FFF" stop-opacity="0"/></linearGradient>
+</defs>
+<style>
+.an-rays{ animation:rays 5.5s ease-in-out infinite alternate; }
+@keyframes rays{ from{ opacity:.12 } to{ opacity:.36 } }
+.an-sun{ animation:sun 5.5s ease-in-out infinite alternate; transform-box:view-box; transform-origin:196px 150px; }
+@keyframes sun{ from{ opacity:.6; transform:scale(.94) } to{ opacity:1; transform:scale(1.04) } }
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<rect width="1000" height="620" fill="url(#bg)"/>
+<rect width="1000" height="620" fill="url(#grid)"/>
+<circle cx="760" cy="400" r="430" fill="url(#glow)"/>
+<circle class="an-sun" cx="196" cy="150" r="38" fill="none" stroke="#9A3243" stroke-width="3.2"/>
+<g fill="none" stroke="#9A3243" stroke-width="2.2" opacity=".7">
+<path d="M196 94v-20M196 226v20M254 150h20M138 150h-20M242 106l14-14M150 194l-14 14M242 194l14 14M150 106 136 92"/></g>
+<g class="an-rays" fill="none" stroke="#C6CDD3" stroke-width="2" opacity=".26"><path d="M188 176 L300 330"/><path d="M210 176 L322 330"/><path d="M232 176 L344 330"/><path d="M254 176 L366 330"/><path d="M276 176 L388 330"/><path d="M298 176 L410 330"/><path d="M320 176 L432 330"/></g>
+<path d="M356 214 L640 194 L640 452 L356 436 Z" fill="url(#clear)"/>
+<path d="M658 193 L836 180 L888 448 L658 454 Z" fill="url(#tint)"/>
+<g fill="none" stroke="#C6CDD3" stroke-width="4" stroke-linejoin="round">
+<path d="M356 214 C356 200 366 190 380 189 L824 158 C842 157 854 168 858 184
+ L914 444 C918 462 906 476 888 476 L384 460 C368 459 356 447 356 432 Z"/>
+<path d="M356 214 L640 194 L640 452 L356 436 Z"/></g>
+<path d="M648 194 L648 453" stroke="#9A3243" stroke-width="5"/>
+<g fill="none" stroke="#9A3243" stroke-width="4" stroke-linejoin="round">
+<path d="M596 496 h116 v22 h-116 Z"/><path d="M654 496 v-20"/></g>
+<g fill="none" stroke="#7E868D" stroke-width="1.6" opacity=".4"><path d="M356 542h560"/><path d="M356 542v12"/><path d="M418 542v6"/><path d="M480 542v6"/><path d="M543 542v12"/><path d="M605 542v6"/><path d="M667 542v6"/><path d="M729 542v12"/><path d="M792 542v6"/><path d="M854 542v6"/><path d="M916 542v12"/></g>
+</svg>

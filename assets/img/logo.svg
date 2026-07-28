@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 670" role="img" aria-label="Oryx for Car Accessories">
+  <title>Oryx for Car Accessories</title>
+  <g fill="none" stroke-linecap="round">
+
+    <!-- silver horn strokes -->
+    <g stroke="#B9BFC4">
+      <path d="M690 332C800 262 942 150 1032 22" stroke-width="26"/>
+      <path d="M734 344C854 284 972 182 1062 62" stroke-width="20"/>
+      <path d="M778 356C896 306 992 236 1072 132" stroke-width="14"/>
+    </g>
+
+    <!-- maroon crest / roofline with arrow tip -->
+    <path fill="#7A1F2E" stroke="none"
+          d="M328 236C452 110 664 56 834 108L906 70L872 158C702 108 500 142 368 256Z"/>
+
+    <!-- flowing speed lines -->
+    <g stroke="#7A1F2E">
+      <path d="M16 330C200 250 432 234 702 260" stroke-width="14"/>
+      <path d="M30 368C232 286 472 270 762 296" stroke-width="18"/>
+      <path d="M62 404C262 326 522 306 822 322" stroke-width="20"/>
+      <path d="M124 438C322 376 562 352 862 356" stroke-width="15"/>
+      <path d="M204 468C382 426 602 396 882 392" stroke-width="9"/>
+    </g>
+  </g>
+
+  <!-- wordmark -->
+  <text x="540" y="556" text-anchor="middle" fill="#7A1F2E"
+        font-family="Sora, 'Arial Black', Helvetica, sans-serif" font-weight="800"
+        font-size="178" letter-spacing="16">ORYX</text>
+
+  <g stroke="#7A1F2E" stroke-width="4" stroke-linecap="round" opacity=".85">
+    <path d="M118 604h96"/><path d="M866 604h96"/>
+  </g>
+
+  <text x="540" y="618" text-anchor="middle" fill="#7A1F2E"
+        font-family="Tajawal, 'Geeza Pro', 'Noto Naskh Arabic', serif"
+        font-size="46" direction="rtl">لزينة السيارات</text>
+
+  <text x="540" y="662" text-anchor="middle" fill="#8B9298"
+        font-family="Sora, Helvetica, Arial, sans-serif" font-weight="400"
+        font-size="40">Oryx for Car Accessories</text>
+</svg>
