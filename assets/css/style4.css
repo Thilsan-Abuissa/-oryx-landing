@@ -184,7 +184,7 @@ main,.nav4,.foot4,.drop,.swap,.wa4,.boot{ position:relative; z-index:1; }
 /* ---------- 5. PRELOADER ---------- */
 .boot{ position:fixed; inset:0; z-index:9999; display:grid; place-items:center; background:var(--paper); }
 .boot__card{ display:grid; justify-items:center; gap:1.3rem; padding:2.4rem 2.8rem; }
-.boot__logo{ width:min(190px,44vw); }
+.boot__logo{ width:min(215px,48vw); }
 .boot__rule{ display:block; width:min(190px,44vw); height:1px; background:var(--edge-2); overflow:hidden; }
 .boot__rule i{ display:block; height:100%; width:0; background:linear-gradient(90deg,var(--mar),var(--rose-s)); }
 body.boot-out .boot{ opacity:0; filter:blur(14px); transition:opacity .7s var(--e), filter .7s var(--e); }
@@ -198,7 +198,7 @@ body.boot-gone .boot{ display:none; }
   display:flex; align-items:center; justify-content:space-between; gap:1.4rem;
   padding:.55rem .7rem .55rem 1.2rem;
 }
-.nav4__brand img{ height:clamp(30px,3.2vw,40px); width:auto; }
+.nav4__brand img{ height:clamp(35px,3.7vw,46px); width:auto; }
 .nav4__links{ display:flex; gap:1.7rem; }
 .nav4__links a{ font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--mute); transition:color .35s; }
 .nav4__links a:hover,.nav4__links a.on{ color:var(--rose); }
@@ -406,7 +406,7 @@ body.drop-on .drop__in nav a{ opacity:1; transform:none; }
 /* ---------- 16. FOOTER ---------- */
 .foot4{ padding-bottom:1.5rem; }
 .foot4__g{ display:grid; grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,.85fr)); gap:clamp(1.6rem,3.5vw,3rem); padding:clamp(1.8rem,4vw,3rem); }
-.foot4__brand img{ height:50px; width:auto; margin-bottom:1rem; }
+.foot4__brand img{ height:58px; width:auto; margin-bottom:1rem; }
 .foot4__brand p{ font-size:.9rem; color:var(--mute); max-width:34ch; }
 .foot4__brand .ar4{ font-size:1.05rem; margin:0; }
 .foot4__c{ display:grid; align-content:start; gap:.45rem; }
