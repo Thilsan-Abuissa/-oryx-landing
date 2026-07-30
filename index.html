@@ -4,21 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Oryx for Car Accessories — Accessories, Batteries, Auto Electrical, Upholstery &amp; Tinting</title>
-<meta name="description" content="Oryx for Car Accessories — car accessories, batteries, auto electrical works, upholstery and window tinting. Two branches, one standard. Fitted by specialists.">
-<meta name="theme-color" content="#7A1F2E">
+<meta name="description" content="Oryx for Car Accessories — a retail counter with a workshop behind it. Accessories, batteries, auto electrical, upholstery and window tinting across two branches in Qatar.">
+<meta name="theme-color" content="#F4F2F0">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Oryx for Car Accessories">
-<meta property="og:description" content="Accessories, batteries, auto electrical, upholstery and window tinting — fitted by specialists across two branches.">
+<meta property="og:description" content="The details that make a car yours. Accessories, batteries, auto electrical, upholstery and tinting — two branches in Qatar.">
 <meta property="og:image" content="assets/img/og.png">
 
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=DM+Sans:wght@300;400;500;700&family=Tajawal:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style2.css">
 
-<!-- Three.js (UMD build so the page also works when opened straight from disk) -->
 <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
 <script>if(typeof THREE==='undefined'){document.write('<scr'+'ipt src="https://unpkg.com/three@0.128.0/build/three.min.js"><\/scr'+'ipt>');}</script>
 </head>
@@ -26,651 +25,465 @@
 <body class="is-loading">
 
 <!-- ============ PRELOADER ============ -->
-<div class="preloader" id="preloader" aria-hidden="true">
-  <div class="preloader__inner">
-    <img class="preloader__logo js-logo" src="assets/img/logo.png" alt="" onerror="this.onerror=null;this.src='assets/img/logo.svg'">
-    <div class="preloader__bar"><span class="preloader__fill" id="preFill"></span></div>
-    <div class="preloader__num"><span id="preNum">0</span><i>%</i></div>
+<div class="pre" id="pre" aria-hidden="true">
+  <div class="pre__in">
+    <img class="pre__logo js-logo" src="assets/img/logo.png" alt="" onerror="this.onerror=null;this.src='assets/img/logo.svg'">
+    <span class="pre__rule"><i id="preFill"></i></span>
   </div>
-  <span class="preloader__curtain"></span>
+  <span class="pre__panel"></span>
 </div>
 
-<!-- ============ UI CHROME ============ -->
-<div class="scroll-progress"><span id="scrollBar"></span></div>
-<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
-<div class="grain" aria-hidden="true"></div>
+<!-- ============ CHROME ============ -->
+<div class="rail" aria-hidden="true"><span id="railFill"></span></div>
 
 <!-- ============ HEADER ============ -->
-<header class="header" id="header">
-  <div class="header__inner">
-    <a class="brand" href="#home" aria-label="Oryx for Car Accessories — home">
-      <img class="brand__logo js-logo" src="assets/img/logo.png" alt="Oryx for Car Accessories" onerror="this.onerror=null;this.src='assets/img/logo.svg'">
-    </a>
-
-    <nav class="nav" id="nav" aria-label="Primary">
-      <a href="#services" class="nav__link" data-nav="services"><span>Services</span></a>
-      <a href="#process"  class="nav__link" data-nav="process"><span>How it works</span></a>
-      <a href="#why"      class="nav__link" data-nav="why"><span>Why Oryx</span></a>
-      <a href="#work"     class="nav__link" data-nav="work"><span>Our work</span></a>
-      <a href="#branches" class="nav__link" data-nav="branches"><span>Branches</span></a>
-    </nav>
-
-    <div class="header__actions">
-      <a href="tel:+97444682200" class="header__tel" data-demo aria-label="Call Oryx">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.6a1 1 0 0 1-.25 1z"/></svg>
-        <span>+974 4468 2200</span>
-      </a>
-      <a href="#contact" class="btn btn--primary btn--sm" data-magnetic><span>Get a quote</span></a>
-      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
-    </div>
+<header class="top" id="top">
+  <a class="top__brand" href="#home" aria-label="Oryx for Car Accessories — home">
+    <img class="js-logo" src="assets/img/logo.png" alt="Oryx for Car Accessories" onerror="this.onerror=null;this.src='assets/img/logo.svg'">
+  </a>
+  <nav class="top__nav" aria-label="Primary">
+    <a href="#services">Specialities</a>
+    <a href="#works">How it works</a>
+    <a href="#work">Selected work</a>
+    <a href="#branches">Branches</a>
+    <a href="products.html">Products</a>
+  </nav>
+  <div class="top__end">
+    <a class="top__tel" href="tel:+97444682200" data-demo>+974 4468 2200</a>
+    <a class="pill" href="#enquire"><span>Enquire</span></a>
+    <button class="menub" id="menub" aria-expanded="false" aria-controls="idx" aria-label="Open menu">
+      <span>Menu</span><i></i><i></i>
+    </button>
   </div>
 </header>
 
-<!-- ============ MOBILE MENU ============ -->
-<div class="menu" id="menu" aria-hidden="true">
-  <div class="menu__bg"></div>
-  <div class="menu__inner">
-    <nav class="menu__nav" aria-label="Mobile">
-      <a href="#services" style="--i:0"><em>01</em>Services</a>
-      <a href="#process"  style="--i:1"><em>02</em>How it works</a>
-      <a href="#why"      style="--i:2"><em>03</em>Why Oryx</a>
-      <a href="#work"     style="--i:3"><em>04</em>Our work</a>
-      <a href="#branches" style="--i:4"><em>05</em>Branches</a>
-      <a href="#contact"  style="--i:5"><em>06</em>Contact</a>
+<!-- ============ FULLSCREEN INDEX ============ -->
+<div class="idx" id="idx" aria-hidden="true">
+  <div class="idx__in">
+    <p class="lbl">Index</p>
+    <nav class="idx__nav" aria-label="Sections">
+      <a href="#services" style="--i:0"><em>01</em><span>Specialities</span></a>
+      <a href="#numbers" style="--i:1"><em>02</em><span>By the numbers</span></a>
+      <a href="#works"    style="--i:2"><em>03</em><span>How it works</span></a>
+      <a href="#work"     style="--i:3"><em>04</em><span>Selected work</span></a>
+      <a href="#branches" style="--i:4"><em>05</em><span>Branches</span></a>
+      <a href="products.html" style="--i:5"><em>06</em><span>Products</span></a>
+      <a href="#enquire"  style="--i:6"><em>07</em><span>Enquiries</span></a>
     </nav>
-    <div class="menu__foot">
-      <p class="menu__ar">أوريكس لزينة السيارات</p>
+    <div class="idx__foot">
+      <p class="ar">أوريكس لزينة السيارات</p>
       <a href="tel:+97444682200" data-demo>+974 4468 2200</a>
     </div>
   </div>
 </div>
 
-<main id="main">
+<main>
 
-<!-- ============================================================ HERO -->
-<section class="hero" id="home">
-  <div class="hero__bg" aria-hidden="true">
-    <canvas id="hero-canvas"></canvas>
-    <div class="hero__orbs"><i></i><i></i><i></i></div>
-    <div class="hero__vignette"></div>
-    <div class="hero__grid"></div>
-  </div>
-
-  <div class="hero__content container">
-    <p class="hero__eyebrow" data-reveal><span class="dot"></span> Doha · Qatar &nbsp;—&nbsp; Two branches, one standard</p>
-
-    <h1 class="hero__title">
-      <span class="line" style="--i:0"><span class="line__in">Everything your car</span></span>
-      <span class="line" style="--i:1"><span class="line__in"><em>deserves</em> — under</span></span>
-      <span class="line" style="--i:2"><span class="line__in">one roof.</span></span>
-    </h1>
-
-    <p class="hero__ar" data-reveal data-delay="240">أوريكس لزينة السيارات</p>
-
-    <p class="hero__lead" data-reveal data-delay="320">
-      Accessories, batteries, auto&nbsp;electrical, upholstery and window tinting —
-      fitted by specialists, finished to a standard you can see.
-    </p>
-
-    <div class="hero__cta" data-reveal data-delay="420">
-      <a href="#services" class="btn btn--primary" data-magnetic><span>Explore services</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
-      </a>
-      <a href="#branches" class="btn btn--ghost" data-magnetic><span>Find a branch</span></a>
+<!-- ======================================================= HERO -->
+<section class="hero2" id="home">
+  <div class="hero2__grid wrap">
+    <div class="hero2__text">
+      <p class="lbl" data-rise>Oryx for Car Accessories &nbsp;·&nbsp; Doha, Qatar</p>
+      <h1 class="hero2__h" data-mask>
+        <span>The details</span>
+        <span>that make a car</span>
+        <span><em>yours.</em></span>
+      </h1>
+      <p class="hero2__ar" data-rise data-delay="180">أوريكس لزينة السيارات</p>
+      <p class="hero2__lead" data-rise data-delay="260">
+        A retail counter with a workshop behind it — accessories, batteries,
+        auto&nbsp;electrical, upholstery and window tinting, across two branches in Qatar.
+      </p>
+      <div class="hero2__cta" data-rise data-delay="340">
+        <a class="pill pill--lg" href="#services"><span>See what we do</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="tlink" href="#branches"><span>Find a branch</span></a>
+      </div>
     </div>
 
-    <ul class="hero__stats" data-reveal data-delay="520">
-      <li><b data-count="2">0</b><span>Branches</span></li>
-      <li><b data-count="6">0</b><span>Specialities</span></li>
-      <li><b data-count="10" data-suffix="k+">0</b><span>Cars fitted</span></li>
-      <li><b data-count="20" data-suffix="min">0</b><span>Battery swap</span></li>
-    </ul>
+    <div class="hero2__art" data-rise data-delay="120">
+      <canvas id="ribbon"></canvas>
+      <span class="hero2__wash" aria-hidden="true"></span>
+    </div>
   </div>
 
-  <a href="#services" class="hero__scroll" aria-label="Scroll to services">
-    <span class="hero__scroll-line"><i></i></span>
-    <span class="hero__scroll-txt">Scroll</span>
-  </a>
+  <dl class="spec wrap" data-rise data-delay="420">
+    <div><dt>Established</dt><dd data-demo>2011</dd></div>
+    <div><dt>Branches</dt><dd>Two</dd></div>
+    <div><dt>Specialities</dt><dd>Six</dd></div>
+    <div><dt>Open</dt><dd>Sat–Thu 8:00–21:00</dd></div>
+  </dl>
 </section>
 
-<!-- ============================================================ MARQUEE -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee__track">
-    <div class="marquee__set">
-      <span>Car Accessories</span><i>✦</i><span>Batteries</span><i>✦</i><span>Auto Electrical</span><i>✦</i>
-      <span>Upholstery</span><i>✦</i><span>Window Tinting</span><i>✦</i><span>Audio &amp; Lighting</span><i>✦</i>
-    </div>
-    <div class="marquee__set">
-      <span>Car Accessories</span><i>✦</i><span>Batteries</span><i>✦</i><span>Auto Electrical</span><i>✦</i>
-      <span>Upholstery</span><i>✦</i><span>Window Tinting</span><i>✦</i><span>Audio &amp; Lighting</span><i>✦</i>
-    </div>
+<!-- ======================================================= TICKER -->
+<div class="tick" aria-hidden="true">
+  <div class="tick__t">
+    <span class="tick__s">
+      <b>Car Accessories</b><i></i><b>Batteries</b><i></i><b>Auto Electrical</b><i></i>
+      <b>Upholstery</b><i></i><b>Window Tinting</b><i></i><b>Audio &amp; Lighting</b><i></i>
+    </span>
+    <span class="tick__s">
+      <b>Car Accessories</b><i></i><b>Batteries</b><i></i><b>Auto Electrical</b><i></i>
+      <b>Upholstery</b><i></i><b>Window Tinting</b><i></i><b>Audio &amp; Lighting</b><i></i>
+    </span>
   </div>
 </div>
 
-<!-- ============================================================ ABOUT -->
-<section class="about section" id="about">
-  <div class="container about__grid">
-
-    <div class="about__media">
-      <div class="about__frame" data-parallax="-0.06">
-        <!-- Live animated scene. To use real footage instead, replace this whole
-             <div class="about__img"> with:
-             <video class="about__img" autoplay muted loop playsinline poster="assets/img/about-poster.jpg">
-               <source src="assets/video/about.mp4" type="video/mp4"></video>       -->
-        <div class="about__img" data-inview>
-          <svg class="scene" viewBox="0 0 880 1100" preserveAspectRatio="xMidYMid slice" role="presentation" focusable="false">
-      <defs>
-        <linearGradient id="scBg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#242931"/><stop offset=".55" stop-color="#13161B"/><stop offset="1" stop-color="#0B0D10"/>
-        </linearGradient>
-        <radialGradient id="scGlow"><stop offset="0" stop-color="#9A3243" stop-opacity=".6"/><stop offset="1" stop-color="#9A3243" stop-opacity="0"/></radialGradient>
-        <linearGradient id="scScan" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#9A3243" stop-opacity="0"/><stop offset="1" stop-color="#9A3243" stop-opacity=".22"/>
-        </linearGradient>
-        <pattern id="scGrid" width="44" height="44" patternUnits="userSpaceOnUse">
-          <path d="M44 0H0V44" fill="none" stroke="#fff" stroke-opacity=".045" stroke-width="1"/>
-        </pattern>
-      </defs>
-
-      <rect width="880" height="1100" fill="url(#scBg)"/>
-      <g class="scene__grid"><rect x="-44" y="-44" width="968" height="1188" fill="url(#scGrid)"/></g>
-      <circle cx="650" cy="300" r="500" fill="url(#scGlow)"/>
-
-      <path class="scene__arc" style="--k:0" d="M300 395 A140 48 0 0 1 580 395" fill="none" stroke="#9A3243" stroke-width="6.0" opacity="0.55"/>
-      <path class="scene__arc" style="--k:1" d="M248 395 A192 65 0 0 1 632 395" fill="none" stroke="#C6CDD3" stroke-width="5.4" opacity="0.50"/>
-      <path class="scene__arc" style="--k:2" d="M196 395 A244 83 0 0 1 684 395" fill="none" stroke="#9A3243" stroke-width="4.8" opacity="0.45"/>
-      <path class="scene__arc" style="--k:3" d="M144 395 A296 101 0 0 1 736 395" fill="none" stroke="#C6CDD3" stroke-width="4.2" opacity="0.40"/>
-      <path class="scene__arc" style="--k:4" d="M92 395 A348 118 0 0 1 788 395" fill="none" stroke="#9A3243" stroke-width="3.6" opacity="0.35"/>
-      <path class="scene__arc" style="--k:5" d="M40 395 A400 136 0 0 1 840 395" fill="none" stroke="#C6CDD3" stroke-width="3.0" opacity="0.30"/>
-      <path class="scene__arc" style="--k:6" d="M-12 395 A452 154 0 0 1 892 395" fill="none" stroke="#9A3243" stroke-width="2.4" opacity="0.25"/>
-
-      <g class="scene__bob">
-        <g transform="translate(56.2 436.6) scale(0.76)"
-           fill="none" stroke="#C6CDD3" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round">
-          <path class="scene__draw" style="--d:0" pathLength="1" d="M44 268 L46 200 C48 176 62 162 88 157 L250 148 C262 146 270 140 276 130 L336 62 C346 50 360 44 378 44 L762 44 C778 44 790 50 798 62 L838 126 C844 136 854 142 866 144 L930 152 C952 156 962 170 963 190 L966 268 C966 288 956 298 936 298 L878 298 A96 96 0 0 0 686 298 L330 298 A96 96 0 0 0 138 298 L76 298 C56 298 44 288 44 268 Z" opacity="1.0"/>
-          <path class="scene__draw" style="--d:2" pathLength="1" d="M292 128 L344 64 C350 56 358 52 368 52 L500 52 L500 128 Z" opacity="1.0"/>
-          <path class="scene__draw" style="--d:2" pathLength="1" d="M520 52 L660 52 L660 128 L520 128 Z" opacity="1.0"/>
-          <path class="scene__draw" style="--d:2" pathLength="1" d="M680 52 L756 52 C768 52 776 56 782 64 L822 128 L680 128 Z" opacity="1.0"/>
-          <path class="scene__draw" style="--d:3" pathLength="1" d="M292 128 H822" opacity="0.55"/>
-          <path class="scene__draw" style="--d:4" pathLength="1" d="M508 138 V286 M670 138 V286" opacity="0.7"/>
-          <path class="scene__draw" style="--d:4" pathLength="1" d="M330 272 H686" opacity="0.45"/>
-          <path class="scene__draw" style="--d:5" pathLength="1" d="M48 214 H140 M900 210 H960" opacity="0.8"/>
-          <path class="scene__draw" style="--d:5" pathLength="1" d="M352 34h396" opacity="1.0"/>
-          <path class="scene__draw" style="--d:5" pathLength="1" d="M372 44v-10M728 44v-10" opacity="1.0"/>
-          <g transform="translate(234 298)">
-          <circle class="scene__draw" style="--d:7" pathLength="1" r="96" fill="none" stroke="#C6CDD3" stroke-width="3.2"/>
-          <circle class="scene__draw" style="--d:7" pathLength="1" r="54" fill="none" stroke="#C6CDD3" stroke-width="3.2"/>
-          <g class="scene__hub" fill="none" stroke="#C6CDD3" stroke-width="2.6" opacity=".65">
-            <path d="M0 -60V-86M0 60V86M-60 0H-86M60 0H86"/>
-            <path d="M-46 -46 -66 -66M46 46 66 66M46 -46 66 -66M-46 46 -66 66" opacity=".5"/>
-          </g>
-        </g>
-          <g transform="translate(782 298)">
-          <circle class="scene__draw" style="--d:7" pathLength="1" r="96" fill="none" stroke="#C6CDD3" stroke-width="3.2"/>
-          <circle class="scene__draw" style="--d:7" pathLength="1" r="54" fill="none" stroke="#C6CDD3" stroke-width="3.2"/>
-          <g class="scene__hub" fill="none" stroke="#C6CDD3" stroke-width="2.6" opacity=".65">
-            <path d="M0 -60V-86M0 60V86M-60 0H-86M60 0H86"/>
-            <path d="M-46 -46 -66 -66M46 46 66 66M46 -46 66 -66M-46 46 -66 66" opacity=".5"/>
-          </g>
-        </g>
-        </g>
-      </g>
-
-      <path d="M90 772h700" fill="none" stroke="#7E868D" stroke-width="2.2" opacity=".45"/>
-      <g fill="none" stroke="#7E868D" stroke-width="1.6" opacity=".4">
-        <path d="M90 802h700"/>
-        <path d="M90 802v12"/><path d="M160 802v6"/><path d="M230 802v6"/><path d="M300 802v12"/><path d="M370 802v6"/><path d="M440 802v6"/><path d="M510 802v12"/><path d="M580 802v6"/><path d="M650 802v6"/><path d="M720 802v12"/><path d="M790 802v6"/>
-      </g>
-
-      <g class="scene__scan">
-        <rect x="0" y="-70" width="880" height="70" fill="url(#scScan)"/>
-        <rect x="0" y="0" width="880" height="2" fill="#9A3243" opacity=".9"/>
-      </g>
-    </svg>
-        </div>
-        <span class="about__mark" aria-hidden="true">
-          <img class="js-logo" src="assets/img/logo.png" alt="" onerror="this.onerror=null;this.src='assets/img/logo.svg'">
-        </span>
-      </div>
-      <div class="about__badge" data-parallax="0.1" data-reveal>
-        <b data-demo>Since<br>2011</b>
-        <p>Serving drivers, fleets and dealerships across Qatar.</p>
-      </div>
+<!-- ======================================================= INTRO -->
+<section class="intro" id="about">
+  <div class="wrap intro__grid">
+    <div class="intro__stick">
+      <p class="lbl" data-rise><em>01</em> Introduction</p>
+      <h2 class="h2" data-mask><span>A workshop that</span><span>behaves like a</span><span><em>showroom.</em></span></h2>
     </div>
-
-    <div class="about__text">
-      <p class="eyebrow" data-reveal><i>01</i> Who we are</p>
-      <h2 class="sec-title" data-split data-reveal>A workshop that behaves like a showroom.</h2>
-      <p class="lead" data-reveal data-delay="120">
-        Oryx started as a small accessories counter and grew into a full retail and fitting operation.
-        Today we stock, sell and install — so the part you buy is the part we stand behind.
-      </p>
-      <p data-reveal data-delay="200">
-        Every bay is run by a specialist: the auto-electrician doesn't stitch seats, and the trimmer
-        doesn't chase wiring faults. That's how the finish stays sharp and the timelines stay honest.
-      </p>
-
-      <ul class="ticks" data-reveal data-delay="280">
-        <li>Genuine parts with written warranty</li>
-        <li>Fixed, itemised pricing before we start</li>
-        <li>Same-day completion on most jobs</li>
-      </ul>
-
-      <a href="#contact" class="link-arrow" data-reveal data-delay="340">
-        <span>Book an inspection</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
-      </a>
+    <div class="intro__body">
+      <div class="intro__row" data-rise>
+        <span class="intro__n">i</span>
+        <p>Oryx began as a small accessories counter and grew into a full retail and
+        fitting operation. We stock, sell and install — so the part you buy is the
+        part we stand behind.</p>
+      </div>
+      <div class="intro__row" data-rise data-delay="90">
+        <span class="intro__n">ii</span>
+        <p>Every bay is run by a specialist. The auto-electrician doesn't stitch seats
+        and the trimmer doesn't chase wiring faults. That's how the finish stays sharp
+        and the timelines stay honest.</p>
+      </div>
+      <div class="intro__row" data-rise data-delay="180">
+        <span class="intro__n">iii</span>
+        <p>Genuine parts, written warranty, itemised pricing agreed before we start,
+        and same-day completion on most jobs.</p>
+      </div>
+      <a class="tlink tlink--dark" href="#enquire" data-rise data-delay="260"><span>Book an inspection</span></a>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ SERVICES -->
-<section class="services section section--dark" id="services">
-  <div class="services__glow" aria-hidden="true"></div>
-  <div class="container">
-    <div class="sec-head">
+<!-- ======================================================= SPECIALITIES (horizontal) -->
+<section class="hsec" id="services">
+  <div class="hsec__stick">
+    <div class="wrap hsec__head">
       <div>
-        <p class="eyebrow" data-reveal><i>02</i> What we do</p>
-        <h2 class="sec-title" data-split data-reveal>Six specialities. One address.</h2>
+        <p class="lbl"><em>02</em> Specialities</p>
+        <h2 class="h2 h2--sm">Six things, done<br>by six specialists.</h2>
       </div>
-      <p class="sec-head__note" data-reveal data-delay="160">
-        Retail counter in front, fitting bays behind. Walk in with a question, drive out with it solved.
-      </p>
+      <p class="hsec__hint"><span id="hNum">01</span> / 06 &nbsp;— keep scrolling</p>
     </div>
 
-    <div class="cards">
+    <div class="hsec__viewport">
+      <div class="hsec__track" id="hTrack">
 
-      <article class="card" data-tilt data-reveal>
-        <span class="card__num">01</span>
-        <span class="card__icon">
-          <svg viewBox="0 0 32 32" aria-hidden="true">
-            <path d="M4 21h24M6 21l2.6-7.4A3 3 0 0 1 11.4 11h9.2a3 3 0 0 1 2.8 2.6L26 21M4 21v3.5M28 21v3.5"/>
-            <circle cx="10" cy="21" r="2.2"/><circle cx="22" cy="21" r="2.2"/>
-            <path d="M25 6.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z"/>
-          </svg>
-        </span>
-        <h3>Car Accessories</h3>
-        <p>Interior and exterior upgrades, styling kits, floor mats, seat covers, roof racks and the small parts that finish a build.</p>
-        <ul class="card__tags"><li>Styling</li><li>Protection</li><li>Utility</li></ul>
-      </article>
+        <article class="hcard">
+          <span class="hcard__n">01</span>
+          <h3>Car Accessories</h3>
+          <p>Interior and exterior upgrades, styling kits, floor mats, seat covers, roof
+          racks and the small parts that finish a build.</p>
+          <ul><li>Styling</li><li>Protection</li><li>Utility</li></ul>
+        </article>
 
-      <article class="card" data-tilt data-reveal data-delay="80">
-        <span class="card__num">02</span>
-        <span class="card__icon">
-          <svg viewBox="0 0 32 32" aria-hidden="true">
-            <rect x="4" y="10" width="24" height="14" rx="2.5"/>
-            <path d="M10 10V7h4v3M18 10V7h4v3M17 13.5l-3 4.5h4l-3 4.5"/>
-          </svg>
-        </span>
-        <h3>Batteries</h3>
-        <p>Genuine batteries for every make, tested free of charge, delivered and fitted in under twenty minutes — including roadside call-outs.</p>
-        <ul class="card__tags"><li>Free testing</li><li>Fitting</li><li>Roadside</li></ul>
-      </article>
+        <article class="hcard">
+          <span class="hcard__n">02</span>
+          <h3>Batteries</h3>
+          <p>Genuine batteries for every make, tested free of charge, delivered and
+          fitted in under twenty minutes — including roadside call-outs.</p>
+          <ul><li>Free testing</li><li>Fitting</li><li>Roadside</li></ul>
+        </article>
 
-      <article class="card" data-tilt data-reveal data-delay="160">
-        <span class="card__num">03</span>
-        <span class="card__icon">
-          <svg viewBox="0 0 32 32" aria-hidden="true">
-            <path d="M17 3l-8 14h6l-2 12 9-15h-6z"/>
-            <path d="M4 8h4M4 16h3M4 24h4M28 8h-3M28 16h-3M28 24h-3" opacity=".55"/>
-          </svg>
-        </span>
-        <h3>Auto Electrical Works</h3>
-        <p>Fault diagnosis, wiring repairs, alternators, starters, sensors, central locking and complete rewiring by certified auto-electricians.</p>
-        <ul class="card__tags"><li>Diagnostics</li><li>Rewiring</li><li>Sensors</li></ul>
-      </article>
+        <article class="hcard">
+          <span class="hcard__n">03</span>
+          <h3>Auto Electrical Works</h3>
+          <p>Fault diagnosis, wiring repairs, alternators, starters, sensors, central
+          locking and complete rewiring by certified auto-electricians.</p>
+          <ul><li>Diagnostics</li><li>Rewiring</li><li>Sensors</li></ul>
+        </article>
 
-      <article class="card" data-tilt data-reveal>
-        <span class="card__num">04</span>
-        <span class="card__icon">
-          <svg viewBox="0 0 32 32" aria-hidden="true">
-            <path d="M9 26v-4M23 26v-4M9 22h14a3 3 0 0 0 3-3v-2a3 3 0 0 0-3-3h-1"/>
-            <path d="M11 14V8a3 3 0 0 1 3-3h2a3 3 0 0 1 3 3v6z"/>
-            <path d="M6 22a3 3 0 0 1 3-3h2v3"/>
-          </svg>
-        </span>
-        <h3>Upholstery</h3>
-        <p>Custom leather and fabric seats, dashboards, door cards, roof lining and steering trims — patterned, stitched and fitted in-house.</p>
-        <ul class="card__tags"><li>Leather</li><li>Roof lining</li><li>Custom stitch</li></ul>
-      </article>
+        <article class="hcard">
+          <span class="hcard__n">04</span>
+          <h3>Upholstery</h3>
+          <p>Custom leather and fabric seats, dashboards, door cards, roof lining and
+          steering trims — patterned, stitched and fitted in-house.</p>
+          <ul><li>Leather</li><li>Roof lining</li><li>Custom stitch</li></ul>
+        </article>
 
-      <article class="card" data-tilt data-reveal data-delay="80">
-        <span class="card__num">05</span>
-        <span class="card__icon">
-          <svg viewBox="0 0 32 32" aria-hidden="true">
-            <path d="M5 22l4-10a3 3 0 0 1 2.8-2h8.4a3 3 0 0 1 2.8 2l4 10z"/>
-            <path d="M9 22h14" opacity=".55"/>
-            <circle cx="24" cy="8" r="3"/><path d="M24 2v2M24 12v2M18 8h2M28 8h2" opacity=".55"/>
-          </svg>
-        </span>
-        <h3>Window Tinting</h3>
-        <p>Heat-rejection and UV films cut to your glass, applied bubble-free in a dust-controlled bay and backed by a written warranty.</p>
-        <ul class="card__tags"><li>Heat rejection</li><li>UV block</li><li>Warranty</li></ul>
-      </article>
+        <article class="hcard">
+          <span class="hcard__n">05</span>
+          <h3>Window Tinting</h3>
+          <p>Heat-rejection and UV films cut to your glass, applied bubble-free in a
+          dust-controlled bay and backed by a written warranty.</p>
+          <ul><li>Heat rejection</li><li>UV block</li><li>Warranty</li></ul>
+        </article>
 
-      <article class="card" data-tilt data-reveal data-delay="160">
-        <span class="card__num">06</span>
-        <span class="card__icon">
-          <svg viewBox="0 0 32 32" aria-hidden="true">
-            <rect x="8" y="3" width="16" height="26" rx="3"/>
-            <circle cx="16" cy="20" r="5"/><circle cx="16" cy="20" r="1.6"/><circle cx="16" cy="9" r="2.4"/>
-          </svg>
-        </span>
-        <h3>Audio, Lighting &amp; Extras</h3>
-        <p>Speakers, subwoofers, head units, LED and HID upgrades, reverse cameras, parking sensors, alarms and remote starters.</p>
-        <ul class="card__tags"><li>Sound</li><li>Lighting</li><li>Safety</li></ul>
-      </article>
+        <article class="hcard">
+          <span class="hcard__n">06</span>
+          <h3>Audio, Lighting &amp; Extras</h3>
+          <p>Speakers, subwoofers, head units, LED and HID upgrades, reverse cameras,
+          parking sensors, alarms and remote starters.</p>
+          <ul><li>Sound</li><li>Lighting</li><li>Safety</li></ul>
+        </article>
 
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ PROCESS (pinned) -->
-<section class="process" id="process">
-  <div class="process__sticky">
-    <span class="process__glow" aria-hidden="true"><i></i></span>
-    <div class="container process__inner">
+<!-- ======================================================= NUMBERS -->
+<section class="nums" id="numbers">
+  <div class="wrap">
+    <p class="lbl lbl--inv" data-rise><em>03</em> By the numbers</p>
+    <ul class="nums__list">
+      <li data-rise><b data-count="10" data-suffix="k+">0</b><span>Cars fitted</span></li>
+      <li data-rise data-delay="90"><b data-count="20" data-suffix="min">0</b><span>Battery swap</span></li>
+      <li data-rise data-delay="180"><b data-count="98" data-suffix="%">0</b><span>Same-day completion</span></li>
+      <li data-rise data-delay="270"><b data-count="12" data-suffix="mo">0</b><span>Workmanship warranty</span></li>
+    </ul>
+  </div>
+</section>
 
-      <div class="process__side">
-        <p class="eyebrow eyebrow--light" data-reveal><i>03</i> How it works</p>
-        <h2 class="sec-title" data-reveal>Four steps.<br>No surprises.</h2>
-        <div class="process__bar"><span id="processFill"></span></div>
-        <p class="process__count"><b id="processNum">01</b> <i>/ 04</i></p>
+<!-- ======================================================= HOW IT WORKS (accordion) -->
+<section class="steps" id="works">
+  <div class="wrap steps__grid">
+    <div class="steps__aside">
+      <p class="lbl" data-rise><em>04</em> How it works</p>
+      <h2 class="h2" data-mask><span>Four steps.</span><span><em>No surprises.</em></span></h2>
+      <p class="steps__note" data-rise data-delay="140">The number you approve is the number you pay.</p>
+    </div>
+
+    <div class="acc" id="acc">
+      <div class="acc__i is-open">
+        <button type="button" aria-expanded="true"><em>01</em><span>Tell us what you need</span><i></i></button>
+        <div class="acc__p"><p>Message us on WhatsApp, call the branch or walk in. Send a photo of
+          the car and we'll tell you what's possible before you drive over.</p></div>
       </div>
-
-      <ol class="process__steps" id="processSteps">
-        <li class="pstep is-active">
-          <span class="pstep__n">01</span>
-          <h3>Tell us what you need</h3>
-          <p>Message us on WhatsApp, call the branch or walk in. Send a photo of the car and we'll tell you what's possible before you drive over.</p>
-        </li>
-        <li class="pstep">
-          <span class="pstep__n">02</span>
-          <h3>Free inspection &amp; quote</h3>
-          <p>We check the vehicle, confirm parts and give you an itemised price and a realistic time. The number you approve is the number you pay.</p>
-        </li>
-        <li class="pstep">
-          <span class="pstep__n">03</span>
-          <h3>Fitted by specialists</h3>
-          <p>Your job goes to the right bay — electrical, trim or tint. Genuine parts, proper looms, clean cuts. No shortcuts hidden behind panels.</p>
-        </li>
-        <li class="pstep">
-          <span class="pstep__n">04</span>
-          <h3>Checked, cleaned, warranted</h3>
-          <p>Every job is road-tested and the interior is wiped down before handover. You leave with a warranty card and a direct number to call.</p>
-        </li>
-      </ol>
-
+      <div class="acc__i">
+        <button type="button" aria-expanded="false"><em>02</em><span>Free inspection &amp; quote</span><i></i></button>
+        <div class="acc__p"><p>We check the vehicle, confirm parts and give you an itemised price
+          and a realistic time — before any work starts.</p></div>
+      </div>
+      <div class="acc__i">
+        <button type="button" aria-expanded="false"><em>03</em><span>Fitted by specialists</span><i></i></button>
+        <div class="acc__p"><p>Your job goes to the right bay — electrical, trim or tint. Genuine
+          parts, proper looms, clean cuts. No shortcuts hidden behind panels.</p></div>
+      </div>
+      <div class="acc__i">
+        <button type="button" aria-expanded="false"><em>04</em><span>Checked, cleaned, warranted</span><i></i></button>
+        <div class="acc__p"><p>Every job is road-tested and the interior wiped down before handover.
+          You leave with a warranty card and a direct number to call.</p></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ WHY -->
-<section class="why section" id="why">
-  <div class="container why__grid">
-    <div class="why__text">
-      <p class="eyebrow" data-reveal><i>04</i> Why Oryx</p>
-      <h2 class="sec-title" data-split data-reveal>Built on the boring things done properly.</h2>
-
-      <div class="why__list">
-        <div class="why__item" data-reveal>
-          <span>01</span>
-          <div><h3>Two branches, one standard</h3><p>Same technicians' training, same parts, same warranty — whichever branch you reach first.</p></div>
-        </div>
-        <div class="why__item" data-reveal data-delay="90">
-          <span>02</span>
-          <div><h3>Specialists, not generalists</h3><p>Dedicated bays and dedicated people for electrical, trim, tint and fitting work.</p></div>
-        </div>
-        <div class="why__item" data-reveal data-delay="180">
-          <span>03</span>
-          <div><h3>Retail stock on the shelf</h3><p>We hold what we fit, so most jobs start the day you ask instead of the week after.</p></div>
-        </div>
-        <div class="why__item" data-reveal data-delay="270">
-          <span>04</span>
-          <div><h3>Fleet &amp; corporate accounts</h3><p>Scheduled servicing, batch tinting and monthly invoicing for companies and dealerships.</p></div>
-        </div>
-      </div>
+<!-- ======================================================= SELECTED WORK -->
+<section class="sel" id="work">
+  <div class="wrap">
+    <div class="sel__head">
+      <p class="lbl" data-rise><em>05</em> Selected work</p>
+      <h2 class="h2" data-mask><span>Finished,</span><span><em>not just fitted.</em></span></h2>
     </div>
+  </div>
 
-    <aside class="why__panel" data-parallax="-0.08">
-      <div class="why__panel-img" style="background-image:url('assets/img/why-01.svg'),var(--fb-photo)"></div>
-      <div class="why__quote">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 7H6a3 3 0 0 0-3 3v7h7v-7H7a1 1 0 0 1 1-1h2zm11 0h-4a3 3 0 0 0-3 3v7h7v-7h-3a1 1 0 0 1 1-1h2z"/></svg>
-        <p>“Bring the car in the morning, take it back the same evening — finished the way you asked.”</p>
+  <div class="wrap sel__rows">
+    <!-- frame shape matches each drawing so nothing gets cropped:
+         --por = portrait, default = landscape, --wide = letterbox -->
+    <article class="srow srow--por" data-rise>
+      <figure class="srow__fig">
+        <span class="srow__img" style="background-image:url('assets/img/work-01.svg'),var(--fb2)" data-shift="0.03"></span>
+      </figure>
+      <div class="srow__txt">
+        <p class="lbl">Upholstery</p>
+        <h3>Full leather retrim</h3>
+        <p>Seats, door cards and roof lining patterned from the original, stitched
+        in-house and fitted in a single day.</p>
       </div>
-      <ul class="why__meter">
-        <li><b data-count="98" data-suffix="%">0</b><span>Same-day completion</span></li>
-        <li><b data-count="12" data-suffix="mo">0</b><span>Workmanship warranty</span></li>
-      </ul>
-    </aside>
+    </article>
+
+    <article class="srow srow--flip" data-rise>
+      <figure class="srow__fig">
+        <span class="srow__img" style="background-image:url('assets/img/work-02.svg'),var(--fb2)" data-shift="0.03"></span>
+      </figure>
+      <div class="srow__txt">
+        <p class="lbl">Tinting</p>
+        <h3>Ceramic heat-rejection film</h3>
+        <p>Cut to the glass, applied bubble-free in a dust-controlled bay, and
+        warranted against peeling and purpling.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-rise>
+      <figure class="srow__fig">
+        <span class="srow__img" style="background-image:url('assets/img/work-03.svg'),var(--fb2)" data-shift="0.03"></span>
+      </figure>
+      <div class="srow__txt">
+        <p class="lbl">Electrical</p>
+        <h3>LED conversion &amp; harness</h3>
+        <p>Headlight and interior LED upgrades with a purpose-built loom, so nothing
+        flickers and nothing throws a fault code.</p>
+      </div>
+    </article>
+
+    <article class="srow srow--flip srow--wide" data-rise>
+      <figure class="srow__fig">
+        <span class="srow__img" style="background-image:url('assets/img/work-04.svg'),var(--fb2)" data-shift="0.025"></span>
+      </figure>
+      <div class="srow__txt">
+        <p class="lbl">Accessories</p>
+        <h3>Accessory package — 4×4 build</h3>
+        <p>Roof rack, spot lights, bull bar, side steps and a full wiring loom —
+        specified, supplied and fitted together.</p>
+      </div>
+    </article>
+  </div>
+
+  <div class="wrap sel__band">
+    <figure class="sband" data-rise>
+      <span class="sband__img" style="background-image:url('assets/img/work-05.svg'),var(--fb2)"></span>
+      <figcaption><b>Battery supply &amp; fitting</b><span>Batteries — tested free, fitted in twenty minutes</span></figcaption>
+    </figure>
   </div>
 </section>
 
-<!-- ============================================================ WORK -->
-<section class="work section section--dark" id="work">
-  <div class="work__bg" aria-hidden="true">
-    <i class="work__orb"></i>
-  </div>
-  <div class="container">
-    <div class="sec-head">
-      <div>
-        <p class="eyebrow" data-reveal><i>05</i> Our work</p>
-        <h2 class="sec-title" data-split data-reveal>Finished, not just fitted.</h2>
-      </div>
-      <p class="sec-head__note" data-reveal data-delay="160">A selection from the bays — trim, tint, lighting and full accessory builds.</p>
+<!-- ======================================================= BRANCHES -->
+<section class="brs" id="branches">
+  <div class="wrap">
+    <div class="brs__head">
+      <p class="lbl" data-rise><em>06</em> Branches</p>
+      <h2 class="h2" data-mask><span>Two branches</span><span><em>across Qatar.</em></span></h2>
     </div>
 
-    <div class="work__grid">
-      <figure class="work__item work__item--tall" data-reveal>
-        <div class="work__media" style="background-image:url('assets/img/work-01.svg'),var(--fb-photo)" data-parallax="0.035"></div>
-        <figcaption><b>Full leather retrim</b><span>Upholstery</span></figcaption>
-      </figure>
-      <figure class="work__item" data-reveal data-delay="80">
-        <div class="work__media" style="background-image:url('assets/img/work-02.svg'),var(--fb-photo)" data-parallax="0.045"></div>
-        <figcaption><b>Ceramic heat-rejection film</b><span>Tinting</span></figcaption>
-      </figure>
-      <figure class="work__item" data-reveal data-delay="160">
-        <div class="work__media" style="background-image:url('assets/img/work-03.svg'),var(--fb-photo)" data-parallax="0.045"></div>
-        <figcaption><b>LED conversion &amp; harness</b><span>Electrical</span></figcaption>
-      </figure>
-      <figure class="work__item work__item--wide" data-reveal data-delay="120">
-        <div class="work__media" style="background-image:url('assets/img/work-05.svg'),var(--fb-photo)" data-parallax="0.035"></div>
-        <figcaption><b>Battery supply &amp; fitting</b><span>Batteries</span></figcaption>
-      </figure>
-      <figure class="work__item work__item--full" data-reveal data-delay="200">
-        <div class="work__media" style="background-image:url('assets/img/work-04.svg'),var(--fb-photo)" data-parallax="0.03"></div>
-        <figcaption><b>Accessory package — 4×4 build</b><span>Accessories</span></figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ BRANCHES -->
-<section class="branches section" id="branches">
-  <div class="container">
-    <div class="sec-head">
-      <div>
-        <p class="eyebrow" data-reveal><i>06</i> Find us</p>
-        <h2 class="sec-title" data-split data-reveal>Two branches across Qatar.</h2>
-      </div>
-      <p class="sec-head__note" data-reveal data-delay="160">Walk in for accessories and battery testing. Call ahead for tint, trim and electrical bookings.</p>
-    </div>
-
-    <div class="branch-grid">
-
-      <article class="branch" data-reveal>
-        <div class="branch__map" aria-hidden="true"><span class="branch__pin"></span></div>
-        <div class="branch__body">
-          <p class="branch__tag">Branch 01 — Main showroom</p>
+    <div class="brs__grid">
+      <article class="br" data-rise>
+        <div class="br__map" aria-hidden="true"><span class="br__pin"></span></div>
+        <div class="br__body">
+          <p class="br__tag">Branch 01 — Main showroom</p>
           <h3>Oryx <em>Main Branch</em></h3>
           <address data-demo>Street 38, Industrial Area<br>Doha, Qatar</address>
-          <dl class="branch__meta">
+          <dl class="br__meta">
             <div><dt>Sat – Thu</dt><dd>8:00 — 21:00</dd></div>
             <div><dt>Friday</dt><dd>15:00 — 21:00</dd></div>
           </dl>
-          <div class="branch__actions">
-            <a href="tel:+97444682200" class="btn btn--primary btn--sm" data-demo><span>Call branch</span></a>
-            <a href="https://www.google.com/maps/search/?api=1&amp;query=Industrial+Area+Doha+Qatar" target="_blank" rel="noopener" class="btn btn--line btn--sm" data-demo><span>Directions</span></a>
+          <div class="br__act">
+            <a class="pill" href="tel:+97444682200" data-demo><span>Call branch</span></a>
+            <a class="tlink tlink--dark" href="https://www.google.com/maps/search/?api=1&amp;query=Industrial+Area+Doha+Qatar" target="_blank" rel="noopener" data-demo><span>Directions</span></a>
           </div>
         </div>
       </article>
 
-      <article class="branch" data-reveal data-delay="120">
-        <div class="branch__map branch__map--alt" aria-hidden="true"><span class="branch__pin"></span></div>
-        <div class="branch__body">
-          <p class="branch__tag">Branch 02 — Service centre</p>
+      <article class="br" data-rise data-delay="110">
+        <div class="br__map br__map--alt" aria-hidden="true"><span class="br__pin"></span></div>
+        <div class="br__body">
+          <p class="br__tag">Branch 02 — Service centre</p>
           <h3>Oryx <em>Second Branch</em></h3>
           <address data-demo>Street 12, Al Wakrah Industrial Area<br>Al Wakrah, Qatar</address>
-          <dl class="branch__meta">
+          <dl class="br__meta">
             <div><dt>Sat – Thu</dt><dd>8:00 — 21:00</dd></div>
             <div><dt>Friday</dt><dd>15:00 — 21:00</dd></div>
           </dl>
-          <div class="branch__actions">
-            <a href="tel:+97444683300" class="btn btn--primary btn--sm" data-demo><span>Call branch</span></a>
-            <a href="https://www.google.com/maps/search/?api=1&amp;query=Al+Wakrah+Industrial+Area+Qatar" target="_blank" rel="noopener" class="btn btn--line btn--sm" data-demo><span>Directions</span></a>
+          <div class="br__act">
+            <a class="pill" href="tel:+97444683300" data-demo><span>Call branch</span></a>
+            <a class="tlink tlink--dark" href="https://www.google.com/maps/search/?api=1&amp;query=Al+Wakrah+Industrial+Area+Qatar" target="_blank" rel="noopener" data-demo><span>Directions</span></a>
           </div>
         </div>
       </article>
-
     </div>
   </div>
 </section>
 
-<!-- ============================================================ TESTIMONIALS -->
-<section class="says section">
-  <div class="container">
-    <div class="says__box" data-reveal>
-      <div class="says__track" id="saysTrack">
-        <blockquote class="says__item is-active">
-          <p>“Took my Land Cruiser in for tint and a reverse camera. Quoted in ten minutes, finished the same day, and the film still looks perfect two summers later.”</p>
-          <footer><b>Abdulla M.</b><span>Private customer</span></footer>
-        </blockquote>
-        <blockquote class="says__item">
-          <p>“We run fourteen vehicles. Oryx handles batteries and electrical faults for all of them and invoices us monthly. No chasing, no downtime.”</p>
-          <footer><b>Fleet Manager</b><span>Logistics company</span></footer>
-        </blockquote>
-        <blockquote class="says__item">
-          <p>“The upholstery work is genuinely showroom level. They matched the original stitching pattern on a car the dealer said they couldn't help with.”</p>
-          <footer><b>Rashid K.</b><span>Private customer</span></footer>
-        </blockquote>
-      </div>
-      <div class="says__dots" id="saysDots" role="tablist" aria-label="Testimonials"></div>
+<!-- ======================================================= QUOTE -->
+<section class="quo">
+  <div class="wrap">
+    <div class="quo__mark" aria-hidden="true">“</div>
+    <div class="quo__track" id="quoTrack">
+      <blockquote class="quo__i is-on">
+        <p>Took my Land Cruiser in for tint and a reverse camera. Quoted in ten minutes,
+        finished the same day, and the film still looks perfect two summers later.</p>
+        <footer><b>Abdulla M.</b><span>Private customer</span></footer>
+      </blockquote>
+      <blockquote class="quo__i">
+        <p>We run fourteen vehicles. Oryx handles batteries and electrical faults for all
+        of them and invoices us monthly. No chasing, no downtime.</p>
+        <footer><b>Fleet Manager</b><span>Logistics company</span></footer>
+      </blockquote>
+      <blockquote class="quo__i">
+        <p>The upholstery work is genuinely showroom level. They matched the original
+        stitching pattern on a car the dealer said they couldn't help with.</p>
+        <footer><b>Rashid K.</b><span>Private customer</span></footer>
+      </blockquote>
     </div>
+    <div class="quo__dots" id="quoDots" role="tablist" aria-label="Testimonials"></div>
   </div>
 </section>
 
-<!-- ============================================================ CONTACT -->
-<section class="contact section section--dark" id="contact">
-  <div class="contact__glow" aria-hidden="true"></div>
-  <div class="container contact__grid">
+<!-- ======================================================= ENQUIRE -->
+<section class="enq" id="enquire">
+  <div class="wrap enq__grid">
+    <div class="enq__txt">
+      <p class="lbl"><em>07</em> Enquiries</p>
+      <h2 class="h2" data-mask><span>Tell us the car.</span><span>We'll tell you</span><span><em>the price.</em></span></h2>
+      <p class="enq__lead" data-rise data-delay="140">Send your details and we'll come back with an itemised
+      quote and a fitting slot — usually within the hour during working hours.</p>
 
-    <div class="contact__text">
-      <p class="eyebrow" data-reveal><i>07</i> Get in touch</p>
-      <h2 class="sec-title" data-split data-reveal>Tell us the car. We'll tell you the price.</h2>
-      <p class="lead" data-reveal data-delay="120">Send your details and we'll come back with an itemised quote and a fitting slot — usually within the hour during working hours.</p>
-
-      <ul class="contact__info" data-reveal data-delay="200">
-        <li>
-          <span>Call</span>
-          <a href="tel:+97444682200" data-demo>+974 4468 2200</a>
-        </li>
-        <li>
-          <span>WhatsApp</span>
-          <a href="https://wa.me/97433122200" target="_blank" rel="noopener" data-demo>+974 3312 2200</a>
-        </li>
-        <li>
-          <span>Email</span>
-          <a href="mailto:info@oryxcaraccessories.qa" data-demo>info@oryxcaraccessories.qa</a>
-        </li>
-        <li>
-          <span>Hours</span>
-          <p>Sat–Thu 8:00–21:00 · Fri 15:00–21:00</p>
-        </li>
+      <ul class="enq__info" data-rise data-delay="220">
+        <li><span>Call</span><a href="tel:+97444682200" data-demo>+974 4468 2200</a></li>
+        <li><span>WhatsApp</span><a href="https://wa.me/00000000000" target="_blank" rel="noopener" data-demo>+974 0000 0000</a></li>
+        <li><span>Email</span><a href="mailto:info@oryxcaraccessories.qa" data-demo>info@oryxcaraccessories.qa</a></li>
+        <li><span>Hours</span><p>Sat–Thu 8:00–21:00 · Fri 15:00–21:00</p></li>
       </ul>
     </div>
 
-    <form class="form" id="quoteForm" novalidate data-reveal data-delay="160">
-      <div class="form__row">
-        <div class="field">
-          <input type="text" id="fName" name="name" required placeholder=" " autocomplete="name">
-          <label for="fName">Your name</label>
-        </div>
-        <div class="field">
-          <input type="tel" id="fPhone" name="phone" required placeholder=" " autocomplete="tel">
-          <label for="fPhone">Phone number</label>
-        </div>
+    <form class="f2" id="f2" novalidate data-rise data-delay="180">
+      <div class="f2__row">
+        <div class="f2__fld"><input type="text" id="n2" name="name" required placeholder=" " autocomplete="name"><label for="n2">Your name</label></div>
+        <div class="f2__fld"><input type="tel" id="p2" name="phone" required placeholder=" " autocomplete="tel"><label for="p2">Phone number</label></div>
       </div>
-
-      <div class="form__row">
-        <div class="field">
-          <input type="text" id="fCar" name="car" placeholder=" ">
-          <label for="fCar">Car make &amp; model</label>
-        </div>
-        <div class="field field--select">
-          <select id="fService" name="service">
-            <option>Car accessories</option>
-            <option>Batteries</option>
-            <option>Auto electrical works</option>
-            <option>Upholstery</option>
-            <option>Window tinting</option>
-            <option>Audio, lighting &amp; extras</option>
+      <div class="f2__row">
+        <div class="f2__fld"><input type="text" id="c2" name="car" placeholder=" "><label for="c2">Car make &amp; model</label></div>
+        <div class="f2__fld f2__fld--sel">
+          <select id="s2" name="service">
+            <option>Car accessories</option><option>Batteries</option>
+            <option>Auto electrical works</option><option>Upholstery</option>
+            <option>Window tinting</option><option>Audio, lighting &amp; extras</option>
             <option>Something else</option>
           </select>
-          <label for="fService">Service needed</label>
+          <label for="s2">Service needed</label>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
         </div>
       </div>
-
-      <div class="field">
-        <textarea id="fMsg" name="message" rows="4" placeholder=" "></textarea>
-        <label for="fMsg">Tell us a bit more (optional)</label>
-      </div>
-
-      <div class="form__actions">
-        <button type="submit" class="btn btn--primary" data-magnetic>
-          <span>Send on WhatsApp</span>
+      <div class="f2__fld"><textarea id="m2" name="message" rows="4" placeholder=" "></textarea><label for="m2">Tell us a bit more (optional)</label></div>
+      <div class="f2__act">
+        <button class="pill pill--lg" type="submit"><span>Send on WhatsApp</span>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
         </button>
-        <p class="form__note">We reply during working hours. No spam, ever.</p>
+        <p class="f2__note">We reply during working hours.</p>
       </div>
-      <p class="form__status" id="formStatus" role="status"></p>
+      <p class="f2__st" id="f2st" role="status"></p>
     </form>
-
   </div>
 </section>
 
 </main>
 
-<!-- ============================================================ FOOTER -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <img class="footer__logo js-logo" src="assets/img/logo.png" alt="Oryx for Car Accessories" onerror="this.onerror=null;this.src='assets/img/logo.svg'">
-        <p>Accessories, batteries, auto electrical, upholstery and window tinting — fitted by specialists across two branches in Qatar.</p>
-        <p class="footer__ar">أوريكس لزينة السيارات</p>
+<!-- ======================================================= FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <div class="foot__brand">
+        <img class="js-logo" src="assets/img/logo.png" alt="Oryx for Car Accessories" onerror="this.onerror=null;this.src='assets/img/logo.svg'">
+        <p class="ar">أوريكس لزينة السيارات</p>
       </div>
-
-      <nav class="footer__col" aria-label="Services">
-        <h4>Services</h4>
-        <a href="#services">Car accessories</a>
-        <a href="#services">Batteries</a>
-        <a href="#services">Auto electrical works</a>
-        <a href="#services">Upholstery</a>
-        <a href="#services">Window tinting</a>
-        <a href="#services">Audio &amp; lighting</a>
+      <nav class="foot__col" aria-label="Specialities">
+        <h4>Specialities</h4>
+        <a href="#services">Car accessories</a><a href="#services">Batteries</a>
+        <a href="#services">Auto electrical works</a><a href="#services">Upholstery</a>
+        <a href="#services">Window tinting</a><a href="#services">Audio &amp; lighting</a>
       </nav>
-
-      <nav class="footer__col" aria-label="Company">
+      <nav class="foot__col" aria-label="Company">
         <h4>Company</h4>
-        <a href="#about">About Oryx</a>
-        <a href="#process">How it works</a>
-        <a href="#work">Our work</a>
-        <a href="#branches">Branches</a>
-        <a href="#contact">Get a quote</a>
+        <a href="#about">About Oryx</a><a href="#works">How it works</a>
+        <a href="#work">Selected work</a><a href="#branches">Branches</a>
+        <a href="products.html">Products</a><a href="#enquire">Enquiries</a>
       </nav>
-
-      <div class="footer__col">
+      <div class="foot__col">
         <h4>Contact</h4>
         <a href="tel:+97444682200" data-demo>+974 4468 2200</a>
         <a href="mailto:info@oryxcaraccessories.qa" data-demo>info@oryxcaraccessories.qa</a>
@@ -678,11 +491,10 @@
         <p data-demo>Street 12, Al Wakrah, Qatar</p>
       </div>
     </div>
-
-    <div class="footer__bar">
-      <p>© <span id="year">2026</span> Oryx for Car Accessories. All rights reserved.</p>
-      <p class="footer__credit">Sat–Thu 8:00–21:00 · Fri 15:00–21:00</p>
-      <a href="#home" class="footer__top-link">Back to top
+    <div class="foot__bar">
+      <p>© <span id="yr2">2026</span> Oryx for Car Accessories.</p>
+      <p>Sat–Thu 8:00–21:00 · Fri 15:00–21:00</p>
+      <a class="foot__up" href="#home">Back to top
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6M6 12l6-6 6 6"/></svg>
       </a>
     </div>
@@ -698,11 +510,11 @@
   <a href="index4.html">04</a>
 </div>
 
-<a class="wa-float" data-demo href="https://wa.me/97433122200" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+<a class="wa2" data-demo href="https://wa.me/00000000000" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3a13 13 0 0 0-11.2 19.5L3 29l6.7-1.7A13 13 0 1 0 16 3zm7.3 18.3c-.3.9-1.8 1.7-2.5 1.8-.6.1-1.4.1-2.3-.1a19 19 0 0 1-8.3-7.2c-.6-1-1-2.1-1-3.2 0-1.2.6-2.2 1.2-2.6.3-.2.7-.2 1-.2h.7c.2 0 .5 0 .8.6l1.1 2.6c.1.2.1.4 0 .6l-.5.7c-.2.2-.4.4-.2.8a12 12 0 0 0 4.6 4.1c.4.2.6.2.8-.1l1-1.2c.2-.3.4-.2.7-.1l2.4 1.2c.3.1.6.3.7.4.1.3.1.9-.2 1.9z"/></svg>
 </a>
 
-<script src="assets/js/hero.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="assets/js/hero2.js"></script>
+<script src="assets/js/main2.js"></script>
 </body>
 </html>

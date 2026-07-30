@@ -5,8 +5,8 @@ or drop the folder on any host (Netlify, Vercel, cPanel, S3 — anything that se
 
 ```
 oryx-landing/
-├─ index.html           ← DESIGN 01 — dark, technical
-├─ index2.html          ← DESIGN 02 — light, editorial
+├─ index.html           ← DESIGN 02 — light, editorial (current default homepage)
+├─ index2.html          ← DESIGN 01 — dark, technical
 ├─ index3.html          ← DESIGN 03 — maroon poster
 ├─ index4.html          ← DESIGN 04 — glass, quiet luxury
 ├─ assets/
@@ -29,17 +29,17 @@ oryx-landing/
 All four pages carry the same copy, the same logo, the same artwork and the same
 (demo) contact details — so the choice is about direction, not detail.
 
-| | **01** `index.html` | **02** `index2.html` | **03** `index3.html` | **04** `index4.html` |
+| | **02** `index.html` | **01** `index2.html` | **03** `index3.html` | **04** `index4.html` |
 |---|---|---|---|---|
-| Mood | Dark, technical | Light, editorial | Bold poster | Light glass, quiet luxury |
-| Base | Near-black `#101216` | Warm paper `#F4F2F0` | Maroon `#61121F` **is** the page | Warm white `#F8F5F3` under a drifting rose wash |
-| Type | Sora + Inter | Fraunces + DM Sans | Anton + Archivo (heavy caps) | Cormorant Garamond + Jost (fine serif) |
-| Surfaces | Solid cards | Flat, ruled | Flat blocks | **Frosted white glass** — every panel blurs the wash behind it |
+| Mood | Light, editorial | Dark, technical | Bold poster | Light glass, quiet luxury |
+| Base | Warm paper `#F4F2F0` | Near-black `#101216` | Maroon `#61121F` **is** the page | Warm white `#F8F5F3` under a drifting rose wash |
+| Type | Fraunces + DM Sans | Sora + Inter | Anton + Archivo (heavy caps) | Cormorant Garamond + Jost (fine serif) |
+| Surfaces | Flat, ruled | Solid cards | Flat blocks | **Frosted white glass** — every panel blurs the wash behind it |
 | Navigation | Top bar | Top bar | Fixed left rail | Floating glass pill |
-| Hero | Three.js particle streams | Three.js shaded ribbons | Giant type, solid/outline/shine | Centred serif + 3D-tilting glass pane |
-| Services | Card grid, 3D tilt | Horizontal scroll strip | Index list, cursor preview | Glass cards, cursor light + sheen sweep |
-| Process | Pinned scroll story | Accordion | Drawn timeline | Glowing vertical line that fills on scroll |
-| Reveals | Fade + rise | Mask + rise | Fade + wipe | **Blur-in** (frosted → sharp) |
+| Hero | Three.js shaded ribbons | Three.js particle streams | Giant type, solid/outline/shine | Centred serif + 3D-tilting glass pane |
+| Services | Horizontal scroll strip | Card grid, 3D tilt | Index list, cursor preview | Glass cards, cursor light + sheen sweep |
+| Process | Accordion | Pinned scroll story | Drawn timeline | Glowing vertical line that fills on scroll |
+| Reveals | Mask + rise | Fade + rise | Fade + wipe | **Blur-in** (frosted → sharp) |
 | WebGL | Yes | Yes | None | None |
 
 **Design 04's signature:** a fixed wash of four blurred lights — dusty rose, soft
@@ -90,9 +90,10 @@ uncomment the `[data-demo]` rule near the top of `assets/css/style.css`.
 | Opening hours | branch cards, contact, footer | real hours |
 | Stat figures (`10k+` cars, `98%`, `12mo`) | hero + why section — the `data-count` attributes | real numbers, or drop the ones you can't back up |
 
-The WhatsApp number lives in **two** places for each: the `href` in `index.html`
-*and* `CONFIG.whatsapp` at the top of `assets/js/main.js` (that one powers the
-quote form). Change both.
+The WhatsApp number lives in **two** places for each: the `href` in the page
+*and* `CONFIG.whatsapp` at the top of its `main*.js` (e.g. `index2.html` pairs
+with `assets/js/main.js`, that one powers the quote form). Change both, on
+every page.
 
 **2. The three testimonials** in the "says" section are written samples, not real
 customers. Replace them with genuine quotes or delete the section before launch —
@@ -120,7 +121,7 @@ graphite with maroon accents. They're intentional-looking placeholders, small
 (2–4 KB each) and sharp at any size, but they are illustrations, not the shop.
 
 The **about panel is a live animated scene** rather than a flat image: it's an
-inline `<svg class="scene">` in `index.html`, animated entirely from CSS —
+inline `<svg class="scene">` in `index2.html` (Design 01), animated entirely from CSS —
 radar arcs pulsing out of the logo swoosh, the car drawing itself in when the
 panel scrolls into view, wheels turning, and a blueprint scan sweeping down.
 No video file, no JS animation library, a few KB in total.
@@ -142,7 +143,7 @@ on slow connections and on iOS Low Power Mode, where autoplay is blocked.
 | `og.png` | social share card, 1200×630 | rebuild with a real hero photo |
 
 To swap one in: save the photo as e.g. `work-01.jpg` and change that one filename
-in `index.html` — each slot carries its own inline
+in each HTML page that references it (all four do) — each slot carries its own inline
 `style="background-image:url('assets/img/work-01.svg'),var(--fb-photo)"`.
 Keep the `var(--fb-photo)` part; it's the gradient that shows if the file is
 missing. (Don't move the URL into a CSS custom property — Chrome resolves
