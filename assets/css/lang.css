@@ -1,0 +1,105 @@
+/* =============================================================
+   ORYX — English / Arabic layer
+   Loaded after style2.css (and products.css). Two jobs:
+   1. the header language switch
+   2. the mirrored / Arabic-typeset variant, keyed off
+      html[dir="rtl"] for direction and body.is-ar for typography
+   ============================================================= */
+
+/* ---------- the switch ---------- */
+.lang{
+  flex:none; display:inline-flex; align-items:center; justify-content:center;
+  min-width:5.2rem; padding:.5rem .85rem; border:1px solid var(--line);
+  border-radius:100px; background:none; color:var(--ink-2);
+  font-family:var(--f-b); font-size:.76rem; line-height:1.2; letter-spacing:.02em;
+  transition:color .3s, border-color .3s, background .3s;
+}
+.lang:hover{ color:var(--mar); border-color:var(--mar); }
+body.is-ar .lang{ font-family:var(--f-b); }
+body:not(.is-ar) .lang{ font-family:var(--f-a); font-size:.86rem; }
+/* the header sits above the fullscreen index, so it has to survive
+   the maroon panel sliding underneath it */
+body.idx-open .lang{ color:#fff; border-color:var(--line-inv); }
+body.idx-open .lang:hover{ background:rgba(255,255,255,.12); }
+
+/* these two carry markup that must not be replaced wholesale, so the
+   translatable half is split into its own inline element */
+.hsec__hint em{ font-style:normal; }
+
+/* =============================================================
+   ARABIC TYPOGRAPHY
+   Fraunces has no Arabic coverage — swap the display and body
+   stacks rather than letting each heading fall back on its own.
+   Tracking is removed everywhere: letter-spacing breaks Arabic
+   letter joining, and uppercasing does nothing for it.
+   ============================================================= */
+body.is-ar{
+  --f-d:'Tajawal','Geeza Pro','Segoe UI',serif;
+  --f-b:'Tajawal','Geeza Pro','Segoe UI',sans-serif;
+  line-height:1.85;
+}
+body.is-ar :is(h1,h2,h3,h4,p,a,span,b,i,em,li,dt,dd,label,button,option,
+  address,figcaption,blockquote,footer,input,select,textarea,.h2){
+  letter-spacing:normal;
+}
+body.is-ar :is(.lbl,.pill,.tlink,.top__nav a,.menub,.spec dt,.nums__list span,
+  .hsec__hint,.hcard li,.br__tag,.br__meta dt,.sband figcaption span,
+  .quo__i footer span,.enq__info span,.foot__col h4,.idx__nav a em,
+  .pcard__tag,.f2__note,.swap){
+  text-transform:none;
+}
+body.is-ar :is(h1,.h2,.hero2__h,.idx__nav a,.hcard h3,.acc__i span,.srow__txt h3,
+  .br h3,.quo__i p,.nums__list b,.pcard__name){
+  line-height:1.35;
+}
+/* italics are a Latin device — Fraunces' cursive maroon accents become
+   a slanted mess in Arabic, so keep the colour and drop the slant */
+body.is-ar :is(h1 em,.h2 em,.br h3 em,.intro__n,.hcard__n){ font-style:normal; }
+/* Arabic descenders need more room inside each masked line */
+body.is-ar [data-mask] span{ padding-bottom:.32em; margin-bottom:-.32em; }
+/* the brand line flips to the Latin name in Arabic mode */
+body.is-ar :is(.ar,.hero2__ar){ font-family:var(--f-b); }
+
+/* =============================================================
+   MIRRORED LAYOUT
+   Grids and flex rows flip on their own; everything below is a
+   hard-coded left/right that does not.
+   ============================================================= */
+[dir="rtl"] :is(.ar,.hero2__ar){ text-align:right; }
+
+/* Latin runs — phone numbers, e-mail, clock times, part names — must not
+   be re-ordered by the surrounding right-to-left paragraph. plaintext
+   picks each one's own direction from its first strong character, which
+   leaves "+974 …" and "8:00 — 21:00" intact and Arabic lines alone. */
+[dir="rtl"] :is(a[href^="tel:"],a[href^="mailto:"],address,.spec dd,.br__meta dd,
+  .enq__info a,.enq__info p,.foot__col p,.foot__bar p,.hcard li,.pcard__name){
+  unicode-bidi:plaintext;
+}
+
+[dir="rtl"] .rail{ right:auto; left:0; }
+
+[dir="rtl"] :is(.top__nav a,.tlink){ background-position:100% 100%; }
+
+[dir="rtl"] .idx__nav a:hover{ padding-left:0; padding-right:.8rem; }
+
+/* the arrow glyphs all point along the reading direction */
+[dir="rtl"] :is(.pill svg,.pcard__cta svg){ transform:scaleX(-1); }
+[dir="rtl"] .pill:hover svg{ transform:scaleX(-1) translateX(4px); }
+[dir="rtl"] .pcard__cta:hover svg{ transform:scaleX(-1) translateX(3px); }
+
+/* the marquee has to travel the other way or it runs off-screen */
+[dir="rtl"] .tick__s{ padding-right:0; padding-left:1.8rem; }
+[dir="rtl"] .tick__t{ animation-name:tkr; }
+@keyframes tkr{ to{ transform:translateX(50%); } }
+
+[dir="rtl"] .acc__i button{ text-align:right; }
+[dir="rtl"] .acc__p p{ padding-right:0; padding-left:2rem; }
+
+[dir="rtl"] .f2__fld label{ left:auto; right:.95rem; transform-origin:right top; }
+[dir="rtl"] .f2__fld--sel svg{ right:auto; left:.9rem; }
+[dir="rtl"] .f2__fld select{ padding-left:2.6rem; }
+
+[dir="rtl"] .foot__col a:hover{ transform:translateX(-4px); }
+
+[dir="rtl"] .wa2{ right:auto; left:clamp(1rem,2.4vw,2rem); }
+[dir="rtl"] .swap{ left:auto; right:clamp(1rem,2.4vw,2rem); padding:.3rem .7rem .3rem .4rem; }

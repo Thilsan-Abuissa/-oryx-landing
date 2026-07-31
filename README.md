@@ -67,6 +67,56 @@ Once a direction is picked, delete the other three pages and their `style*.css` 
 
 ---
 
+## English ⇄ Arabic
+
+Design 02 (`index.html`) and the catalogue (`products.html`) are bilingual. The
+switch sits in the header next to the phone number, reads **العربية** in English
+and **English** in Arabic, and remembers the choice in `localStorage`
+(`oryx-lang`). English is the default for a first-time visitor. The other three
+designs are English-only.
+
+Two files do the work:
+
+| File | Job |
+|---|---|
+| `assets/js/i18n.js` | swaps the copy, flips `<html dir>`, adds `body.is-ar` |
+| `assets/css/lang.css` | the switch, the Arabic type stack, and the mirrored layout |
+
+**Editing the Arabic.** The translation lives in the markup beside the English —
+there is no separate language file to keep in sync:
+
+```html
+<a href="#branches" data-ar="الفروع">Branches</a>
+<h3 data-ar="أوريكس &lt;em&gt;الفرع الرئيسي&lt;/em&gt;">Oryx <em>Main Branch</em></h3>
+```
+
+`data-ar` may contain markup (escape the angle brackets, as above). Attributes
+use `data-ar-<attribute>` — `data-ar-alt`, `data-ar-aria-label`,
+`data-ar-suffix` for the counters, and `data-ar-doctitle` on `<html>` for the
+browser tab. **Add copy in English first and give it a `data-ar`** — anything
+without one simply stays English in both modes.
+
+Three things are handled in JS rather than in the markup:
+
+- **The masked headlines.** `main2.js` wraps each `[data-mask]` line in an `<i>`
+  so it can slide up behind its own edge; `i18n.js` writes inside that wrapper.
+  Put `data-ar` on the `<span>`, never on the `<i>`.
+- **The product enquiry links.** Each card's WhatsApp prefill is rebuilt from
+  the card's current name, so an Arabic reader sends an Arabic message. Edit the
+  two sentence templates at the top of `i18n.js`, not the fifteen `wa.me` URLs.
+- **The form's status messages.** They are written at runtime, so their Arabic
+  lives in the `STRINGS` table in `i18n.js`. The enquiry that gets sent to
+  WhatsApp stays in English — it is read by staff, not by the customer.
+
+**Typography.** Fraunces has no Arabic glyphs, so `body.is-ar` repoints the
+display and body stacks at Tajawal, drops every `letter-spacing` (it breaks
+Arabic letter joining), drops `text-transform: uppercase` (it does nothing for
+Arabic) and unslants the maroon italic accents. Phone numbers, e-mail addresses
+and clock times are marked `unicode-bidi: plaintext` so a right-to-left
+paragraph cannot reorder them into `0000 0000 974+`.
+
+---
+
 ## ⚠️ Read this before the site goes live
 
 The page is filled in with **demo content** so it presents as a finished site.
@@ -79,7 +129,7 @@ uncomment the `[data-demo]` rule near the top of `assets/css/style.css`.
 
 | Demo value | Where | Replace with |
 |---|---|---|
-| `+974 4468 2200` | header, mobile menu, branch 01, contact, footer | main line |
+| `+974 0000 0000` | header, mobile menu, branch 01, contact, footer | main line |
 | `+974 4468 3300` | branch 02 card | second branch line |
 | `+974 3312 2200` | WhatsApp link, floating button, `CONFIG.whatsapp` in `main.js` | real WhatsApp number |
 | `info@oryxcaraccessories.qa` | contact, footer, `CONFIG.email` in `main.js` | real inbox |

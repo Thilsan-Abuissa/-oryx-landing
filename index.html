@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" data-ar-doctitle="أوريكس لزينة السيارات — زينة، بطاريات، كهرباء سيارات، تنجيد وتظليل">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -15,8 +15,9 @@
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=DM+Sans:wght@300;400;500;700&family=Tajawal:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=DM+Sans:wght@300;400;500;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style2.css">
+<link rel="stylesheet" href="assets/css/lang.css">
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
 <script>if(typeof THREE==='undefined'){document.write('<scr'+'ipt src="https://unpkg.com/three@0.128.0/build/three.min.js"><\/scr'+'ipt>');}</script>
@@ -38,21 +39,22 @@
 
 <!-- ============ HEADER ============ -->
 <header class="top" id="top">
-  <a class="top__brand" href="#home" aria-label="Oryx for Car Accessories — home">
-    <img class="js-logo" src="assets/img/logo.png" alt="Oryx for Car Accessories" onerror="this.onerror=null;this.src='assets/img/logo.svg'">
+  <a class="top__brand" href="#home" aria-label="Oryx for Car Accessories — home" data-ar-aria-label="أوريكس لزينة السيارات — الرئيسية">
+    <img class="js-logo" src="assets/img/logo.png" alt="Oryx for Car Accessories" data-ar-alt="أوريكس لزينة السيارات" onerror="this.onerror=null;this.src='assets/img/logo.svg'">
   </a>
-  <nav class="top__nav" aria-label="Primary">
-    <a href="#services">Specialities</a>
-    <a href="#works">How it works</a>
-    <a href="#work">Selected work</a>
-    <a href="#branches">Branches</a>
-    <a href="products.html">Products</a>
+  <nav class="top__nav" aria-label="Primary" data-ar-aria-label="التنقل الرئيسي">
+    <a href="#services" data-ar="التخصصات">Specialities</a>
+    <a href="#works" data-ar="كيف نعمل">How it works</a>
+    <a href="#work" data-ar="أعمال مختارة">Selected work</a>
+    <a href="#branches" data-ar="الفروع">Branches</a>
+    <a href="products.html" data-ar="المنتجات">Products</a>
   </nav>
   <div class="top__end">
-    <a class="top__tel" href="tel:+97444682200" data-demo>+974 4468 2200</a>
-    <a class="pill" href="#enquire"><span>Enquire</span></a>
-    <button class="menub" id="menub" aria-expanded="false" aria-controls="idx" aria-label="Open menu">
-      <span>Menu</span><i></i><i></i>
+    <a class="top__tel" href="tel:+97400000000" data-demo>+974 0000 0000</a>
+    <button class="lang" id="langb" type="button" lang="ar" aria-label="التبديل إلى العربية">العربية</button>
+    <a class="pill" href="#enquire"><span data-ar="استفسر">Enquire</span></a>
+    <button class="menub" id="menub" aria-expanded="false" aria-controls="idx" aria-label="Open menu" data-ar-aria-label="فتح القائمة">
+      <span data-ar="القائمة">Menu</span><i></i><i></i>
     </button>
   </div>
 </header>
@@ -60,19 +62,19 @@
 <!-- ============ FULLSCREEN INDEX ============ -->
 <div class="idx" id="idx" aria-hidden="true">
   <div class="idx__in">
-    <p class="lbl">Index</p>
-    <nav class="idx__nav" aria-label="Sections">
-      <a href="#services" style="--i:0"><em>01</em><span>Specialities</span></a>
-      <a href="#numbers" style="--i:1"><em>02</em><span>By the numbers</span></a>
-      <a href="#works"    style="--i:2"><em>03</em><span>How it works</span></a>
-      <a href="#work"     style="--i:3"><em>04</em><span>Selected work</span></a>
-      <a href="#branches" style="--i:4"><em>05</em><span>Branches</span></a>
-      <a href="products.html" style="--i:5"><em>06</em><span>Products</span></a>
-      <a href="#enquire"  style="--i:6"><em>07</em><span>Enquiries</span></a>
+    <p class="lbl" data-ar="الفهرس">Index</p>
+    <nav class="idx__nav" aria-label="Sections" data-ar-aria-label="الأقسام">
+      <a href="#services" style="--i:0"><em>01</em><span data-ar="التخصصات">Specialities</span></a>
+      <a href="#numbers" style="--i:1"><em>02</em><span data-ar="بالأرقام">By the numbers</span></a>
+      <a href="#works"    style="--i:2"><em>03</em><span data-ar="كيف نعمل">How it works</span></a>
+      <a href="#work"     style="--i:3"><em>04</em><span data-ar="أعمال مختارة">Selected work</span></a>
+      <a href="#branches" style="--i:4"><em>05</em><span data-ar="الفروع">Branches</span></a>
+      <a href="products.html" style="--i:5"><em>06</em><span data-ar="المنتجات">Products</span></a>
+      <a href="#enquire"  style="--i:6"><em>07</em><span data-ar="الاستفسارات">Enquiries</span></a>
     </nav>
     <div class="idx__foot">
-      <p class="ar">أوريكس لزينة السيارات</p>
-      <a href="tel:+97444682200" data-demo>+974 4468 2200</a>
+      <p class="ar" data-ar="Oryx for Car Accessories">أوريكس لزينة السيارات</p>
+      <a href="tel:+97400000000" data-demo>+974 0000 0000</a>
     </div>
   </div>
 </div>
@@ -83,22 +85,22 @@
 <section class="hero2" id="home">
   <div class="hero2__grid wrap">
     <div class="hero2__text">
-      <p class="lbl" data-rise>Oryx for Car Accessories &nbsp;·&nbsp; Doha, Qatar</p>
+      <p class="lbl" data-rise data-ar="أوريكس لزينة السيارات &nbsp;·&nbsp; الدوحة، قطر">Oryx for Car Accessories &nbsp;·&nbsp; Doha, Qatar</p>
       <h1 class="hero2__h" data-mask>
-        <span>The details</span>
-        <span>that make a car</span>
-        <span><em>yours.</em></span>
+        <span data-ar="التفاصيل">The details</span>
+        <span data-ar="التي تجعل السيارة">that make a car</span>
+        <span data-ar="&lt;em&gt;لك.&lt;/em&gt;"><em>yours.</em></span>
       </h1>
-      <p class="hero2__ar" data-rise data-delay="180">أوريكس لزينة السيارات</p>
-      <p class="hero2__lead" data-rise data-delay="260">
+      <p class="hero2__ar" data-rise data-delay="180" data-ar="Oryx for Car Accessories">أوريكس لزينة السيارات</p>
+      <p class="hero2__lead" data-rise data-delay="260" data-ar="صالة عرض تقف خلفها ورشة متكاملة — زينة، بطاريات، كهرباء سيارات، تنجيد وتظليل زجاج، في فرعين داخل قطر.">
         A retail counter with a workshop behind it — accessories, batteries,
         auto&nbsp;electrical, upholstery and window tinting, across two branches in Qatar.
       </p>
       <div class="hero2__cta" data-rise data-delay="340">
-        <a class="pill pill--lg" href="#services"><span>See what we do</span>
+        <a class="pill pill--lg" href="#services"><span data-ar="تعرّف على خدماتنا">See what we do</span>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
         </a>
-        <a class="tlink" href="#branches"><span>Find a branch</span></a>
+        <a class="tlink" href="#branches"><span data-ar="اعرف أقرب فرع">Find a branch</span></a>
       </div>
     </div>
 
@@ -109,10 +111,10 @@
   </div>
 
   <dl class="spec wrap" data-rise data-delay="420">
-    <div><dt>Established</dt><dd data-demo>2011</dd></div>
-    <div><dt>Branches</dt><dd>Two</dd></div>
-    <div><dt>Specialities</dt><dd>Six</dd></div>
-    <div><dt>Open</dt><dd>Sat–Thu 8:00–21:00</dd></div>
+    <div><dt data-ar="التأسيس">Established</dt><dd data-demo>2011</dd></div>
+    <div><dt data-ar="الفروع">Branches</dt><dd data-ar="فرعان">Two</dd></div>
+    <div><dt data-ar="التخصصات">Specialities</dt><dd data-ar="ستة">Six</dd></div>
+    <div><dt data-ar="أوقات العمل">Open</dt><dd data-ar="السبت – الخميس 8:00 – 21:00">Sat–Thu 8:00–21:00</dd></div>
   </dl>
 </section>
 
@@ -120,12 +122,12 @@
 <div class="tick" aria-hidden="true">
   <div class="tick__t">
     <span class="tick__s">
-      <b>Car Accessories</b><i></i><b>Batteries</b><i></i><b>Auto Electrical</b><i></i>
-      <b>Upholstery</b><i></i><b>Window Tinting</b><i></i><b>Audio &amp; Lighting</b><i></i>
+      <b data-ar="زينة السيارات">Car Accessories</b><i></i><b data-ar="البطاريات">Batteries</b><i></i><b data-ar="كهرباء السيارات">Auto Electrical</b><i></i>
+      <b data-ar="التنجيد">Upholstery</b><i></i><b data-ar="تظليل الزجاج">Window Tinting</b><i></i><b data-ar="الصوتيات والإضاءة">Audio &amp; Lighting</b><i></i>
     </span>
     <span class="tick__s">
-      <b>Car Accessories</b><i></i><b>Batteries</b><i></i><b>Auto Electrical</b><i></i>
-      <b>Upholstery</b><i></i><b>Window Tinting</b><i></i><b>Audio &amp; Lighting</b><i></i>
+      <b data-ar="زينة السيارات">Car Accessories</b><i></i><b data-ar="البطاريات">Batteries</b><i></i><b data-ar="كهرباء السيارات">Auto Electrical</b><i></i>
+      <b data-ar="التنجيد">Upholstery</b><i></i><b data-ar="تظليل الزجاج">Window Tinting</b><i></i><b data-ar="الصوتيات والإضاءة">Audio &amp; Lighting</b><i></i>
     </span>
   </div>
 </div>
@@ -134,28 +136,28 @@
 <section class="intro" id="about">
   <div class="wrap intro__grid">
     <div class="intro__stick">
-      <p class="lbl" data-rise><em>01</em> Introduction</p>
-      <h2 class="h2" data-mask><span>A workshop that</span><span>behaves like a</span><span><em>showroom.</em></span></h2>
+      <p class="lbl" data-rise data-ar="&lt;em&gt;01&lt;/em&gt; مقدمة"><em>01</em> Introduction</p>
+      <h2 class="h2" data-mask><span data-ar="ورشة تعمل">A workshop that</span><span data-ar="بمعايير">behaves like a</span><span data-ar="&lt;em&gt;صالة العرض.&lt;/em&gt;"><em>showroom.</em></span></h2>
     </div>
     <div class="intro__body">
       <div class="intro__row" data-rise>
         <span class="intro__n">i</span>
-        <p>Oryx began as a small accessories counter and grew into a full retail and
+        <p data-ar="بدأت أوريكس كمحل صغير لزينة السيارات، ونمت لتصبح متجرًا وورشة تركيب متكاملة. نوفّر القطعة ونبيعها ونركّبها — فالقطعة التي تشتريها هي القطعة التي نضمنها.">Oryx began as a small accessories counter and grew into a full retail and
         fitting operation. We stock, sell and install — so the part you buy is the
         part we stand behind.</p>
       </div>
       <div class="intro__row" data-rise data-delay="90">
         <span class="intro__n">ii</span>
-        <p>Every bay is run by a specialist. The auto-electrician doesn't stitch seats
+        <p data-ar="كل قسم يديره متخصص. كهربائي السيارات لا يخيط المقاعد، والمنجّد لا يتعقّب أعطال الأسلاك. بهذه الطريقة يبقى الإتقان عاليًا والمواعيد صادقة.">Every bay is run by a specialist. The auto-electrician doesn't stitch seats
         and the trimmer doesn't chase wiring faults. That's how the finish stays sharp
         and the timelines stay honest.</p>
       </div>
       <div class="intro__row" data-rise data-delay="180">
         <span class="intro__n">iii</span>
-        <p>Genuine parts, written warranty, itemised pricing agreed before we start,
+        <p data-ar="قطع أصلية، وضمان مكتوب، وسعر مفصّل يُتفق عليه قبل البدء، وإنجاز في نفس اليوم لمعظم الأعمال.">Genuine parts, written warranty, itemised pricing agreed before we start,
         and same-day completion on most jobs.</p>
       </div>
-      <a class="tlink tlink--dark" href="#enquire" data-rise data-delay="260"><span>Book an inspection</span></a>
+      <a class="tlink tlink--dark" href="#enquire" data-rise data-delay="260"><span data-ar="احجز فحصًا">Book an inspection</span></a>
     </div>
   </div>
 </section>
@@ -165,10 +167,11 @@
   <div class="hsec__stick">
     <div class="wrap hsec__head">
       <div>
-        <p class="lbl"><em>02</em> Specialities</p>
-        <h2 class="h2 h2--sm">Six things, done<br>by six specialists.</h2>
+        <p class="lbl" data-ar="&lt;em&gt;02&lt;/em&gt; التخصصات"><em>02</em> Specialities</p>
+        <h2 class="h2 h2--sm" data-ar="ستة تخصصات،&lt;br&gt;وستة متخصصين.">Six things, done<br>by six specialists.</h2>
       </div>
-      <p class="hsec__hint"><span id="hNum">01</span> / 06 &nbsp;— keep scrolling</p>
+      <!-- #hNum is rewritten by main2.js, so only the tail is translatable -->
+      <p class="hsec__hint"><span id="hNum">01</span><em data-ar=" / 06 &nbsp;— تابع التمرير"> / 06 &nbsp;— keep scrolling</em></p>
     </div>
 
     <div class="hsec__viewport">
@@ -176,50 +179,50 @@
 
         <article class="hcard">
           <span class="hcard__n">01</span>
-          <h3>Car Accessories</h3>
-          <p>Interior and exterior upgrades, styling kits, floor mats, seat covers, roof
+          <h3 data-ar="زينة السيارات">Car Accessories</h3>
+          <p data-ar="تحسينات داخلية وخارجية، أطقم تزيين، دواسات، كفرات مقاعد، حمّالات سقف، والقطع الصغيرة التي تُكمل الشكل النهائي.">Interior and exterior upgrades, styling kits, floor mats, seat covers, roof
           racks and the small parts that finish a build.</p>
-          <ul><li>Styling</li><li>Protection</li><li>Utility</li></ul>
+          <ul><li data-ar="تزيين">Styling</li><li data-ar="حماية">Protection</li><li data-ar="استخدام عملي">Utility</li></ul>
         </article>
 
         <article class="hcard">
           <span class="hcard__n">02</span>
-          <h3>Batteries</h3>
-          <p>Genuine batteries for every make, tested free of charge, delivered and
+          <h3 data-ar="البطاريات">Batteries</h3>
+          <p data-ar="بطاريات أصلية لجميع الأنواع، فحص مجاني، وتوصيل وتركيب في أقل من عشرين دقيقة — بما يشمل الخدمة على الطريق.">Genuine batteries for every make, tested free of charge, delivered and
           fitted in under twenty minutes — including roadside call-outs.</p>
-          <ul><li>Free testing</li><li>Fitting</li><li>Roadside</li></ul>
+          <ul><li data-ar="فحص مجاني">Free testing</li><li data-ar="تركيب">Fitting</li><li data-ar="خدمة على الطريق">Roadside</li></ul>
         </article>
 
         <article class="hcard">
           <span class="hcard__n">03</span>
-          <h3>Auto Electrical Works</h3>
-          <p>Fault diagnosis, wiring repairs, alternators, starters, sensors, central
+          <h3 data-ar="أعمال كهرباء السيارات">Auto Electrical Works</h3>
+          <p data-ar="تشخيص الأعطال، إصلاح الأسلاك، الدينمو، السلف، الحساسات، القفل المركزي، وإعادة التمديد الكامل على يد كهربائيين معتمدين.">Fault diagnosis, wiring repairs, alternators, starters, sensors, central
           locking and complete rewiring by certified auto-electricians.</p>
-          <ul><li>Diagnostics</li><li>Rewiring</li><li>Sensors</li></ul>
+          <ul><li data-ar="تشخيص">Diagnostics</li><li data-ar="تمديد أسلاك">Rewiring</li><li data-ar="حساسات">Sensors</li></ul>
         </article>
 
         <article class="hcard">
           <span class="hcard__n">04</span>
-          <h3>Upholstery</h3>
-          <p>Custom leather and fabric seats, dashboards, door cards, roof lining and
+          <h3 data-ar="التنجيد">Upholstery</h3>
+          <p data-ar="مقاعد جلد وقماش حسب الطلب، طبلونات، أبواب، سقف داخلي، وتلبيس الطارة — تُقص وتُخاط وتُركّب داخل الورشة.">Custom leather and fabric seats, dashboards, door cards, roof lining and
           steering trims — patterned, stitched and fitted in-house.</p>
-          <ul><li>Leather</li><li>Roof lining</li><li>Custom stitch</li></ul>
+          <ul><li data-ar="جلد">Leather</li><li data-ar="سقف داخلي">Roof lining</li><li data-ar="خياطة حسب الطلب">Custom stitch</li></ul>
         </article>
 
         <article class="hcard">
           <span class="hcard__n">05</span>
-          <h3>Window Tinting</h3>
-          <p>Heat-rejection and UV films cut to your glass, applied bubble-free in a
+          <h3 data-ar="تظليل الزجاج">Window Tinting</h3>
+          <p data-ar="أفلام عازلة للحرارة وحاجبة للأشعة فوق البنفسجية تُقص على مقاس زجاجك، وتُلصق بدون فقاعات في غرفة خالية من الغبار، مع ضمان مكتوب.">Heat-rejection and UV films cut to your glass, applied bubble-free in a
           dust-controlled bay and backed by a written warranty.</p>
-          <ul><li>Heat rejection</li><li>UV block</li><li>Warranty</li></ul>
+          <ul><li data-ar="عزل حرارة">Heat rejection</li><li data-ar="حجب الأشعة">UV block</li><li data-ar="ضمان">Warranty</li></ul>
         </article>
 
         <article class="hcard">
           <span class="hcard__n">06</span>
-          <h3>Audio, Lighting &amp; Extras</h3>
-          <p>Speakers, subwoofers, head units, LED and HID upgrades, reverse cameras,
+          <h3 data-ar="الصوتيات والإضاءة والإضافات">Audio, Lighting &amp; Extras</h3>
+          <p data-ar="سماعات، مكبّرات صوت، شاشات، إضاءة LED و HID، كاميرات خلفية، حساسات رَكن، أنظمة إنذار، وتشغيل عن بُعد.">Speakers, subwoofers, head units, LED and HID upgrades, reverse cameras,
           parking sensors, alarms and remote starters.</p>
-          <ul><li>Sound</li><li>Lighting</li><li>Safety</li></ul>
+          <ul><li data-ar="صوت">Sound</li><li data-ar="إضاءة">Lighting</li><li data-ar="سلامة">Safety</li></ul>
         </article>
 
       </div>
@@ -230,12 +233,12 @@
 <!-- ======================================================= NUMBERS -->
 <section class="nums" id="numbers">
   <div class="wrap">
-    <p class="lbl lbl--inv" data-rise><em>03</em> By the numbers</p>
+    <p class="lbl lbl--inv" data-rise data-ar="&lt;em&gt;03&lt;/em&gt; بالأرقام"><em>03</em> By the numbers</p>
     <ul class="nums__list">
-      <li data-rise><b data-count="10" data-suffix="k+">0</b><span>Cars fitted</span></li>
-      <li data-rise data-delay="90"><b data-count="20" data-suffix="min">0</b><span>Battery swap</span></li>
-      <li data-rise data-delay="180"><b data-count="98" data-suffix="%">0</b><span>Same-day completion</span></li>
-      <li data-rise data-delay="270"><b data-count="12" data-suffix="mo">0</b><span>Workmanship warranty</span></li>
+      <li data-rise><b data-count="10" data-suffix="k+" data-ar-suffix=" ألف+">0</b><span data-ar="سيارة تم تجهيزها">Cars fitted</span></li>
+      <li data-rise data-delay="90"><b data-count="20" data-suffix="min" data-ar-suffix=" دقيقة">0</b><span data-ar="تغيير بطارية">Battery swap</span></li>
+      <li data-rise data-delay="180"><b data-count="98" data-suffix="%" data-ar-suffix="%">0</b><span data-ar="إنجاز في نفس اليوم">Same-day completion</span></li>
+      <li data-rise data-delay="270"><b data-count="12" data-suffix="mo" data-ar-suffix=" شهرًا">0</b><span data-ar="ضمان على العمل">Workmanship warranty</span></li>
     </ul>
   </div>
 </section>
@@ -244,30 +247,30 @@
 <section class="steps" id="works">
   <div class="wrap steps__grid">
     <div class="steps__aside">
-      <p class="lbl" data-rise><em>04</em> How it works</p>
-      <h2 class="h2" data-mask><span>Four steps.</span><span><em>No surprises.</em></span></h2>
-      <p class="steps__note" data-rise data-delay="140">The number you approve is the number you pay.</p>
+      <p class="lbl" data-rise data-ar="&lt;em&gt;04&lt;/em&gt; كيف نعمل"><em>04</em> How it works</p>
+      <h2 class="h2" data-mask><span data-ar="أربع خطوات.">Four steps.</span><span data-ar="&lt;em&gt;بلا مفاجآت.&lt;/em&gt;"><em>No surprises.</em></span></h2>
+      <p class="steps__note" data-rise data-delay="140" data-ar="السعر الذي توافق عليه هو السعر الذي تدفعه.">The number you approve is the number you pay.</p>
     </div>
 
     <div class="acc" id="acc">
       <div class="acc__i is-open">
-        <button type="button" aria-expanded="true"><em>01</em><span>Tell us what you need</span><i></i></button>
-        <div class="acc__p"><p>Message us on WhatsApp, call the branch or walk in. Send a photo of
+        <button type="button" aria-expanded="true"><em>01</em><span data-ar="أخبرنا بما تحتاجه">Tell us what you need</span><i></i></button>
+        <div class="acc__p"><p data-ar="راسلنا على واتساب، أو اتصل بالفرع، أو زُرنا مباشرة. أرسل صورة للسيارة وسنخبرك بما يمكن عمله قبل أن تتحرّك من مكانك.">Message us on WhatsApp, call the branch or walk in. Send a photo of
           the car and we'll tell you what's possible before you drive over.</p></div>
       </div>
       <div class="acc__i">
-        <button type="button" aria-expanded="false"><em>02</em><span>Free inspection &amp; quote</span><i></i></button>
-        <div class="acc__p"><p>We check the vehicle, confirm parts and give you an itemised price
+        <button type="button" aria-expanded="false"><em>02</em><span data-ar="فحص وتسعير مجاني">Free inspection &amp; quote</span><i></i></button>
+        <div class="acc__p"><p data-ar="نفحص السيارة، ونؤكد القطع المطلوبة، ونعطيك سعرًا مفصّلًا ومدة واقعية — قبل بدء أي عمل.">We check the vehicle, confirm parts and give you an itemised price
           and a realistic time — before any work starts.</p></div>
       </div>
       <div class="acc__i">
-        <button type="button" aria-expanded="false"><em>03</em><span>Fitted by specialists</span><i></i></button>
-        <div class="acc__p"><p>Your job goes to the right bay — electrical, trim or tint. Genuine
+        <button type="button" aria-expanded="false"><em>03</em><span data-ar="تركيب على يد متخصصين">Fitted by specialists</span><i></i></button>
+        <div class="acc__p"><p data-ar="يذهب عملك إلى القسم المناسب: كهرباء، تنجيد، أو تظليل. قطع أصلية، تمديدات سليمة، وقصّ نظيف. بلا حلول مؤقتة مخفية خلف الأغطية.">Your job goes to the right bay — electrical, trim or tint. Genuine
           parts, proper looms, clean cuts. No shortcuts hidden behind panels.</p></div>
       </div>
       <div class="acc__i">
-        <button type="button" aria-expanded="false"><em>04</em><span>Checked, cleaned, warranted</span><i></i></button>
-        <div class="acc__p"><p>Every job is road-tested and the interior wiped down before handover.
+        <button type="button" aria-expanded="false"><em>04</em><span data-ar="فحص، تنظيف، وضمان">Checked, cleaned, warranted</span><i></i></button>
+        <div class="acc__p"><p data-ar="كل عمل يُجرّب على الطريق ويُنظّف داخل السيارة قبل التسليم. تخرج ببطاقة ضمان ورقم مباشر للتواصل.">Every job is road-tested and the interior wiped down before handover.
           You leave with a warranty card and a direct number to call.</p></div>
       </div>
     </div>
@@ -278,8 +281,8 @@
 <section class="sel" id="work">
   <div class="wrap">
     <div class="sel__head">
-      <p class="lbl" data-rise><em>05</em> Selected work</p>
-      <h2 class="h2" data-mask><span>Finished,</span><span><em>not just fitted.</em></span></h2>
+      <p class="lbl" data-rise data-ar="&lt;em&gt;05&lt;/em&gt; أعمال مختارة"><em>05</em> Selected work</p>
+      <h2 class="h2" data-mask><span data-ar="مُتقن،">Finished,</span><span data-ar="&lt;em&gt;وليس مجرد مركّب.&lt;/em&gt;"><em>not just fitted.</em></span></h2>
     </div>
   </div>
 
@@ -291,9 +294,9 @@
         <span class="srow__img" style="background-image:url('assets/img/work-01.svg'),var(--fb2)" data-shift="0.03"></span>
       </figure>
       <div class="srow__txt">
-        <p class="lbl">Upholstery</p>
-        <h3>Full leather retrim</h3>
-        <p>Seats, door cards and roof lining patterned from the original, stitched
+        <p class="lbl" data-ar="التنجيد">Upholstery</p>
+        <h3 data-ar="تلبيس جلد كامل">Full leather retrim</h3>
+        <p data-ar="مقاعد وأبواب وسقف داخلي بنفس نمط المصنع، تُخاط داخل الورشة وتُركّب في يوم واحد.">Seats, door cards and roof lining patterned from the original, stitched
         in-house and fitted in a single day.</p>
       </div>
     </article>
@@ -303,9 +306,9 @@
         <span class="srow__img" style="background-image:url('assets/img/work-02.svg'),var(--fb2)" data-shift="0.03"></span>
       </figure>
       <div class="srow__txt">
-        <p class="lbl">Tinting</p>
-        <h3>Ceramic heat-rejection film</h3>
-        <p>Cut to the glass, applied bubble-free in a dust-controlled bay, and
+        <p class="lbl" data-ar="التظليل">Tinting</p>
+        <h3 data-ar="فيلم سيراميك عازل للحرارة">Ceramic heat-rejection film</h3>
+        <p data-ar="يُقص على مقاس الزجاج، ويُلصق بدون فقاعات في غرفة خالية من الغبار، مع ضمان ضد التقشّر وتغيّر اللون.">Cut to the glass, applied bubble-free in a dust-controlled bay, and
         warranted against peeling and purpling.</p>
       </div>
     </article>
@@ -315,9 +318,9 @@
         <span class="srow__img" style="background-image:url('assets/img/work-03.svg'),var(--fb2)" data-shift="0.03"></span>
       </figure>
       <div class="srow__txt">
-        <p class="lbl">Electrical</p>
-        <h3>LED conversion &amp; harness</h3>
-        <p>Headlight and interior LED upgrades with a purpose-built loom, so nothing
+        <p class="lbl" data-ar="الكهرباء">Electrical</p>
+        <h3 data-ar="تحويل إلى LED مع ضفيرة أسلاك">LED conversion &amp; harness</h3>
+        <p data-ar="ترقية الإضاءة الأمامية والداخلية إلى LED مع ضفيرة أسلاك مخصصة، بلا وميض وبلا أعطال في الكمبيوتر.">Headlight and interior LED upgrades with a purpose-built loom, so nothing
         flickers and nothing throws a fault code.</p>
       </div>
     </article>
@@ -327,9 +330,9 @@
         <span class="srow__img" style="background-image:url('assets/img/work-04.svg'),var(--fb2)" data-shift="0.025"></span>
       </figure>
       <div class="srow__txt">
-        <p class="lbl">Accessories</p>
-        <h3>Accessory package — 4×4 build</h3>
-        <p>Roof rack, spot lights, bull bar, side steps and a full wiring loom —
+        <p class="lbl" data-ar="الزينة">Accessories</p>
+        <h3 data-ar="طقم زينة لسيارة دفع رباعي">Accessory package — 4×4 build</h3>
+        <p data-ar="حمّالة سقف، كشافات، مصد أمامي، عتبات جانبية، وتمديد أسلاك كامل — تحديد وتوريد وتركيب في عمل واحد.">Roof rack, spot lights, bull bar, side steps and a full wiring loom —
         specified, supplied and fitted together.</p>
       </div>
     </article>
@@ -338,7 +341,7 @@
   <div class="wrap sel__band">
     <figure class="sband" data-rise>
       <span class="sband__img" style="background-image:url('assets/img/work-05.svg'),var(--fb2)"></span>
-      <figcaption><b>Battery supply &amp; fitting</b><span>Batteries — tested free, fitted in twenty minutes</span></figcaption>
+      <figcaption><b data-ar="توريد وتركيب البطاريات">Battery supply &amp; fitting</b><span data-ar="البطاريات — فحص مجاني وتركيب في عشرين دقيقة">Batteries — tested free, fitted in twenty minutes</span></figcaption>
     </figure>
   </div>
 </section>
@@ -347,24 +350,24 @@
 <section class="brs" id="branches">
   <div class="wrap">
     <div class="brs__head">
-      <p class="lbl" data-rise><em>06</em> Branches</p>
-      <h2 class="h2" data-mask><span>Two branches</span><span><em>across Qatar.</em></span></h2>
+      <p class="lbl" data-rise data-ar="&lt;em&gt;06&lt;/em&gt; الفروع"><em>06</em> Branches</p>
+      <h2 class="h2" data-mask><span data-ar="فرعان">Two branches</span><span data-ar="&lt;em&gt;في قطر.&lt;/em&gt;"><em>across Qatar.</em></span></h2>
     </div>
 
     <div class="brs__grid">
       <article class="br" data-rise>
         <div class="br__map" aria-hidden="true"><span class="br__pin"></span></div>
         <div class="br__body">
-          <p class="br__tag">Branch 01 — Main showroom</p>
-          <h3>Oryx <em>Main Branch</em></h3>
-          <address data-demo>Street 38, Industrial Area<br>Doha, Qatar</address>
+          <p class="br__tag" data-ar="الفرع الأول — صالة العرض الرئيسية">Branch 01 — Main showroom</p>
+          <h3 data-ar="أوريكس &lt;em&gt;الفرع الرئيسي&lt;/em&gt;">Oryx <em>Main Branch</em></h3>
+          <address data-demo data-ar="شارع 38، المنطقة الصناعية&lt;br&gt;الدوحة، قطر">Street 38, Industrial Area<br>Doha, Qatar</address>
           <dl class="br__meta">
-            <div><dt>Sat – Thu</dt><dd>8:00 — 21:00</dd></div>
-            <div><dt>Friday</dt><dd>15:00 — 21:00</dd></div>
+            <div><dt data-ar="السبت – الخميس">Sat – Thu</dt><dd>8:00 — 21:00</dd></div>
+            <div><dt data-ar="الجمعة">Friday</dt><dd>15:00 — 21:00</dd></div>
           </dl>
           <div class="br__act">
-            <a class="pill" href="tel:+97444682200" data-demo><span>Call branch</span></a>
-            <a class="tlink tlink--dark" href="https://www.google.com/maps/search/?api=1&amp;query=Industrial+Area+Doha+Qatar" target="_blank" rel="noopener" data-demo><span>Directions</span></a>
+            <a class="pill" href="tel:+97400000000" data-demo><span data-ar="اتصل بالفرع">Call branch</span></a>
+            <a class="tlink tlink--dark" href="https://www.google.com/maps/search/?api=1&amp;query=Industrial+Area+Doha+Qatar" target="_blank" rel="noopener" data-demo><span data-ar="الاتجاهات">Directions</span></a>
           </div>
         </div>
       </article>
@@ -372,16 +375,16 @@
       <article class="br" data-rise data-delay="110">
         <div class="br__map br__map--alt" aria-hidden="true"><span class="br__pin"></span></div>
         <div class="br__body">
-          <p class="br__tag">Branch 02 — Service centre</p>
-          <h3>Oryx <em>Second Branch</em></h3>
-          <address data-demo>Street 12, Al Wakrah Industrial Area<br>Al Wakrah, Qatar</address>
+          <p class="br__tag" data-ar="الفرع الثاني — مركز الخدمة">Branch 02 — Service centre</p>
+          <h3 data-ar="أوريكس &lt;em&gt;الفرع الثاني&lt;/em&gt;">Oryx <em>Second Branch</em></h3>
+          <address data-demo data-ar="شارع 12، منطقة الوكرة الصناعية&lt;br&gt;الوكرة، قطر">Street 12, Al Wakrah Industrial Area<br>Al Wakrah, Qatar</address>
           <dl class="br__meta">
-            <div><dt>Sat – Thu</dt><dd>8:00 — 21:00</dd></div>
-            <div><dt>Friday</dt><dd>15:00 — 21:00</dd></div>
+            <div><dt data-ar="السبت – الخميس">Sat – Thu</dt><dd>8:00 — 21:00</dd></div>
+            <div><dt data-ar="الجمعة">Friday</dt><dd>15:00 — 21:00</dd></div>
           </dl>
           <div class="br__act">
-            <a class="pill" href="tel:+97444683300" data-demo><span>Call branch</span></a>
-            <a class="tlink tlink--dark" href="https://www.google.com/maps/search/?api=1&amp;query=Al+Wakrah+Industrial+Area+Qatar" target="_blank" rel="noopener" data-demo><span>Directions</span></a>
+            <a class="pill" href="tel:+97444683300" data-demo><span data-ar="اتصل بالفرع">Call branch</span></a>
+            <a class="tlink tlink--dark" href="https://www.google.com/maps/search/?api=1&amp;query=Al+Wakrah+Industrial+Area+Qatar" target="_blank" rel="noopener" data-demo><span data-ar="الاتجاهات">Directions</span></a>
           </div>
         </div>
       </article>
@@ -395,22 +398,22 @@
     <div class="quo__mark" aria-hidden="true">“</div>
     <div class="quo__track" id="quoTrack">
       <blockquote class="quo__i is-on">
-        <p>Took my Land Cruiser in for tint and a reverse camera. Quoted in ten minutes,
+        <p data-ar="أخذت اللاندكروزر للتظليل وتركيب كاميرا خلفية. أعطوني السعر في عشر دقائق، وأنهوا العمل في نفس اليوم، والفيلم ما زال ممتازًا بعد صيفين.">Took my Land Cruiser in for tint and a reverse camera. Quoted in ten minutes,
         finished the same day, and the film still looks perfect two summers later.</p>
-        <footer><b>Abdulla M.</b><span>Private customer</span></footer>
+        <footer><b data-ar="عبدالله م.">Abdulla M.</b><span data-ar="عميل خاص">Private customer</span></footer>
       </blockquote>
       <blockquote class="quo__i">
-        <p>We run fourteen vehicles. Oryx handles batteries and electrical faults for all
+        <p data-ar="لدينا أربع عشرة سيارة. أوريكس تتولى البطاريات والأعطال الكهربائية لجميعها وترسل الفاتورة شهريًا. بلا متابعة مرهقة وبلا توقّف.">We run fourteen vehicles. Oryx handles batteries and electrical faults for all
         of them and invoices us monthly. No chasing, no downtime.</p>
-        <footer><b>Fleet Manager</b><span>Logistics company</span></footer>
+        <footer><b data-ar="مدير الأسطول">Fleet Manager</b><span data-ar="شركة نقل ولوجستيات">Logistics company</span></footer>
       </blockquote>
       <blockquote class="quo__i">
-        <p>The upholstery work is genuinely showroom level. They matched the original
+        <p data-ar="التنجيد بمستوى صالات العرض فعلًا. طابقوا نمط الخياطة الأصلي لسيارة قال الوكيل إنه لا يستطيع خدمتها.">The upholstery work is genuinely showroom level. They matched the original
         stitching pattern on a car the dealer said they couldn't help with.</p>
-        <footer><b>Rashid K.</b><span>Private customer</span></footer>
+        <footer><b data-ar="راشد ك.">Rashid K.</b><span data-ar="عميل خاص">Private customer</span></footer>
       </blockquote>
     </div>
-    <div class="quo__dots" id="quoDots" role="tablist" aria-label="Testimonials"></div>
+    <div class="quo__dots" id="quoDots" role="tablist" aria-label="Testimonials" data-ar-aria-label="آراء العملاء"></div>
   </div>
 </section>
 
@@ -418,43 +421,43 @@
 <section class="enq" id="enquire">
   <div class="wrap enq__grid">
     <div class="enq__txt">
-      <p class="lbl"><em>07</em> Enquiries</p>
-      <h2 class="h2" data-mask><span>Tell us the car.</span><span>We'll tell you</span><span><em>the price.</em></span></h2>
-      <p class="enq__lead" data-rise data-delay="140">Send your details and we'll come back with an itemised
+      <p class="lbl" data-ar="&lt;em&gt;07&lt;/em&gt; الاستفسارات"><em>07</em> Enquiries</p>
+      <h2 class="h2" data-mask><span data-ar="أخبرنا بالسيارة.">Tell us the car.</span><span data-ar="وسنخبرك">We'll tell you</span><span data-ar="&lt;em&gt;بالسعر.&lt;/em&gt;"><em>the price.</em></span></h2>
+      <p class="enq__lead" data-rise data-delay="140" data-ar="أرسل بياناتك وسنعود إليك بسعر مفصّل وموعد تركيب — عادة خلال ساعة في أوقات العمل.">Send your details and we'll come back with an itemised
       quote and a fitting slot — usually within the hour during working hours.</p>
 
       <ul class="enq__info" data-rise data-delay="220">
-        <li><span>Call</span><a href="tel:+97444682200" data-demo>+974 4468 2200</a></li>
-        <li><span>WhatsApp</span><a href="https://wa.me/00000000000" target="_blank" rel="noopener" data-demo>+974 0000 0000</a></li>
-        <li><span>Email</span><a href="mailto:info@oryxcaraccessories.qa" data-demo>info@oryxcaraccessories.qa</a></li>
-        <li><span>Hours</span><p>Sat–Thu 8:00–21:00 · Fri 15:00–21:00</p></li>
+        <li><span data-ar="اتصال">Call</span><a href="tel:+97400000000" data-demo>+974 0000 0000</a></li>
+        <li><span data-ar="واتساب">WhatsApp</span><a href="https://wa.me/00000000000" target="_blank" rel="noopener" data-demo>+974 0000 0000</a></li>
+        <li><span data-ar="البريد الإلكتروني">Email</span><a href="mailto:info@oryxcaraccessories.qa" data-demo>info@oryxcaraccessories.qa</a></li>
+        <li><span data-ar="أوقات العمل">Hours</span><p data-ar="السبت – الخميس 8:00 – 21:00 · الجمعة 15:00 – 21:00">Sat–Thu 8:00–21:00 · Fri 15:00–21:00</p></li>
       </ul>
     </div>
 
     <form class="f2" id="f2" novalidate data-rise data-delay="180">
       <div class="f2__row">
-        <div class="f2__fld"><input type="text" id="n2" name="name" required placeholder=" " autocomplete="name"><label for="n2">Your name</label></div>
-        <div class="f2__fld"><input type="tel" id="p2" name="phone" required placeholder=" " autocomplete="tel"><label for="p2">Phone number</label></div>
+        <div class="f2__fld"><input type="text" id="n2" name="name" required placeholder=" " autocomplete="name"><label for="n2" data-ar="الاسم">Your name</label></div>
+        <div class="f2__fld"><input type="tel" id="p2" name="phone" required placeholder=" " autocomplete="tel"><label for="p2" data-ar="رقم الهاتف">Phone number</label></div>
       </div>
       <div class="f2__row">
-        <div class="f2__fld"><input type="text" id="c2" name="car" placeholder=" "><label for="c2">Car make &amp; model</label></div>
+        <div class="f2__fld"><input type="text" id="c2" name="car" placeholder=" "><label for="c2" data-ar="نوع السيارة وطرازها">Car make &amp; model</label></div>
         <div class="f2__fld f2__fld--sel">
           <select id="s2" name="service">
-            <option>Car accessories</option><option>Batteries</option>
-            <option>Auto electrical works</option><option>Upholstery</option>
-            <option>Window tinting</option><option>Audio, lighting &amp; extras</option>
-            <option>Something else</option>
+            <option data-ar="زينة السيارات">Car accessories</option><option data-ar="البطاريات">Batteries</option>
+            <option data-ar="أعمال كهرباء السيارات">Auto electrical works</option><option data-ar="التنجيد">Upholstery</option>
+            <option data-ar="تظليل الزجاج">Window tinting</option><option data-ar="صوتيات وإضاءة وإضافات">Audio, lighting &amp; extras</option>
+            <option data-ar="شيء آخر">Something else</option>
           </select>
-          <label for="s2">Service needed</label>
+          <label for="s2" data-ar="الخدمة المطلوبة">Service needed</label>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
         </div>
       </div>
-      <div class="f2__fld"><textarea id="m2" name="message" rows="4" placeholder=" "></textarea><label for="m2">Tell us a bit more (optional)</label></div>
+      <div class="f2__fld"><textarea id="m2" name="message" rows="4" placeholder=" "></textarea><label for="m2" data-ar="تفاصيل إضافية (اختياري)">Tell us a bit more (optional)</label></div>
       <div class="f2__act">
-        <button class="pill pill--lg" type="submit"><span>Send on WhatsApp</span>
+        <button class="pill pill--lg" type="submit"><span data-ar="أرسل على واتساب">Send on WhatsApp</span>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
         </button>
-        <p class="f2__note">We reply during working hours.</p>
+        <p class="f2__note" data-ar="نرد خلال أوقات العمل.">We reply during working hours.</p>
       </div>
       <p class="f2__st" id="f2st" role="status"></p>
     </form>
@@ -468,33 +471,35 @@
   <div class="wrap">
     <div class="foot__top">
       <div class="foot__brand">
-        <img class="js-logo" src="assets/img/logo.png" alt="Oryx for Car Accessories" onerror="this.onerror=null;this.src='assets/img/logo.svg'">
-        <p class="ar">أوريكس لزينة السيارات</p>
+        <img class="js-logo" src="assets/img/logo.png" alt="Oryx for Car Accessories" data-ar-alt="أوريكس لزينة السيارات" onerror="this.onerror=null;this.src='assets/img/logo.svg'">
+        <p class="ar" data-ar="Oryx for Car Accessories">أوريكس لزينة السيارات</p>
+        <p class="foot__note" data-ar="زينة، بطاريات، كهرباء سيارات، تنجيد وتظليل زجاج — تركيب على يد متخصصين في فرعين داخل قطر.">Accessories, batteries, auto electrical, upholstery and window tinting — fitted by specialists across two branches in Qatar.</p>
       </div>
-      <nav class="foot__col" aria-label="Specialities">
-        <h4>Specialities</h4>
-        <a href="#services">Car accessories</a><a href="#services">Batteries</a>
-        <a href="#services">Auto electrical works</a><a href="#services">Upholstery</a>
-        <a href="#services">Window tinting</a><a href="#services">Audio &amp; lighting</a>
+      <nav class="foot__col" aria-label="Specialities" data-ar-aria-label="التخصصات">
+        <h4 data-ar="التخصصات">Specialities</h4>
+        <a href="#services" data-ar="زينة السيارات">Car accessories</a><a href="#services" data-ar="البطاريات">Batteries</a>
+        <a href="#services" data-ar="أعمال كهرباء السيارات">Auto electrical works</a><a href="#services" data-ar="التنجيد">Upholstery</a>
+        <a href="#services" data-ar="تظليل الزجاج">Window tinting</a><a href="#services" data-ar="الصوتيات والإضاءة">Audio &amp; lighting</a>
       </nav>
-      <nav class="foot__col" aria-label="Company">
-        <h4>Company</h4>
-        <a href="#about">About Oryx</a><a href="#works">How it works</a>
-        <a href="#work">Selected work</a><a href="#branches">Branches</a>
-        <a href="products.html">Products</a><a href="#enquire">Enquiries</a>
+      <nav class="foot__col" aria-label="Company" data-ar-aria-label="الشركة">
+        <h4 data-ar="الشركة">Company</h4>
+        <a href="#about" data-ar="عن أوريكس">About Oryx</a><a href="#works" data-ar="كيف نعمل">How it works</a>
+        <a href="#work" data-ar="أعمال مختارة">Selected work</a><a href="#branches" data-ar="الفروع">Branches</a>
+        <a href="products.html" data-ar="المنتجات">Products</a><a href="#enquire" data-ar="الاستفسارات">Enquiries</a>
       </nav>
       <div class="foot__col">
-        <h4>Contact</h4>
-        <a href="tel:+97444682200" data-demo>+974 4468 2200</a>
+        <h4 data-ar="التواصل">Contact</h4>
+        <a href="tel:+97400000000" data-demo>+974 0000 0000</a>
         <a href="mailto:info@oryxcaraccessories.qa" data-demo>info@oryxcaraccessories.qa</a>
-        <p data-demo>Street 38, Industrial Area, Doha</p>
-        <p data-demo>Street 12, Al Wakrah, Qatar</p>
+        <p data-demo data-ar="شارع 38، المنطقة الصناعية، الدوحة">Street 38, Industrial Area, Doha</p>
+        <p data-demo data-ar="شارع 12، الوكرة، قطر">Street 12, Al Wakrah, Qatar</p>
       </div>
     </div>
     <div class="foot__bar">
-      <p>© <span id="yr2">2026</span> Oryx for Car Accessories.</p>
-      <p>Sat–Thu 8:00–21:00 · Fri 15:00–21:00</p>
-      <a class="foot__up" href="#home">Back to top
+      <!-- #yr2 is written by main2.js, so only the name is translatable -->
+      <p>© <span id="yr2">2026</span> <span data-ar="أوريكس لزينة السيارات.">Oryx for Car Accessories.</span></p>
+      <p data-ar="السبت – الخميس 8:00 – 21:00 · الجمعة 15:00 – 21:00">Sat–Thu 8:00–21:00 · Fri 15:00–21:00</p>
+      <a class="foot__up" href="#home"><span data-ar="إلى الأعلى">Back to top</span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6M6 12l6-6 6 6"/></svg>
       </a>
     </div>
@@ -510,11 +515,12 @@
   <a href="index4.html">04</a>
 </div>
 
-<a class="wa2" data-demo href="https://wa.me/00000000000" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+<a class="wa2" data-demo href="https://wa.me/00000000000" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" data-ar-aria-label="تواصل على واتساب">
   <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3a13 13 0 0 0-11.2 19.5L3 29l6.7-1.7A13 13 0 1 0 16 3zm7.3 18.3c-.3.9-1.8 1.7-2.5 1.8-.6.1-1.4.1-2.3-.1a19 19 0 0 1-8.3-7.2c-.6-1-1-2.1-1-3.2 0-1.2.6-2.2 1.2-2.6.3-.2.7-.2 1-.2h.7c.2 0 .5 0 .8.6l1.1 2.6c.1.2.1.4 0 .6l-.5.7c-.2.2-.4.4-.2.8a12 12 0 0 0 4.6 4.1c.4.2.6.2.8-.1l1-1.2c.2-.3.4-.2.7-.1l2.4 1.2c.3.1.6.3.7.4.1.3.1.9-.2 1.9z"/></svg>
 </a>
 
 <script src="assets/js/hero2.js"></script>
+<script src="assets/js/i18n.js"></script>
 <script src="assets/js/main2.js"></script>
 </body>
 </html>
