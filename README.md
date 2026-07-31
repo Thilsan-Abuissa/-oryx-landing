@@ -69,11 +69,15 @@ Once a direction is picked, delete the other three pages and their `style*.css` 
 
 ## English ⇄ Arabic
 
-Design 02 (`index.html`) and the catalogue (`products.html`) are bilingual. The
-switch sits in the header next to the phone number, reads **العربية** in English
-and **English** in Arabic, and remembers the choice in `localStorage`
+Design 02 (`index.html`) and the catalogue (`products.html`) are bilingual. A
+segmented **EN | AR** switch sits in the header next to the phone number with the
+current language filled in maroon, and the choice is remembered in `localStorage`
 (`oryx-lang`). English is the default for a first-time visitor. The other three
 designs are English-only.
+
+The switch keeps EN on the left in both modes — mirroring it would swap the two
+halves under the reader's finger every time they pressed it — and its active half
+inverts to white over the maroon fullscreen menu.
 
 Two files do the work:
 

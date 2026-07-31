@@ -109,10 +109,10 @@
     document.body.classList.toggle('is-ar', ar);
     if (arTitle) document.title = ar ? arTitle : enTitle;
 
-    qsa('.lang').forEach(function (b) {
-      b.textContent = ar ? 'English' : 'العربية';
-      b.setAttribute('aria-label', ar ? 'Switch to English' : 'التبديل إلى العربية');
-      b.setAttribute('lang', ar ? 'en' : 'ar');
+    qsa('.lang__o').forEach(function (o) {
+      var on = o.getAttribute('data-lang') === lang;
+      o.classList.toggle('is-on', on);
+      o.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
 
     try { localStorage.setItem(KEY, lang); } catch (e) {}
@@ -123,8 +123,11 @@
   }
 
   /* ---------- boot ---------- */
-  qsa('.lang').forEach(function (b) {
-    b.addEventListener('click', function () { apply(lang === 'ar' ? 'en' : 'ar'); });
+  qsa('.lang__o').forEach(function (o) {
+    o.addEventListener('click', function () {
+      var want = o.getAttribute('data-lang');
+      if (want !== lang) apply(want);
+    });
   });
 
   var saved = null;
