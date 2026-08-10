@@ -69,15 +69,11 @@ body.is-ar :is(h1,.h2,.hero2__h,.idx__nav a,.hcard h3,.acc__i span,.srow__txt h3
 body.is-ar :is(h1 em,.h2 em,.br h3 em,.intro__n,.hcard__n){ font-style:normal; }
 /* Arabic descenders need more room inside each masked line */
 body.is-ar [data-mask] span{ padding-bottom:.32em; margin-bottom:-.32em; }
-/* the brand line flips to the Latin name in Arabic mode */
-body.is-ar :is(.ar,.hero2__ar){ font-family:var(--f-b); }
-
 /* =============================================================
    MIRRORED LAYOUT
    Grids and flex rows flip on their own; everything below is a
    hard-coded left/right that does not.
    ============================================================= */
-[dir="rtl"] :is(.ar,.hero2__ar){ text-align:right; }
 
 /* Latin runs — phone numbers, e-mail, clock times, part names — must not
    be re-ordered by the surrounding right-to-left paragraph. plaintext

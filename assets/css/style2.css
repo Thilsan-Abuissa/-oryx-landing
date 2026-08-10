@@ -77,8 +77,6 @@ address{ font-style:normal; }
 .lbl--inv{ color:rgba(255,255,255,.62); }
 .lbl--inv em{ color:#fff; }
 
-.ar{ font-family:var(--f-a); unicode-bidi:plaintext; text-align:left; }
-
 /* ---------- buttons ---------- */
 .pill{
   position:relative; display:inline-flex; align-items:center; gap:.6rem;
@@ -188,8 +186,7 @@ body.idx-open .idx__in{ opacity:1; transition-delay:.25s; }
 .idx__nav a em{ font-style:normal; font-family:var(--f-b); font-size:.7rem; letter-spacing:.18em; opacity:.65; }
 .idx__nav a:hover{ padding-left:.8rem; }
 body.idx-open .idx__nav a{ opacity:1; transform:none; }
-.idx__foot{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; font-size:.9rem; color:rgba(255,255,255,.75); }
-.idx__foot .ar{ font-size:1.1rem; margin:0; }
+.idx__foot{ display:flex; flex-wrap:wrap; gap:1rem; font-size:.9rem; color:rgba(255,255,255,.75); }
 
 /* ---------- hero ---------- */
 .hero2{ padding:clamp(6.5rem,13vh,10rem) 0 clamp(4rem,8vh,6rem); }
@@ -202,7 +199,6 @@ body.idx-open .idx__nav a{ opacity:1; transform:none; }
   letter-spacing:-.028em; margin:0 0 1.3rem;
 }
 .hero2__h span{ display:block; }
-.hero2__ar{ font-family:var(--f-a); font-size:clamp(1rem,1.8vw,1.3rem); color:var(--mar); margin:0 0 1.2rem; unicode-bidi:plaintext; text-align:left; }
 .hero2__lead{ max-width:46ch; color:var(--mute); font-size:clamp(1rem,.5vw + .9rem,1.14rem); margin:0 0 2.2rem; }
 .hero2__cta{ display:flex; align-items:center; flex-wrap:wrap; gap:1.4rem; }
 
@@ -435,7 +431,6 @@ body.no-gl .hero2__art{ display:none; }
 .foot{ background:var(--ink); color:#EDEAE7; padding-top:clamp(3rem,7vw,5.5rem); }
 .foot__top{ display:grid; grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,.85fr)); gap:clamp(1.8rem,4vw,3rem); padding-bottom:3rem; }
 .foot__brand img{ height:88px; width:auto; filter:brightness(0) invert(1); margin-bottom:1rem; }
-.foot__brand .ar{ color:var(--sil); font-size:1.05rem; margin:0; }
 .foot__note{ margin:.9rem 0 0; max-width:36ch; font-size:.86rem; line-height:1.7; color:rgba(255,255,255,.55); }
 .foot__col{ display:grid; align-content:start; gap:.5rem; }
 .foot__col h4{ font-family:var(--f-b); font-size:.68rem; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.5); margin-bottom:.5rem; }
