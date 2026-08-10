@@ -81,10 +81,11 @@ address{ font-style:normal; }
 .pill{
   position:relative; display:inline-flex; align-items:center; gap:.6rem;
   padding:.85rem 1.5rem; border-radius:2px; overflow:hidden; isolation:isolate;
-  background:var(--mar); color:#fff;
+  background:#3c3c3c; color:#fff;
   font-size:.82rem; font-weight:500; letter-spacing:.04em; text-transform:uppercase;
   transition:color .3s;
 }
+.pill--enquire{ background:var(--mar); }
 .pill--lg{ padding:1.1rem 2rem; font-size:.86rem; }
 .pill span,.pill svg{ position:relative; z-index:2; }
 .pill svg{ width:1.05em; height:1.05em; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; transition:transform .4s var(--e); }
@@ -168,7 +169,7 @@ body.idx-open .menub i:last-child{ width:16px; transform:translateY(-1.2px) rota
 /* ---------- fullscreen index ---------- */
 .idx{ position:fixed; inset:0; z-index:690; visibility:hidden; }
 .idx::before{
-  content:''; position:absolute; inset:0; background:var(--mar);
+  content:''; position:absolute; inset:0; background:#7A1F2E;
   transform:scaleY(0); transform-origin:top; transition:transform .75s var(--e);
 }
 .idx__in{ position:relative; height:100%; display:flex; flex-direction:column; justify-content:center; gap:2rem; padding:6rem var(--pad) 3rem; color:#fff; opacity:0; transition:opacity .3s; }
@@ -280,7 +281,7 @@ body.no-gl .hero2__art{ display:none; }
 }
 
 /* ---------- numbers band ---------- */
-.nums{ background:var(--mar); color:#fff; padding-block:clamp(3.5rem,8vw,6.5rem); }
+.nums{ background:#7A1F2E; color:#fff; padding-block:clamp(3.5rem,8vw,6.5rem); }
 .nums__list{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(1.2rem,3vw,3rem); }
 .nums__list li{ padding-top:1.2rem; border-top:1px solid var(--line-inv); }
 .nums__list b{ display:block; font-family:var(--f-d); font-weight:400; font-size:clamp(2.4rem,5.4vw,4.2rem); line-height:1; letter-spacing:-.03em; }

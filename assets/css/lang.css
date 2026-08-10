@@ -24,7 +24,7 @@
   transition:color .3s, background .35s var(--e);
 }
 .lang__o:hover{ color:var(--mar); }
-.lang__o.is-on,.lang__o.is-on:hover{ background:var(--mar); color:#fff; }
+.lang__o.is-on,.lang__o.is-on:hover{ background:#3c3c3c; color:#fff; }
 
 /* the header sits above the fullscreen index, so the switch has to
    survive the maroon panel sliding underneath it — a maroon fill would
