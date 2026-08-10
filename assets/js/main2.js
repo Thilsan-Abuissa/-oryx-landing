@@ -16,6 +16,9 @@
   var qsa = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
   var clamp = function (v, a, b) { return v < a ? a : v > b ? b : v; };
   var now = function () { return (window.performance && performance.now) ? performance.now() : +new Date(); };
+  /* i18n.js provides the lookup on the bilingual pages; elsewhere the
+     English passes straight through */
+  var T = function (s) { return window.ORYX_T ? window.ORYX_T(s) : s; };
 
   /* ================= PRELOADER ================= */
   (function () {
@@ -163,7 +166,10 @@
     var p = clamp(-r.top / total, 0, 1);
     var dist = hz.track.scrollWidth - window.innerWidth;
     if (dist < 0) dist = 0;
-    hz.track.style.transform = 'translate3d(' + (-p * dist).toFixed(1) + 'px,0,0)';
+    // in Arabic the track is laid out from the right edge, so the cards
+    // are revealed by travelling the other way
+    var way = document.documentElement.dir === 'rtl' ? 1 : -1;
+    hz.track.style.transform = 'translate3d(' + (way * p * dist).toFixed(1) + 'px,0,0)';
     if (hz.num) {
       var i = clamp(Math.round(p * (hz.cards.length - 1)), 0, hz.cards.length - 1);
       if (i !== hz.last) { hz.last = i; hz.num.textContent = '0' + (i + 1); }
@@ -225,7 +231,13 @@
     open(qs('.acc__i.is-open', acc) || items[0]);
     window.addEventListener('resize', function () {
       var cur = qs('.acc__i.is-open', acc);
-      if (cur) qs('.acc__p', cur).style.height = qs('.acc__p', cur).scrollHeight + 'px';
+      if (!cur) return;
+      // scrollHeight never reports less than the height already pinned on the
+      // box, so release it first — otherwise a panel that needs less room than
+      // last time (a narrower window, a shorter translation) stays too tall
+      var panel = qs('.acc__p', cur);
+      panel.style.height = 'auto';
+      panel.style.height = panel.scrollHeight + 'px';
     });
   }
 
@@ -267,7 +279,7 @@
         f.parentNode.classList.toggle('err', bad);
         if (bad) ok = false;
       });
-      if (!ok) { st.textContent = 'Please add your name and phone number.'; return; }
+      if (!ok) { st.textContent = T('Please add your name and phone number.'); return; }
 
       var text = encodeURIComponent([
         'New enquiry — Oryx for Car Accessories',
@@ -278,13 +290,13 @@
         'Details: ' + (qs('#m2').value.trim() || '—')
       ].join('\n'));
 
-      st.textContent = 'Opening WhatsApp…';
+      st.textContent = T('Opening WhatsApp…');
       var w = window.open('https://wa.me/' + CONFIG.whatsapp + '?text=' + text, '_blank', 'noopener');
       if (!w) {
         window.location.href = 'mailto:' + CONFIG.email +
           '?subject=' + encodeURIComponent('Quote request — ' + n.value.trim()) + '&body=' + text;
       }
-      setTimeout(function () { st.textContent = 'Thanks — we\'ll reply shortly.'; }, 1200);
+      setTimeout(function () { st.textContent = T('Thanks — we\'ll reply shortly.'); }, 1200);
     });
     qsa('input,textarea', form).forEach(function (f) {
       f.addEventListener('input', function () { f.parentNode.classList.remove('err'); });
