@@ -29,9 +29,12 @@
     function finish() {
       if (done) return;
       done = true; clearInterval(tick);
+      // once the logo/progress bar is done, fade straight into the site —
+      // the hero starts revealing right away, under the fading preloader
       body.classList.add('pre-out');
       body.classList.remove('is-loading');
-      setTimeout(function () { body.classList.add('pre-gone'); start(); }, 850);
+      start();
+      setTimeout(function () { body.classList.add('pre-gone'); }, 500);
     }
     var tick = setInterval(function () {
       p += loaded ? 10 + Math.random() * 15 : 3 + Math.random() * 6;
@@ -93,9 +96,11 @@
       items.forEach(function (el) { el.classList.add('in'); });
       return;
     }
+    // toggle both ways (not just add-once) so content replays its reveal
+    // whether you scroll down into it or back up into it
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+        en.target.classList.toggle('in', en.isIntersecting);
       });
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
     items.forEach(function (el) { io.observe(el); });
@@ -337,6 +342,25 @@
     });
   }
 
+  /* ================= MAGNETIC BUTTONS =================
+     pointer-fine only — a subtle pull toward the cursor on pill CTAs */
+  function initMagnetic() {
+    if (reduced || window.matchMedia('(pointer: coarse)').matches) return;
+    qsa('.pill').forEach(function (btn) {
+      btn.addEventListener('mousemove', function (e) {
+        var r = btn.getBoundingClientRect();
+        var dx = clamp((e.clientX - r.left - r.width / 2) * .25, -8, 8);
+        var dy = clamp((e.clientY - r.top - r.height / 2) * .25, -8, 8);
+        btn.style.setProperty('--mx', dx + 'px');
+        btn.style.setProperty('--my', dy + 'px');
+      });
+      btn.addEventListener('mouseleave', function () {
+        btn.style.setProperty('--mx', '0px');
+        btn.style.setProperty('--my', '0px');
+      });
+    });
+  }
+
   /* ================= LOOP ================= */
   var ticking = false;
   function onScroll() {
@@ -357,6 +381,7 @@
     initMarquee('.tick__t', '.tick__s', 42);
     initReveal(); initShift(); initHz(); initCounters();
     initAcc(); initQuote(); initForm(); initNavState(); initAnchors();
+    initMagnetic();
 
     var y = qs('#yr2'); if (y) y.textContent = new Date().getFullYear();
 
