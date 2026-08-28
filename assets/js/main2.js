@@ -7,8 +7,8 @@
   'use strict';
 
   var CONFIG = {
-    whatsapp: '97433122200',                  // digits only, with country code
-    email:    'info@oryxcaraccessories.qa'
+    whatsapp: '97451570052',                  // digits only, with country code
+    email:    'info@careplus.qa'
   };
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -292,7 +292,7 @@
       if (!ok) { st.textContent = T('Please add your name and phone number.'); return; }
 
       var text = encodeURIComponent([
-        'New enquiry — Oryx for Car Accessories',
+        'New enquiry — CarePlus for Car Accessories',
         'Name: ' + n.value.trim(),
         'Phone: ' + p.value.trim(),
         'Car: ' + (qs('#c2').value.trim() || '—'),

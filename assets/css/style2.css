@@ -46,6 +46,16 @@ body{
 body.is-loading{ overflow:hidden; height:100%; }
 body.idx-open{ overflow:hidden; }
 
+/* Fine paper grain over the whole page. Flat beige reads as empty screen;
+   a little tooth makes it read as stock. Sits under the preloader (9999)
+   and takes no pointer events. */
+body::after{
+  content:''; position:fixed; inset:0; z-index:9998; pointer-events:none;
+  opacity:.05; background-repeat:repeat; background-size:170px 170px;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='170'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='170' height='170' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (prefers-reduced-motion: reduce){ body::after{ opacity:.035; } }
+
 img,svg,canvas{ display:block; max-width:100%; }
 p{ margin:0 0 1em; }
 a{ color:inherit; text-decoration:none; }
@@ -391,18 +401,36 @@ body.no-gl .hero2__art{ display:none; }
 /* ---------- selected work ---------- */
 .sel{ padding-block:var(--sy); background:var(--paper-2); }
 .sel__head{ margin-bottom:clamp(2.5rem,6vw,4.5rem); }
-.sel__rows{ display:grid; gap:clamp(2.5rem,6vw,5.5rem); }
-.srow{ display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:clamp(1.5rem,4vw,4rem); align-items:center; }
+.sel__rows{ display:grid; gap:clamp(2.5rem,6vw,5.5rem); counter-reset:srow; }
+/* top-aligned, not centred: the text column's rule lines up with the top
+   edge of the plate, so a tall image leaves its slack at the bottom of the
+   column instead of floating the copy in the middle of a void */
+.srow{ display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:clamp(1.5rem,4vw,4rem); align-items:start; counter-increment:srow; }
 .srow--flip .srow__fig{ order:2; }
 .srow__fig{ margin:0; overflow:hidden; border-radius:3px; aspect-ratio:16/10; position:relative; }
 .srow--por .srow__fig{ aspect-ratio:4/5; }     /* the seat is drawn portrait */
 .srow--wide .srow__fig{ aspect-ratio:16/6; }   /* the 4×4 is drawn letterbox */
-.srow--por{ grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); align-items:center; }
+.srow--por{ grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); }
 .srow__img{
   position:absolute; inset:-5% 0; background-size:cover; background-position:center;
   transition:transform 1.3s var(--e);
 }
 .srow__fig:hover .srow__img{ transform:scale(1.04); }
+/* a crisp inner edge and a floor shadow so each plate reads as a framed
+   print rather than a flat rectangle dropped on the page */
+.srow__fig::after{
+  content:''; position:absolute; inset:0; pointer-events:none; border-radius:3px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.1),
+             inset 0 -70px 90px -70px rgba(0,0,0,.55);
+}
+/* the text column was a small island beside a tall image — the numeral and
+   rule give it a top edge and enough weight to hold its half of the row */
+.srow__txt{ border-top:1px solid var(--line); padding-top:1.5rem; }
+.srow__txt::before{
+  content:counter(srow,decimal-leading-zero);
+  display:block; font-family:var(--f-d); font-style:italic; color:var(--mar);
+  font-size:clamp(2.2rem,4.6vw,3.6rem); line-height:1; margin-bottom:.9rem;
+}
 .srow__txt h3{ font-size:clamp(1.4rem,2.6vw,2.1rem); margin:.4rem 0 .8rem; }
 .srow__txt p:last-child{ margin:0; color:var(--mute); max-width:40ch; }
 @media (max-width:820px){
@@ -571,10 +599,18 @@ body.far .callfab{ transform:none; opacity:1; }
 [data-mask] span:nth-child(3) > i{ transition-delay:.18s; }
 [data-mask] span:nth-child(4) > i{ transition-delay:.27s; }
 
+/* Work images wipe open as their row arrives. Driven off the PARENT's .in
+   rather than observing the image itself: Chromium reports a clip-path
+   collapsed element as not intersecting, so an observed target would never
+   receive the class that opens it. */
+.srow__fig,.sband__img{ clip-path:inset(0 0 100% 0); transition:clip-path 1.15s var(--e) .1s; }
+.srow.in .srow__fig,.sband.in .sband__img{ clip-path:inset(0 0 0 0); }
+
 /* ---------- reduced motion ---------- */
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
   [data-rise]{ opacity:1; transform:none; }
   [data-mask] span > i{ transform:none; }
+  .srow__fig,.sband__img{ clip-path:none; }
   .tick__t{ animation:none; }
 }
