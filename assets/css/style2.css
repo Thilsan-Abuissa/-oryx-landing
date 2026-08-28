@@ -705,7 +705,7 @@ body.hz-drag{ user-select:none; -webkit-user-select:none; }
 .br__pinlbl{
   position:absolute; left:50%; top:52%; z-index:2;
   transform:translate(-50%,34px);
-  font-family:var(--f-b); font-size:.82rem; font-weight:700;
+  font-family:var(--f-d); font-size:.95rem; font-weight:600;
   letter-spacing:.01em; color:#fff;
   text-shadow:0 1px 10px rgba(0,0,0,.8);
   white-space:nowrap; pointer-events:none;
