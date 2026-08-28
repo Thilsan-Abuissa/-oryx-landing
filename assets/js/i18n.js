@@ -26,11 +26,11 @@
   };
   window.ORYX_T = function (en) { return (lang === 'ar' && STRINGS[en]) || en; };
 
-  /* the WhatsApp prefill follows the language too — the customer
-     should not have to send an English sentence about an Arabic card */
+  /* the enquiry email subject follows the language too — the customer
+     should not have to send an English subject about an Arabic card */
   var WA = {
-    en: 'Hi Oryx, I\'d like to ask about the {name}.',
-    ar: 'مرحبًا أوريكس، أرغب في الاستفسار عن {name}.'
+    en: 'Enquiry: {name}',
+    ar: 'استفسار: {name}'
   };
 
   /* ---------- what to translate ---------- */
@@ -100,7 +100,7 @@
       var nm  = card.querySelector('.pcard__name');
       if (!cta || !nm) return;
       var base = (cta.__base || (cta.__base = cta.getAttribute('href').split('?')[0]));
-      cta.setAttribute('href', base + '?text=' +
+      cta.setAttribute('href', base + '?subject=' +
         encodeURIComponent(WA[lang].replace('{name}', nm.textContent.trim())));
     });
 
