@@ -1,10 +1,16 @@
 /* =============================================================
    ORYX — DESIGN 02 hero scene
-   Shaded 3D ribbons tracing the swoosh from the logo. Solid, lit
-   geometry on a transparent canvas so the paper background shows —
-   deliberately the opposite of design 01's dark particle field.
+   A real 3D car — the Khronos "ToyCar" sample asset (CC0), lit with
+   a studio environment for genuine PBR paint/clearcoat/glass
+   reflections — replacing the earlier wire-outline sketch with an
+   actual dimensional model. Rendered on a transparent canvas so the
+   paper background shows through.
    ============================================================= */
-(function () {
+import * as THREE from 'three';
+import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.149.0/examples/jsm/loaders/GLTFLoader.js';
+import { RoomEnvironment } from 'https://cdn.jsdelivr.net/npm/three@0.149.0/examples/jsm/environments/RoomEnvironment.js';
+
+(async function () {
   'use strict';
 
   var canvas = document.getElementById('ribbon');
@@ -13,70 +19,139 @@
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function bail() { canvas.style.display = 'none'; document.body.classList.add('no-gl'); }
-  if (typeof THREE === 'undefined') { bail(); return; }
+
   try {
     var probe = document.createElement('canvas');
-    if (!(probe.getContext('webgl') || probe.getContext('experimental-webgl'))) { bail(); return; }
+    if (!(probe.getContext('webgl2') || probe.getContext('webgl'))) { bail(); return; }
   } catch (e) { bail(); return; }
 
-  var RIBBONS = 5;
-
-  var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+  var renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+  } catch (e) { bail(); return; }
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.setClearAlpha(0);
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.05;
 
   var scene = new THREE.Scene();
-  var camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
-  camera.position.set(0, 0, 9.2);
+  var camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
+  camera.position.set(0, 0.5, 8.4);
+  camera.lookAt(0, -0.1, 0);
 
   var group = new THREE.Group();
-  group.rotation.z = -0.08;
+  group.rotation.z = -0.05;
   scene.add(group);
 
-  /* ---------- light: one key from upper right, one cool fill ---------- */
-  scene.add(new THREE.AmbientLight(0xffffff, 0.72));
-  var key = new THREE.DirectionalLight(0xffffff, 1.15);
+  /* ---------- studio environment, for reflections a flat directional
+     light can't give PBR paint/glass/clearcoat ---------- */
+  var pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+  pmrem.dispose();
+
+  scene.add(new THREE.AmbientLight(0xffffff, 0.35));
+  var key = new THREE.DirectionalLight(0xffffff, 1.3);
   key.position.set(4, 6, 6);
   scene.add(key);
-  var fill = new THREE.DirectionalLight(0xd9c9cc, 0.5);
-  fill.position.set(-6, -2, 3);
+  var fill = new THREE.DirectionalLight(0xd9c9cc, 0.4);
+  fill.position.set(-6, -1, 4);
   scene.add(fill);
 
-  /* ---------- materials ---------- */
-  function mat(hex, rough, metal) {
-    return new THREE.MeshStandardMaterial({ color: hex, roughness: rough, metalness: metal });
+  /* ---------- contact shadow ----------
+     A soft blurred ellipse under the car, facing the camera — keeps
+     it grounded without a full ground-plane/shadow-map setup. */
+  function makeShadowTexture() {
+    var c = document.createElement('canvas');
+    c.width = c.height = 256;
+    var ctx = c.getContext('2d');
+    var g = ctx.createRadialGradient(128, 128, 10, 128, 128, 126);
+    g.addColorStop(0, 'rgba(20,14,16,0.55)');
+    g.addColorStop(0.6, 'rgba(20,14,16,0.22)');
+    g.addColorStop(1, 'rgba(20,14,16,0)');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, 256, 256);
+    return new THREE.CanvasTexture(c);
   }
-  var MATS = [
-    mat(0x7a1f2e, 0.34, 0.22),
-    mat(0xb9bfc4, 0.26, 0.55),
-    mat(0x9a3243, 0.38, 0.18),
-    mat(0x58101c, 0.32, 0.26),
-    mat(0xcfd4d8, 0.3, 0.45)
-  ];
+  var shadowMesh = new THREE.Mesh(
+    new THREE.PlaneGeometry(5.0, 1.8),
+    new THREE.MeshBasicMaterial({ map: makeShadowTexture(), transparent: true, depthWrite: false })
+  );
+  shadowMesh.position.set(0, -0.95, -0.4);
+  scene.add(shadowMesh);
 
-  /* ---------- ribbons ---------- */
-  function makeCurve(i) {
-    var pts = [];
-    for (var s = 0; s <= 6; s++) {
-      var t = s / 6;
-      var x = -5.2 + t * 10.4;
-      var y = Math.sin(t * Math.PI * 0.95 + i * 0.52) * (1.45 + i * 0.15)
-            + (i - (RIBBONS - 1) / 2) * 0.62 - 0.25;
-      var z = Math.cos(t * Math.PI * 0.8 + i * 0.72) * 1.35;
-      pts.push(new THREE.Vector3(x, y, z));
+  /* ---------- load the car ----------
+     Khronos "ToyCar" sample asset (CC0, khronos glTF-Sample-Assets).
+     Auto-fit into the scene: recenter on its own bounding box, then
+     scale so its length maps to a fixed number of world units
+     regardless of the source model's native (real-world-metre)
+     scale. */
+  var rig = new THREE.Group();
+  group.add(rig);
+
+  var loader = new GLTFLoader();
+  var model;
+  try {
+    var gltf = await loader.loadAsync('assets/models/toycar.glb');
+    // the source scene also bundles a photo-backdrop "Fabric" plane and
+    // unused camera rigs alongside the actual car nodes — keep only the
+    // car body and its glass
+    model = new THREE.Group();
+    var carNode = gltf.scene.getObjectByName('ToyCar');
+    var glassNode = gltf.scene.getObjectByName('Glass');
+    if (carNode) model.add(carNode);
+    if (glassNode) model.add(glassNode);
+    if (!model.children.length) { bail(); return; }
+  } catch (e) { bail(); return; }
+
+  var box = new THREE.Box3().setFromObject(model);
+  var size = new THREE.Vector3(); box.getSize(size);
+  var center = new THREE.Vector3(); box.getCenter(center);
+  model.position.sub(center);
+  model.rotation.y = Math.PI * -0.14;   // front-3/4 angle (rear-facing default + 180°)
+
+  var TARGET_LEN = 5.3;
+  var footprint = Math.max(size.x, size.z);
+  var scale = footprint > 0 ? TARGET_LEN / footprint : 1;
+  rig.scale.setScalar(scale);
+  var restY = (size.y / 2) * scale - 0.85;
+  rig.position.y = restY;
+  rig.add(model);
+
+  // fade + rise on the way in, same easing feel as the rest of the hero
+  var mats = [];
+  model.traverse(function (o) {
+    if (o.isMesh && o.material) {
+      o.material = o.material.clone();
+      o.material.transparent = true;
+      o.material.opacity = 0;
+      mats.push(o.material);
+
+      // the source paint job is green with an orange stripe — recolour
+      // just the saturated (painted) texels to the brand red in-shader,
+      // leaving the chrome trim and black tyres (already near-neutral,
+      // low-saturation pixels in the same texture) alone
+      if (o.material.name === 'ToyCar') {
+        o.material.onBeforeCompile = function (shader) {
+          shader.fragmentShader = shader.fragmentShader.replace(
+            '#include <map_fragment>',
+            '#include <map_fragment>\n' +
+            '{\n' +
+            '  float mx = max(max(diffuseColor.r, diffuseColor.g), diffuseColor.b);\n' +
+            '  float mn = min(min(diffuseColor.r, diffuseColor.g), diffuseColor.b);\n' +
+            '  float sat = mx > 0.0001 ? (mx - mn) / mx : 0.0;\n' +
+            '  if (sat > 0.22) {\n' +
+            '    float luma = dot(diffuseColor.rgb, vec3(0.299, 0.587, 0.114));\n' +
+            '    vec3 brand = vec3(0.478, 0.122, 0.180) * (0.55 + luma);\n' +
+            '    diffuseColor.rgb = mix(diffuseColor.rgb, brand, 0.92);\n' +
+            '  }\n' +
+            '}\n'
+          );
+        };
+      }
     }
-    return new THREE.CatmullRomCurve3(pts, false, 'catmullrom', 0.42);
-  }
-
-  var tubes = [];
-  for (var i = 0; i < RIBBONS; i++) {
-    var r = 0.075 + (i % 2 === 0 ? 0.095 : 0.035);
-    var geo = new THREE.TubeGeometry(makeCurve(i), 190, r, 16, false);
-    var mesh = new THREE.Mesh(geo, MATS[i % MATS.length]);
-    group.add(mesh);
-    tubes.push({ geo: geo, total: geo.index ? geo.index.count : 0, delay: i * 0.16 });
-    if (geo.index) geo.setDrawRange(0, 0);   // drawn on during the intro
-  }
+  });
+  rig.position.y = restY - 0.4;
 
   /* ---------- interaction ---------- */
   var mouse = { x: 0, y: 0 }, ease = { x: 0, y: 0 };
@@ -102,15 +177,16 @@
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
-    camera.fov = w < 620 ? 54 : 45;
+    camera.fov = w < 620 ? 46 : 40;
     camera.updateProjectionMatrix();
     if (reduced) drawStatic();
   }
   window.addEventListener('resize', resize);
 
   function drawStatic() {
-    tubes.forEach(function (t) { if (t.total) t.geo.setDrawRange(0, t.total); });
-    group.rotation.y = 0.12;
+    mats.forEach(function (m) { m.opacity = 1; });
+    rig.position.y = restY;
+    group.rotation.y = 0.32;
     renderer.render(scene, camera);
   }
 
@@ -123,27 +199,24 @@
     var el = (now - t0) / 1000;
     var tm = now * 0.001;
 
-    // intro draw-on, staggered per ribbon
-    for (var i = 0; i < tubes.length; i++) {
-      var tb = tubes[i];
-      if (!tb.total) continue;
-      var p = Math.min(1, Math.max(0, (el - tb.delay) / 1.6));
-      p = 1 - Math.pow(1 - p, 3);
-      tb.geo.setDrawRange(0, Math.floor(tb.total * p));
-    }
+    var p = Math.min(1, el / 1.1);
+    p = 1 - Math.pow(1 - p, 3);
+    mats.forEach(function (m) { m.opacity = p; });
+    rig.position.y = restY - (1 - p) * 0.4;
 
     ease.x += (mouse.x - ease.x) * 0.08;
     ease.y += (mouse.y - ease.y) * 0.08;
 
-    // perpetual sway so the ribbon keeps moving even without the cursor
-    // over it — bounded oscillation only (no open-ended drift, which used
-    // to fight the scroll-exit rotation below and tangle into a knot),
-    // with the mouse-follow (ease.x/y) and scroll layer riding on top
-    group.rotation.y = 0.42 + ease.x * 0.4 + Math.sin(tm * 0.5) * 0.3;
-    group.rotation.x = -ease.y * 0.24 + Math.sin(tm * 0.38) * 0.13;
-    group.rotation.z = -0.08 - scrollP * 0.24 + Math.sin(tm * 0.24) * 0.07;
-    group.position.y = scrollP * 0.9 + Math.sin(tm * 0.42) * 0.16;
-    group.position.x = Math.sin(tm * 0.28) * 0.1;
+    // perpetual sway so the car keeps moving even without the cursor
+    // over it — bounded oscillation only, with the mouse-follow
+    // (ease.x/y) and scroll layer riding on top
+    group.rotation.y = 0.32 + ease.x * 0.22 + Math.sin(tm * 0.5) * 0.16;
+    group.rotation.x = -ease.y * 0.16 + Math.sin(tm * 0.38) * 0.08;
+    group.rotation.z = -0.05 - scrollP * 0.18 + Math.sin(tm * 0.24) * 0.04;
+    group.position.y = scrollP * 0.6 + Math.sin(tm * 0.42) * 0.1;
+    group.position.x = Math.sin(tm * 0.28) * 0.06;
+    shadowMesh.position.x = group.position.x * 0.6;
+    shadowMesh.position.y = -0.95 + group.position.y * 0.15;
 
     renderer.render(scene, camera);
   }
