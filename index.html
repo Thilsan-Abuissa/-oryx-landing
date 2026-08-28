@@ -313,27 +313,34 @@
       <p class="lbl" data-rise data-ar="&lt;em&gt;04&lt;/em&gt; كيف نعمل"><em>04</em> How it works</p>
       <h2 class="h2" data-mask><span data-ar="أربع خطوات.">Four steps.</span><span data-ar="&lt;em&gt;بلا مفاجآت.&lt;/em&gt;"><em>No surprises.</em></span></h2>
       <p class="steps__note" data-rise data-delay="140" data-ar="السعر الذي توافق عليه هو السعر الذي تدفعه.">The number you approve is the number you pay.</p>
+
+      <!-- reading meter: tracks which step is open so the left column stays
+           alive while the reader works down the list -->
+      <div class="steps__meter" data-rise data-delay="220" aria-hidden="true">
+        <span class="steps__count"><b id="accNow">01</b><i>/</i><s>04</s></span>
+        <span class="steps__bar"><em id="accFill"></em></span>
+      </div>
     </div>
 
     <div class="acc" id="acc">
       <div class="acc__i is-open">
-        <button type="button" aria-expanded="true"><em>01</em><span data-ar="أخبرنا بما تحتاجه">Tell us what you need</span><i></i></button>
-        <div class="acc__p"><p data-ar="اتصل بنا، أو راسلنا بالبريد الإلكتروني، أو زُرنا مباشرة. أرسل صورة للسيارة وسنخبرك بما يمكن عمله قبل أن تتحرّك من مكانك.">Call us, send an email or walk in. Send a photo of
+        <button type="button" id="accB1" aria-expanded="true" aria-controls="accP1"><em>01</em><span data-ar="أخبرنا بما تحتاجه">Tell us what you need</span><i></i></button>
+        <div class="acc__p" id="accP1" role="region" aria-labelledby="accB1"><p data-ar="اتصل بنا، أو راسلنا بالبريد الإلكتروني، أو زُرنا مباشرة. أرسل صورة للسيارة وسنخبرك بما يمكن عمله قبل أن تتحرّك من مكانك.">Call us, send an email or walk in. Send a photo of
           the car and we'll tell you what's possible before you drive over.</p></div>
       </div>
       <div class="acc__i">
-        <button type="button" aria-expanded="false"><em>02</em><span data-ar="فحص وتسعير مجاني">Free inspection &amp; quote</span><i></i></button>
-        <div class="acc__p"><p data-ar="نفحص السيارة، ونؤكد القطع المطلوبة، ونعطيك سعرًا مفصّلًا ومدة واقعية — قبل بدء أي عمل.">We check the vehicle, confirm parts and give you an itemised price
+        <button type="button" id="accB2" aria-expanded="false" aria-controls="accP2"><em>02</em><span data-ar="فحص وتسعير مجاني">Free inspection &amp; quote</span><i></i></button>
+        <div class="acc__p" id="accP2" role="region" aria-labelledby="accB2"><p data-ar="نفحص السيارة، ونؤكد القطع المطلوبة، ونعطيك سعرًا مفصّلًا ومدة واقعية — قبل بدء أي عمل.">We check the vehicle, confirm parts and give you an itemised price
           and a realistic time — before any work starts.</p></div>
       </div>
       <div class="acc__i">
-        <button type="button" aria-expanded="false"><em>03</em><span data-ar="تركيب على يد متخصصين">Fitted by specialists</span><i></i></button>
-        <div class="acc__p"><p data-ar="يذهب عملك إلى القسم المناسب: كهرباء، تنجيد، أو تظليل. قطع أصلية، تمديدات سليمة، وقصّ نظيف. بلا حلول مؤقتة مخفية خلف الأغطية.">Your job goes to the right bay — electrical, trim or tint. Genuine
+        <button type="button" id="accB3" aria-expanded="false" aria-controls="accP3"><em>03</em><span data-ar="تركيب على يد متخصصين">Fitted by specialists</span><i></i></button>
+        <div class="acc__p" id="accP3" role="region" aria-labelledby="accB3"><p data-ar="يذهب عملك إلى القسم المناسب: كهرباء، تنجيد، أو تظليل. قطع أصلية، تمديدات سليمة، وقصّ نظيف. بلا حلول مؤقتة مخفية خلف الأغطية.">Your job goes to the right bay — electrical, trim or tint. Genuine
           parts, proper looms, clean cuts. No shortcuts hidden behind panels.</p></div>
       </div>
       <div class="acc__i">
-        <button type="button" aria-expanded="false"><em>04</em><span data-ar="فحص، تنظيف، وضمان">Checked, cleaned, warranted</span><i></i></button>
-        <div class="acc__p"><p data-ar="كل عمل يُجرّب على الطريق ويُنظّف داخل السيارة قبل التسليم. تخرج ببطاقة ضمان ورقم مباشر للتواصل.">Every job is road-tested and the interior wiped down before handover.
+        <button type="button" id="accB4" aria-expanded="false" aria-controls="accP4"><em>04</em><span data-ar="فحص، تنظيف، وضمان">Checked, cleaned, warranted</span><i></i></button>
+        <div class="acc__p" id="accP4" role="region" aria-labelledby="accB4"><p data-ar="كل عمل يُجرّب على الطريق ويُنظّف داخل السيارة قبل التسليم. تخرج ببطاقة ضمان ورقم مباشر للتواصل.">Every job is road-tested and the interior wiped down before handover.
           You leave with a warranty card and a direct number to call.</p></div>
       </div>
     </div>

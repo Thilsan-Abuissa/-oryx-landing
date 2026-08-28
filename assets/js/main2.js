@@ -296,25 +296,49 @@
   function initAcc() {
     var acc = qs('#acc'); if (!acc) return;
     var items = qsa('.acc__i', acc);
+    var fill = qs('#accFill'), now = qs('#accNow');
+    var last = 0;
+
+    function meter(i) {
+      last = i;
+      if (fill) fill.style.width = ((i + 1) / items.length * 100) + '%';
+      if (now) now.textContent = ('0' + (i + 1)).slice(-2);
+    }
 
     function open(item) {
-      items.forEach(function (it) {
+      items.forEach(function (it, i) {
         var on = it === item;
         var panel = qs('.acc__p', it), btn = qs('button', it);
         it.classList.toggle('is-open', on);
         btn.setAttribute('aria-expanded', on ? 'true' : 'false');
         panel.style.height = on ? panel.scrollHeight + 'px' : '0px';
+        if (on) meter(i);
       });
     }
-    items.forEach(function (it) {
-      qs('button', it).addEventListener('click', function () {
+    items.forEach(function (it, i) {
+      var btn = qs('button', it);
+      btn.addEventListener('click', function () {
         open(it.classList.contains('is-open') ? null : it);
       });
+      // up/down walks the list, home/end jump to the ends — the panel that
+      // lands under the caret opens with it
+      btn.addEventListener('keydown', function (e) {
+        var to = -1;
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') to = (i + 1) % items.length;
+        else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') to = (i - 1 + items.length) % items.length;
+        else if (e.key === 'Home') to = 0;
+        else if (e.key === 'End') to = items.length - 1;
+        if (to < 0) return;
+        e.preventDefault();
+        open(items[to]);
+        qs('button', items[to]).focus();
+      });
     });
-    open(qs('.acc__i.is-open', acc) || items[0]);
+    var first = qs('.acc__i.is-open', acc) || items[0];
+    open(first);
     window.addEventListener('resize', function () {
       var cur = qs('.acc__i.is-open', acc);
-      if (!cur) return;
+      if (!cur) { meter(last); return; }
       // scrollHeight never reports less than the height already pinned on the
       // box, so release it first — otherwise a panel that needs less room than
       // last time (a narrower window, a shorter translation) stays too tall

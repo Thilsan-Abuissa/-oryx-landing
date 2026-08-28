@@ -101,7 +101,11 @@ body.is-ar [data-mask] span{ padding-bottom:.32em; margin-bottom:-.32em; }
 @keyframes tkr{ to{ transform:translateX(50%); } }
 
 [dir="rtl"] .acc__i button{ text-align:right; }
-[dir="rtl"] .acc__p p{ padding-right:0; padding-left:2rem; }
+/* .acc__p p uses logical padding, so it flips on its own — only the
+   hover nudge needs mirroring */
+[dir="rtl"] .acc__i:hover span,
+[dir="rtl"] .acc__i.is-open span{ transform:translateX(-.35rem); }
+[dir="rtl"] .steps__bar em{ inset:0 0 0 auto; transform-origin:right center; }
 
 [dir="rtl"] .f2__fld label{ left:auto; right:.95rem; transform-origin:right top; }
 [dir="rtl"] .f2__fld--sel svg{ right:auto; left:.9rem; }
