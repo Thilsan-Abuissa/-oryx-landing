@@ -267,7 +267,12 @@ body.no-gl .hero2__art{ display:none; }
   gap:clamp(1.2rem,3vw,3rem); margin-top:clamp(3rem,7vh,5rem);
   padding-top:1.8rem; border-top:1px solid var(--line);
 }
-.spec > div{ transition:transform .4s var(--e); }
+.spec > div{ position:relative; padding-left:clamp(1.2rem,3vw,3rem); transition:transform .4s var(--e); }
+.spec > div:first-child{ padding-left:0; }
+.spec > div + div::before{
+  content:''; position:absolute; left:calc(clamp(1.2rem,3vw,3rem)/-2); top:.1rem; bottom:.1rem;
+  width:1px; background:var(--line);
+}
 .spec > div[data-rise]{ transform:translateY(22px) scale(.95); }
 .spec > div[data-rise].in{ transform:none; }
 .spec > div:hover{ transform:translateY(-3px); }
@@ -277,14 +282,38 @@ body.no-gl .hero2__art{ display:none; }
   opacity:.75;
 }
 .spec > div:hover .spec__n{ opacity:1; }
-.spec dt{ font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:var(--mute); margin-bottom:.35rem; }
-.spec dd{ font-family:var(--f-d); font-size:clamp(1.25rem,2vw,1.7rem); font-weight:500; transition:color .3s; }
+.spec dt{
+  display:flex; align-items:center; gap:.45rem;
+  font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:var(--mute); margin-bottom:.55rem;
+}
+.spec dt::before{
+  content:''; width:5px; height:5px; border-radius:50%; background:var(--mar);
+  flex:none; transition:transform .3s var(--e);
+}
+.spec > div:hover dt::before{ transform:scale(1.6); }
+.spec dd{
+  position:relative; display:inline-block; font-family:var(--f-d); font-variant-numeric:tabular-nums;
+  font-size:clamp(1.4rem,2.4vw,2rem); font-weight:500; color:var(--ink); transition:color .3s;
+}
+.spec dd::after{
+  content:''; position:absolute; left:0; right:100%; bottom:-.3rem; height:2px;
+  background:var(--mar); transition:right .4s var(--e);
+}
 .spec > div:hover dd{ color:var(--deep); }
+.spec > div:hover dd::after{ right:0; }
 @media (max-width:900px){
   .hero2__grid{ grid-template-columns:1fr; }
   .hero2__art{ order:-1; aspect-ratio:4/3; }
 }
-@media (max-width:620px){ .spec{ grid-template-columns:1fr 1fr; row-gap:1.8rem; } }
+@media (max-width:620px){
+  .spec{ grid-template-columns:1fr 1fr; column-gap:1.4rem; row-gap:2.2rem; }
+  .spec > div:nth-child(3){ padding-top:1.7rem; padding-left:0; }
+  .spec > div:nth-child(4){ padding-top:1.7rem; }
+  .spec > div:nth-child(3)::before{ left:-.7rem; right:-.7rem; top:0; bottom:auto; width:auto; height:1px; }
+  .spec > div:nth-child(4)::after{
+    content:''; position:absolute; left:-.7rem; right:-.7rem; top:0; height:1px; background:var(--line);
+  }
+}
 
 /* ---------- ticker ----------
    A dark band across the paper page: the type is set large and quiet in
