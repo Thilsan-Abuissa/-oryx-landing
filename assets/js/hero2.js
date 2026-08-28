@@ -132,15 +132,18 @@
       tb.geo.setDrawRange(0, Math.floor(tb.total * p));
     }
 
-    ease.x += (mouse.x - ease.x) * 0.05;
-    ease.y += (mouse.y - ease.y) * 0.05;
+    ease.x += (mouse.x - ease.x) * 0.08;
+    ease.y += (mouse.y - ease.y) * 0.08;
 
-    // slow perpetual sway so the ribbon keeps moving even without the
-    // cursor over it — the mouse-follow (ease.x/y) and scroll layer on top
-    group.rotation.y = 0.42 + ease.x * 0.34 + Math.sin(tm * 0.5) * 0.22;
-    group.rotation.x = -ease.y * 0.2 + Math.sin(tm * 0.35) * 0.09;
-    group.rotation.z = -0.08 - scrollP * 0.24 + Math.sin(tm * 0.22) * 0.05;
-    group.position.y = scrollP * 0.9 + Math.sin(tm * 0.4) * 0.12;
+    // perpetual sway so the ribbon keeps moving even without the cursor
+    // over it — bounded oscillation only (no open-ended drift, which used
+    // to fight the scroll-exit rotation below and tangle into a knot),
+    // with the mouse-follow (ease.x/y) and scroll layer riding on top
+    group.rotation.y = 0.42 + ease.x * 0.4 + Math.sin(tm * 0.5) * 0.3;
+    group.rotation.x = -ease.y * 0.24 + Math.sin(tm * 0.38) * 0.13;
+    group.rotation.z = -0.08 - scrollP * 0.24 + Math.sin(tm * 0.24) * 0.07;
+    group.position.y = scrollP * 0.9 + Math.sin(tm * 0.42) * 0.16;
+    group.position.x = Math.sin(tm * 0.28) * 0.1;
 
     renderer.render(scene, camera);
   }
