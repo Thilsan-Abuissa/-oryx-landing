@@ -253,23 +253,64 @@ body.no-gl .hero2__art{ display:none; }
 
 .spec{
   display:grid; grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:clamp(1rem,3vw,3rem); margin-top:clamp(3rem,7vh,5rem);
-  padding-top:1.4rem; border-top:1px solid var(--line);
+  gap:clamp(1.2rem,3vw,3rem); margin-top:clamp(3rem,7vh,5rem);
+  padding-top:1.8rem; border-top:1px solid var(--line);
 }
-.spec dt{ font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:var(--mute); margin-bottom:.3rem; }
-.spec dd{ font-family:var(--f-d); font-size:clamp(1.05rem,1.6vw,1.4rem); font-weight:500; }
+.spec > div{ transition:transform .4s var(--e); }
+.spec > div[data-rise]{ transform:translateY(22px) scale(.95); }
+.spec > div[data-rise].in{ transform:none; }
+.spec > div:hover{ transform:translateY(-3px); }
+.spec__n{
+  display:block; font-family:var(--f-d); font-style:italic; color:var(--mar);
+  font-size:1rem; margin-bottom:.6rem; transition:opacity .3s;
+  opacity:.75;
+}
+.spec > div:hover .spec__n{ opacity:1; }
+.spec dt{ font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:var(--mute); margin-bottom:.35rem; }
+.spec dd{ font-family:var(--f-d); font-size:clamp(1.25rem,2vw,1.7rem); font-weight:500; transition:color .3s; }
+.spec > div:hover dd{ color:var(--mar); }
 @media (max-width:900px){
   .hero2__grid{ grid-template-columns:1fr; }
   .hero2__art{ order:-1; aspect-ratio:4/3; }
 }
-@media (max-width:620px){ .spec{ grid-template-columns:1fr 1fr; row-gap:1.4rem; } }
+@media (max-width:620px){ .spec{ grid-template-columns:1fr 1fr; row-gap:1.8rem; } }
 
-/* ---------- ticker ---------- */
-.tick{ overflow:hidden; padding:.9rem 0; border-block:1px solid var(--line); }
-.tick__t{ display:flex; width:max-content; animation:tk 38s linear infinite; }
-.tick__s{ display:flex; align-items:center; gap:1.8rem; padding-right:1.8rem; }
-.tick__s b{ font-family:var(--f-d); font-weight:500; font-size:clamp(.9rem,1.5vw,1.15rem); white-space:nowrap; }
-.tick__s i{ width:5px; height:5px; border-radius:50%; background:var(--mar); flex:none; }
+/* ---------- ticker ----------
+   A dark band across the paper page: the type is set large and quiet in
+   cream, the slashes carry the brand red, and both edges fade out so the
+   strip reads as continuous rather than clipped by the viewport. */
+.tick{
+  position:relative; overflow:hidden;
+  padding:clamp(1.4rem,2.6vw,2.1rem) 0;
+  background:linear-gradient(180deg,var(--paper-2),var(--paper));
+}
+/* the strip fades into the page at both edges instead of being cut off */
+.tick::before,.tick::after{
+  content:''; position:absolute; top:0; bottom:0; width:clamp(2.5rem,9vw,8rem);
+  z-index:2; pointer-events:none;
+}
+.tick::before{ left:0;  background:linear-gradient(90deg,var(--paper-2),transparent); }
+.tick::after { right:0; background:linear-gradient(270deg,var(--paper-2),transparent); }
+.tick__t{ display:flex; width:max-content; animation:tk 46s linear infinite; }
+.tick__s{ display:flex; align-items:center; gap:clamp(.7rem,1.4vw,1rem); padding-right:clamp(.7rem,1.4vw,1rem); }
+
+/* each speciality rides in its own chip — icon in brand red, label quiet */
+.tick__i{
+  display:inline-flex; align-items:center; gap:.65rem; white-space:nowrap;
+  padding:.7rem 1.25rem; border-radius:100px;
+  background:linear-gradient(180deg,#fff,var(--paper-3));
+  border:1px solid var(--line-2);
+  box-shadow:0 1px 2px rgba(22,24,28,.05), 0 8px 18px -14px rgba(22,24,28,.22);
+}
+.tick__i svg{
+  width:1.15rem; height:1.15rem; flex:none;
+  fill:none; stroke:var(--mar); stroke-width:1.5;
+  stroke-linecap:round; stroke-linejoin:round;
+}
+.tick__i b{
+  font-family:var(--f-b); font-weight:500; font-size:.73rem;
+  letter-spacing:.15em; text-transform:uppercase; color:var(--ink-2);
+}
 @keyframes tk{ to{ transform:translateX(-50%); } }
 
 /* ---------- intro ---------- */

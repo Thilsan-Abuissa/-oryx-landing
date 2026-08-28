@@ -123,10 +123,15 @@
       if (!one) return;
       // must stay even — the animation travels exactly half the track
       var want = Math.max(2, Math.ceil((window.innerWidth * 1.15) / one) * 2);
-      var have = qsa(setSel, track).length;
-      for (var i = have; i < want; i++) track.appendChild(seed.cloneNode(true));
-      while (qsa(setSel, track).length > want) track.removeChild(track.lastChild);
-      var travel = (qsa(setSel, track).length / 2) * one;
+      // drop every copy but the seed, then re-clone. i18n translates the
+      // seed only (it cached the DOM before these clones existed) and fires
+      // a resize on switch, so rebuilding here keeps every copy in the
+      // current language instead of leaving stale ones behind.
+      qsa(setSel, track).forEach(function (el) {
+        if (el !== seed) track.removeChild(el);
+      });
+      for (var i = 1; i < want; i++) track.appendChild(seed.cloneNode(true));
+      var travel = (want / 2) * one;
       track.style.animationDuration = (travel / pxPerSec).toFixed(1) + 's';
     }
     fill();

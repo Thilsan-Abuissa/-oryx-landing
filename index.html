@@ -88,7 +88,7 @@
     <div class="hero2__text">
       <p class="lbl lbl--status" data-rise>
         <span class="lbl__dot" aria-hidden="true"></span>
-        <span data-ar="كير بلس لزينة السيارات &nbsp;·&nbsp; الدوحة، قطر &nbsp;·&nbsp; مفتوح الآن">CarePlus for Car Accessories &nbsp;·&nbsp; Doha, Qatar &nbsp;·&nbsp; Open now</span>
+        <span data-ar="الدوحة، قطر &nbsp;·&nbsp; مفتوح الآن">Doha, Qatar &nbsp;·&nbsp; Open now</span>
       </p>
       <h1 class="hero2__h" data-mask>
         <span data-ar="التفاصيل">The details</span>
@@ -113,24 +113,45 @@
     </div>
   </div>
 
-  <dl class="spec wrap" data-rise data-delay="420">
-    <div><dt data-ar="التأسيس">Established</dt><dd data-demo>2011</dd></div>
-    <div><dt data-ar="الفروع">Branches</dt><dd data-ar="واحد">One</dd></div>
-    <div><dt data-ar="التخصصات">Specialities</dt><dd data-ar="ستة">Six</dd></div>
-    <div><dt data-ar="أوقات العمل">Open</dt><dd data-ar="على مدار الساعة">24 hours</dd></div>
+  <dl class="spec wrap">
+    <div data-rise data-delay="420"><em class="spec__n">01</em><dt data-ar="التأسيس">Established</dt><dd data-count="2011" data-demo>0</dd></div>
+    <div data-rise data-delay="480"><em class="spec__n">02</em><dt data-ar="الفروع">Branches</dt><dd data-count="1">0</dd></div>
+    <div data-rise data-delay="540"><em class="spec__n">03</em><dt data-ar="التخصصات">Specialities</dt><dd data-count="6">0</dd></div>
+    <div data-rise data-delay="600"><em class="spec__n">04</em><dt data-ar="أوقات العمل">Open</dt><dd data-count="24" data-suffix=" hours" data-ar-suffix=" ساعة">0</dd></div>
   </dl>
 </section>
 
-<!-- ======================================================= TICKER -->
+<!-- ======================================================= TICKER
+     Decorative (aria-hidden) — the Specialities section below carries the
+     same six services for screen readers. main2.js clones the first
+     .tick__s to fill the width, so the set only needs writing once. -->
 <div class="tick" aria-hidden="true">
   <div class="tick__t">
     <span class="tick__s">
-      <b data-ar="زينة السيارات">Car Accessories</b><i></i><b data-ar="البطاريات">Batteries</b><i></i><b data-ar="كهرباء السيارات">Auto Electrical</b><i></i>
-      <b data-ar="التنجيد">Upholstery</b><i></i><b data-ar="تظليل الزجاج">Window Tinting</b><i></i><b data-ar="الصوتيات والإضاءة">Audio &amp; Lighting</b><i></i>
-    </span>
-    <span class="tick__s">
-      <b data-ar="زينة السيارات">Car Accessories</b><i></i><b data-ar="البطاريات">Batteries</b><i></i><b data-ar="كهرباء السيارات">Auto Electrical</b><i></i>
-      <b data-ar="التنجيد">Upholstery</b><i></i><b data-ar="تظليل الزجاج">Window Tinting</b><i></i><b data-ar="الصوتيات والإضاءة">Audio &amp; Lighting</b><i></i>
+      <span class="tick__i">
+        <svg viewBox="0 0 24 24"><path d="M4 14l1.7-5A2 2 0 017.6 7.6h8.8a2 2 0 011.9 1.4L20 14M4 14h16v4H4zM7.6 18v1.6M16.4 18v1.6"/></svg>
+        <b data-ar="زينة السيارات">Car Accessories</b>
+      </span>
+      <span class="tick__i">
+        <svg viewBox="0 0 24 24"><path d="M3.5 8.5h13.5v7H3.5zM20.5 11v2M7 10.5v3M11 10.5v3"/></svg>
+        <b data-ar="البطاريات">Batteries</b>
+      </span>
+      <span class="tick__i">
+        <svg viewBox="0 0 24 24"><path d="M13.5 2.5L5.5 13.5H11l-1 8 8-11.5h-5.5l1.5-7.5z"/></svg>
+        <b data-ar="كهرباء السيارات">Auto Electrical</b>
+      </span>
+      <span class="tick__i">
+        <svg viewBox="0 0 24 24"><path d="M8.5 3.5h4.5a2 2 0 012 2v7.5h-6.5zM6 13.5h12v3.5a2 2 0 01-2 2H8a2 2 0 01-2-2zM9 19v1.8M15 19v1.8"/></svg>
+        <b data-ar="التنجيد">Upholstery</b>
+      </span>
+      <span class="tick__i">
+        <svg viewBox="0 0 24 24"><path d="M3.5 5.5h17v13h-17zM3.5 12h17M9.5 5.5v13"/></svg>
+        <b data-ar="تظليل الزجاج">Window Tinting</b>
+      </span>
+      <span class="tick__i">
+        <svg viewBox="0 0 24 24"><path d="M11 5L6.5 9H3.5v6h3l4.5 4zM15.5 9.5a4 4 0 010 5M18.5 7a8 8 0 010 10"/></svg>
+        <b data-ar="الصوتيات والإضاءة">Audio &amp; Lighting</b>
+      </span>
     </span>
   </div>
 </div>
