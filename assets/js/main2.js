@@ -6,19 +6,12 @@
 (function () {
   'use strict';
 
-  var CONFIG = {
-    whatsapp: '97451570052',                  // digits only, with country code
-    email:    'info@careplus.qa'
-  };
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var qs  = function (s, c) { return (c || document).querySelector(s); };
   var qsa = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
   var clamp = function (v, a, b) { return v < a ? a : v > b ? b : v; };
   var now = function () { return (window.performance && performance.now) ? performance.now() : +new Date(); };
-  /* i18n.js provides the lookup on the bilingual pages; elsewhere the
-     English passes straight through */
-  var T = function (s) { return window.ORYX_T ? window.ORYX_T(s) : s; };
 
   /* ================= PRELOADER ================= */
   (function () {
@@ -165,24 +158,104 @@
   function initHz() {
     var sec = qs('#services'), track = qs('#hTrack'), num = qs('#hNum');
     if (!sec || !track) return;
-    hz = { sec: sec, track: track, num: num, cards: qsa('.hcard', track), last: -1 };
+    hz = { sec: sec, track: track, num: num, bar: qs('#hBar'), vp: qs('.hsec__viewport', sec),
+           cards: qsa('.hcard', track), last: -1 };
+    initHzInput();
+  }
+
+  /* How far the page has to scroll to move the rail one pixel sideways.
+     Using it means a sideways gesture pushes the cards the exact distance
+     the fingers travelled, instead of some arbitrary multiple. */
+  function hzRatio() {
+    var total = hz.sec.offsetHeight - window.innerHeight;
+    var dist = hz.track.scrollWidth - window.innerWidth;
+    if (total <= 0 || dist <= 0) return 0;
+    return total / dist;
+  }
+  /* the page sets scroll-behavior:smooth for anchor jumps — a gesture that
+     is already tracking the fingers must land instantly instead */
+  function hzScrollTo(y) {
+    try { window.scrollTo({ top: y, behavior: 'instant' }); }
+    catch (err) { window.scrollTo(0, y); }
+  }
+  function hzProgress() {
+    var r = hz.sec.getBoundingClientRect(), total = r.height - window.innerHeight;
+    return total > 0 ? clamp(-r.top / total, 0, 1) : 0;
+  }
+
+  /* ---- sideways input -------------------------------------------------
+     The rail rides on page scroll, so a trackpad swipe or a drag across the
+     cards would do nothing on its own. Both are translated into the vertical
+     scroll that actually drives the track — and only while the rail still has
+     travel left in that direction, so the page never feels stuck. */
+  function initHzInput() {
+    var live = function () { return window.innerWidth > 900 && hzRatio() > 0; };
+    var way = function () { return document.documentElement.dir === 'rtl' ? -1 : 1; };
+
+    hz.sec.addEventListener('wheel', function (e) {
+      if (!live()) return;
+      // a mostly-vertical gesture is a normal page scroll — leave it alone
+      if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+      var dx = e.deltaX * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? window.innerHeight : 1) * way();
+      var p = hzProgress();
+      // at either end of the rail the gesture belongs to the page again
+      // (the epsilon keeps a sub-pixel scroll position from hiding the end)
+      if ((p <= .002 && dx < 0) || (p >= .998 && dx > 0)) return;
+      e.preventDefault();
+      hzScrollTo(window.pageYOffset + dx * hzRatio());
+    }, { passive: false });
+
+    if (!hz.vp) return;
+    var id = null, x0 = 0, y0 = 0;
+    hz.vp.addEventListener('pointerdown', function (e) {
+      if (!live() || e.button !== 0) return;
+      id = e.pointerId; x0 = e.clientX; y0 = window.pageYOffset;
+      document.body.classList.add('hz-drag');
+    });
+    hz.vp.addEventListener('pointermove', function (e) {
+      if (id === null || e.pointerId !== id) return;
+      if (e.pointerType === 'mouse' && !(e.buttons & 1)) { end(e); return; }
+      hzScrollTo(y0 - (e.clientX - x0) * way() * hzRatio());
+    });
+    function end(e) {
+      if (id === null || (e && e.pointerId !== id)) return;
+      id = null;
+      document.body.classList.remove('hz-drag');
+    }
+    hz.vp.addEventListener('pointerup', end);
+    hz.vp.addEventListener('pointercancel', end);
+    hz.vp.addEventListener('lostpointercapture', end);
+    window.addEventListener('blur', function () { end(); });
+    // a drag that started on a card must not end up selecting its copy
+    hz.vp.addEventListener('dragstart', function (e) { if (id !== null) e.preventDefault(); });
   }
   function runHz() {
     if (!hz) return;
-    if (window.innerWidth <= 900) { hz.track.style.transform = ''; return; }
-    var r = hz.sec.getBoundingClientRect();
-    var total = r.height - window.innerHeight;
-    if (total <= 0) return;
-    var p = clamp(-r.top / total, 0, 1);
+    if (window.innerWidth <= 900) {
+      hz.track.style.transform = '';
+      if (hz.last !== -1) {
+        for (var c = 0; c < hz.cards.length; c++) hz.cards[c].classList.remove('is-on');
+        hz.last = -1;
+      }
+      return;
+    }
+    if (hz.sec.offsetHeight - window.innerHeight <= 0) return;
+    var p = hzProgress();
     var dist = hz.track.scrollWidth - window.innerWidth;
     if (dist < 0) dist = 0;
     // in Arabic the track is laid out from the right edge, so the cards
     // are revealed by travelling the other way
     var way = document.documentElement.dir === 'rtl' ? 1 : -1;
     hz.track.style.transform = 'translate3d(' + (way * p * dist).toFixed(1) + 'px,0,0)';
-    if (hz.num) {
-      var i = clamp(Math.round(p * (hz.cards.length - 1)), 0, hz.cards.length - 1);
-      if (i !== hz.last) { hz.last = i; hz.num.textContent = '0' + (i + 1); }
+    if (hz.bar) hz.bar.style.transform = 'scaleX(' + p.toFixed(3) + ')';
+    // the counter and the raised card are the same index, so the number in
+    // the header always names the card the eye is on
+    var i = clamp(Math.round(p * (hz.cards.length - 1)), 0, hz.cards.length - 1);
+    if (i !== hz.last) {
+      if (hz.cards[hz.last]) hz.cards[hz.last].classList.remove('is-on');
+      if (hz.cards[i]) hz.cards[i].classList.add('is-on');
+      hz.last = i;
+      if (hz.num) hz.num.textContent = '0' + (i + 1);
     }
   }
 
@@ -277,42 +350,6 @@
     track.addEventListener('pointerleave', restart);
   }
 
-  /* ================= FORM → WHATSAPP ================= */
-  function initForm() {
-    var form = qs('#f2'); if (!form) return;
-    var st = qs('#f2st');
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var n = qs('#n2'), p = qs('#p2'), ok = true;
-      [n, p].forEach(function (f) {
-        var bad = !f.value.trim();
-        f.parentNode.classList.toggle('err', bad);
-        if (bad) ok = false;
-      });
-      if (!ok) { st.textContent = T('Please add your name and phone number.'); return; }
-
-      var text = encodeURIComponent([
-        'New enquiry — CarePlus for Car Accessories',
-        'Name: ' + n.value.trim(),
-        'Phone: ' + p.value.trim(),
-        'Car: ' + (qs('#c2').value.trim() || '—'),
-        'Service: ' + qs('#s2').value,
-        'Details: ' + (qs('#m2').value.trim() || '—')
-      ].join('\n'));
-
-      st.textContent = T('Opening WhatsApp…');
-      var w = window.open('https://wa.me/' + CONFIG.whatsapp + '?text=' + text, '_blank', 'noopener');
-      if (!w) {
-        window.location.href = 'mailto:' + CONFIG.email +
-          '?subject=' + encodeURIComponent('Quote request — ' + n.value.trim()) + '&body=' + text;
-      }
-      setTimeout(function () { st.textContent = T('Thanks — we\'ll reply shortly.'); }, 1200);
-    });
-    qsa('input,textarea', form).forEach(function (f) {
-      f.addEventListener('input', function () { f.parentNode.classList.remove('err'); });
-    });
-  }
-
   /* ================= ACTIVE NAV + ANCHORS ================= */
   function initNavState() {
     if (!('IntersectionObserver' in window)) return;
@@ -385,7 +422,7 @@
 
     initMarquee('.tick__t', '.tick__s', 42);
     initReveal(); initShift(); initHz(); initCounters();
-    initAcc(); initQuote(); initForm(); initNavState(); initAnchors();
+    initAcc(); initQuote(); initNavState(); initAnchors();
     initMagnetic();
 
     var y = qs('#yr2'); if (y) y.textContent = new Date().getFullYear();

@@ -18,13 +18,6 @@
   var lang = 'en';
   var booted = false;
 
-  /* status messages main2.js writes at runtime */
-  var STRINGS = {
-    'Please add your name and phone number.': 'الرجاء إدخال الاسم ورقم الهاتف.',
-    'Opening WhatsApp…': 'جارٍ فتح واتساب…',
-    'Thanks — we\'ll reply shortly.': 'شكرًا لك — سنرد عليك قريبًا.'
-  };
-  window.ORYX_T = function (en) { return (lang === 'ar' && STRINGS[en]) || en; };
 
   /* the enquiry email subject follows the language too — the customer
      should not have to send an English subject about an Arabic card */

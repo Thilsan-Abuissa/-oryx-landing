@@ -195,57 +195,96 @@
         <h2 class="h2 h2--sm" data-ar="ستة تخصصات،&lt;br&gt;وستة متخصصين.">Six things, done<br>by six specialists.</h2>
       </div>
       <!-- #hNum is rewritten by main2.js, so only the tail is translatable -->
-      <p class="hsec__hint"><span id="hNum">01</span><em data-ar=" / 06 &nbsp;— تابع التمرير"> / 06 &nbsp;— keep scrolling</em></p>
+      <div class="hsec__meter">
+        <p class="hsec__hint"><span id="hNum">01</span><em data-ar=" / 06 &nbsp;— تابع التمرير"> / 06 &nbsp;— keep scrolling</em></p>
+        <span class="hsec__bar" aria-hidden="true"><i id="hBar"></i></span>
+      </div>
     </div>
 
     <div class="hsec__viewport">
       <div class="hsec__track" id="hTrack">
 
-        <article class="hcard">
-          <span class="hcard__n">01</span>
+        <article class="hcard" data-n="01">
+          <div class="hcard__top">
+            <span class="hcard__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 14l1.7-5A2 2 0 017.6 7.6h8.8a2 2 0 011.9 1.4L20 14M4 14h16v4H4zM7.6 18v1.6M16.4 18v1.6"/></svg>
+            </span>
+            <span class="hcard__n">01</span>
+          </div>
+          <span class="hcard__rule" aria-hidden="true"><i></i></span>
           <h3 data-ar="زينة السيارات">Car Accessories</h3>
           <p data-ar="تحسينات داخلية وخارجية، أطقم تزيين، دواسات، كفرات مقاعد، حمّالات سقف، والقطع الصغيرة التي تُكمل الشكل النهائي.">Interior and exterior upgrades, styling kits, floor mats, seat covers, roof
-          racks and the small parts that finish a build.</p>
+            racks and the small parts that finish a build.</p>
           <ul><li data-ar="تزيين">Styling</li><li data-ar="حماية">Protection</li><li data-ar="استخدام عملي">Utility</li></ul>
         </article>
 
-        <article class="hcard">
-          <span class="hcard__n">02</span>
+        <article class="hcard" data-n="02">
+          <div class="hcard__top">
+            <span class="hcard__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3.5 8.5h13.5v7H3.5zM20.5 11v2M7 10.5v3M11 10.5v3"/></svg>
+            </span>
+            <span class="hcard__n">02</span>
+          </div>
+          <span class="hcard__rule" aria-hidden="true"><i></i></span>
           <h3 data-ar="البطاريات">Batteries</h3>
           <p data-ar="بطاريات أصلية لجميع الأنواع، فحص مجاني، وتوصيل وتركيب في أقل من عشرين دقيقة — بما يشمل الخدمة على الطريق.">Genuine batteries for every make, tested free of charge, delivered and
-          fitted in under twenty minutes — including roadside call-outs.</p>
+            fitted in under twenty minutes — including roadside call-outs.</p>
           <ul><li data-ar="فحص مجاني">Free testing</li><li data-ar="تركيب">Fitting</li><li data-ar="خدمة على الطريق">Roadside</li></ul>
         </article>
 
-        <article class="hcard">
-          <span class="hcard__n">03</span>
+        <article class="hcard" data-n="03">
+          <div class="hcard__top">
+            <span class="hcard__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M13.5 2.5L5.5 13.5H11l-1 8 8-11.5h-5.5l1.5-7.5z"/></svg>
+            </span>
+            <span class="hcard__n">03</span>
+          </div>
+          <span class="hcard__rule" aria-hidden="true"><i></i></span>
           <h3 data-ar="أعمال كهرباء السيارات">Auto Electrical Works</h3>
           <p data-ar="تشخيص الأعطال، إصلاح الأسلاك، الدينمو، السلف، الحساسات، القفل المركزي، وإعادة التمديد الكامل على يد كهربائيين معتمدين.">Fault diagnosis, wiring repairs, alternators, starters, sensors, central
-          locking and complete rewiring by certified auto-electricians.</p>
+            locking and complete rewiring by certified auto-electricians.</p>
           <ul><li data-ar="تشخيص">Diagnostics</li><li data-ar="تمديد أسلاك">Rewiring</li><li data-ar="حساسات">Sensors</li></ul>
         </article>
 
-        <article class="hcard">
-          <span class="hcard__n">04</span>
+        <article class="hcard" data-n="04">
+          <div class="hcard__top">
+            <span class="hcard__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8.5 3.5h4.5a2 2 0 012 2v7.5h-6.5zM6 13.5h12v3.5a2 2 0 01-2 2H8a2 2 0 01-2-2zM9 19v1.8M15 19v1.8"/></svg>
+            </span>
+            <span class="hcard__n">04</span>
+          </div>
+          <span class="hcard__rule" aria-hidden="true"><i></i></span>
           <h3 data-ar="التنجيد">Upholstery</h3>
           <p data-ar="مقاعد جلد وقماش حسب الطلب، طبلونات، أبواب، سقف داخلي، وتلبيس الطارة — تُقص وتُخاط وتُركّب داخل الورشة.">Custom leather and fabric seats, dashboards, door cards, roof lining and
-          steering trims — patterned, stitched and fitted in-house.</p>
+            steering trims — patterned, stitched and fitted in-house.</p>
           <ul><li data-ar="جلد">Leather</li><li data-ar="سقف داخلي">Roof lining</li><li data-ar="خياطة حسب الطلب">Custom stitch</li></ul>
         </article>
 
-        <article class="hcard">
-          <span class="hcard__n">05</span>
+        <article class="hcard" data-n="05">
+          <div class="hcard__top">
+            <span class="hcard__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3.5 5.5h17v13h-17zM3.5 12h17M9.5 5.5v13"/></svg>
+            </span>
+            <span class="hcard__n">05</span>
+          </div>
+          <span class="hcard__rule" aria-hidden="true"><i></i></span>
           <h3 data-ar="تظليل الزجاج">Window Tinting</h3>
           <p data-ar="أفلام عازلة للحرارة وحاجبة للأشعة فوق البنفسجية تُقص على مقاس زجاجك، وتُلصق بدون فقاعات في غرفة خالية من الغبار، مع ضمان مكتوب.">Heat-rejection and UV films cut to your glass, applied bubble-free in a
-          dust-controlled bay and backed by a written warranty.</p>
+            dust-controlled bay and backed by a written warranty.</p>
           <ul><li data-ar="عزل حرارة">Heat rejection</li><li data-ar="حجب الأشعة">UV block</li><li data-ar="ضمان">Warranty</li></ul>
         </article>
 
-        <article class="hcard">
-          <span class="hcard__n">06</span>
+        <article class="hcard" data-n="06">
+          <div class="hcard__top">
+            <span class="hcard__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M11 5L6.5 9H3.5v6h3l4.5 4zM15.5 9.5a4 4 0 010 5M18.5 7a8 8 0 010 10"/></svg>
+            </span>
+            <span class="hcard__n">06</span>
+          </div>
+          <span class="hcard__rule" aria-hidden="true"><i></i></span>
           <h3 data-ar="الصوتيات والإضاءة والإضافات">Audio, Lighting &amp; Extras</h3>
           <p data-ar="سماعات، مكبّرات صوت، شاشات، إضاءة LED و HID، كاميرات خلفية، حساسات رَكن، أنظمة إنذار، وتشغيل عن بُعد.">Speakers, subwoofers, head units, LED and HID upgrades, reverse cameras,
-          parking sensors, alarms and remote starters.</p>
+            parking sensors, alarms and remote starters.</p>
           <ul><li data-ar="صوت">Sound</li><li data-ar="إضاءة">Lighting</li><li data-ar="سلامة">Safety</li></ul>
         </article>
 
@@ -380,14 +419,29 @@
 
     <div class="brs__grid">
       <article class="br" data-rise>
-        <div class="br__map" aria-hidden="true"><span class="br__pin"></span></div>
+        <!-- a locator diagram, deliberately stylised — not a live map embed -->
+        <div class="br__map" aria-hidden="true">
+          <span class="br__road br__road--x"></span>
+          <span class="br__road"></span>
+          <span class="br__maplbl" data-ar="شارع سلوى">Salwa Road</span>
+          <span class="br__pin">
+            <svg viewBox="0 0 24 24"><path d="M3.2 9.2 5.2 4.6h13.6l2 4.6M4.4 9.2h15.2v10.2H4.4zM9.8 19.4v-5.6h4.4v5.6"/></svg>
+          </span>
+          <span class="br__pinlbl" data-ar="كير بلس">CarePlus</span>
+        </div>
         <div class="br__body">
           <p class="br__tag" data-ar="الفرع — شارع سلوى">Branch — Salwa Road</p>
           <h3 data-ar="كير بلس &lt;em&gt;شارع سلوى&lt;/em&gt;">CarePlus <em>Salwa Road</em></h3>
           <address data-ar="شارع سلوى&lt;br&gt;الدوحة، قطر">Salwa Road<br>Doha, Qatar</address>
           <dl class="br__meta">
             <div><dt data-ar="كل الأيام">Every day</dt><dd data-ar="على مدار الساعة">24 hours</dd></div>
+            <div><dt data-ar="اتصل بالفرع">Call the branch</dt><dd>+974 5157 0051</dd></div>
           </dl>
+          <ul class="br__tags">
+            <li data-ar="زينة السيارات">Accessories</li><li data-ar="البطاريات">Batteries</li>
+            <li data-ar="كهرباء السيارات">Auto electrical</li><li data-ar="التنجيد">Upholstery</li>
+            <li data-ar="تظليل الزجاج">Tinting</li><li data-ar="الصوتيات والإضاءة">Audio &amp; lighting</li>
+          </ul>
           <div class="br__act">
             <a class="pill" href="tel:+97451570051"><span data-ar="اتصل بالفرع">Call branch</span></a>
             <a class="tlink tlink--dark" href="https://maps.app.goo.gl/kbU3nNAK5kEuT5tt9" target="_blank" rel="noopener"><span data-ar="الاتجاهات">Directions</span></a>
@@ -429,45 +483,44 @@
     <div class="enq__txt">
       <p class="lbl" data-ar="&lt;em&gt;07&lt;/em&gt; الاستفسارات"><em>07</em> Enquiries</p>
       <h2 class="h2" data-mask><span data-ar="أخبرنا بالسيارة.">Tell us the car.</span><span data-ar="وسنخبرك">We'll tell you</span><span data-ar="&lt;em&gt;بالسعر.&lt;/em&gt;"><em>the price.</em></span></h2>
-      <p class="enq__lead" data-rise data-delay="140" data-ar="أرسل بياناتك وسنعود إليك بسعر مفصّل وموعد تركيب — عادة خلال ساعة في أوقات العمل.">Send your details and we'll come back with an itemised
-      quote and a fitting slot — usually within the hour during working hours.</p>
-
-      <ul class="enq__info" data-rise data-delay="220">
-        <li><span data-ar="اتصال">Call</span><a href="tel:+97451570051">+974 5157 0051</a></li>
-        <li><span data-ar="اتصال (سلوى - هاتف ثابت)">Call (Salwa – landline)</span><a href="tel:+97440170080">+974 4017 0080</a></li>
-        <li><span data-ar="اتصال (سلوى - جوال)">Call (Salwa – mobile)</span><a href="tel:+97451570052">+974 5157 0052</a></li>
-        <li><span data-ar="البريد الإلكتروني">Email</span><a href="mailto:info@careplus.qa">info@careplus.qa</a></li>
-        <li><span data-ar="أوقات العمل">Hours</span><p data-ar="مفتوح على مدار الساعة، طوال أيام الأسبوع">Open 24 hours, every day</p></li>
-      </ul>
+      <p class="enq__lead" data-rise data-delay="140" data-ar="اتصل بنا وسنسعّر العمل على الفور. نعمل على مدار الساعة — أحضر السيارة في أي وقت يناسبك.">Call us and we'll price the job on the spot. We're
+      open 24 hours — bring the car in whenever it suits you.</p>
     </div>
 
-    <form class="f2" id="f2" novalidate data-rise data-delay="180">
-      <div class="f2__row">
-        <div class="f2__fld"><input type="text" id="n2" name="name" required placeholder=" " autocomplete="name"><label for="n2" data-ar="الاسم">Your name</label></div>
-        <div class="f2__fld"><input type="tel" id="p2" name="phone" required placeholder=" " autocomplete="tel"><label for="p2" data-ar="رقم الهاتف">Phone number</label></div>
-      </div>
-      <div class="f2__row">
-        <div class="f2__fld"><input type="text" id="c2" name="car" placeholder=" "><label for="c2" data-ar="نوع السيارة وطرازها">Car make &amp; model</label></div>
-        <div class="f2__fld f2__fld--sel">
-          <select id="s2" name="service">
-            <option data-ar="زينة السيارات">Car accessories</option><option data-ar="البطاريات">Batteries</option>
-            <option data-ar="أعمال كهرباء السيارات">Auto electrical works</option><option data-ar="التنجيد">Upholstery</option>
-            <option data-ar="تظليل الزجاج">Window tinting</option><option data-ar="صوتيات وإضاءة وإضافات">Audio, lighting &amp; extras</option>
-            <option data-ar="شيء آخر">Something else</option>
-          </select>
-          <label for="s2" data-ar="الخدمة المطلوبة">Service needed</label>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-        </div>
-      </div>
-      <div class="f2__fld"><textarea id="m2" name="message" rows="4" placeholder=" "></textarea><label for="m2" data-ar="تفاصيل إضافية (اختياري)">Tell us a bit more (optional)</label></div>
-      <div class="f2__act">
-        <button class="pill pill--lg" type="submit"><span data-ar="أرسل على واتساب">Send on WhatsApp</span>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
-        </button>
-        <p class="f2__note" data-ar="نرد خلال أوقات العمل.">We reply during working hours.</p>
-      </div>
-      <p class="f2__st" id="f2st" role="status"></p>
-    </form>
+    <!-- no contact form: the shop has no WhatsApp line and no mail server,
+         so every route here is one the counter can actually answer -->
+    <div class="callp" data-rise data-delay="180">
+      <p class="callp__lbl" data-ar="تحدّث إلينا الآن">Speak to us now</p>
+
+      <a class="callp__row callp__row--pri" href="tel:+97451570051">
+        <span class="callp__k" data-ar="المكتب">Office</span>
+        <span class="callp__v">+974 5157 0051</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z"/></svg>
+      </a>
+
+      <a class="callp__row" href="tel:+97440170080">
+        <span class="callp__k" data-ar="سلوى — هاتف ثابت">Salwa — landline</span>
+        <span class="callp__v">+974 4017 0080</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </a>
+
+      <a class="callp__row" href="tel:+97451570052">
+        <span class="callp__k" data-ar="سلوى — جوال">Salwa — mobile</span>
+        <span class="callp__v">+974 5157 0052</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </a>
+
+      <a class="callp__row" href="mailto:info@careplus.qa">
+        <span class="callp__k" data-ar="البريد الإلكتروني">Email</span>
+        <span class="callp__v">info@careplus.qa</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </a>
+
+      <p class="callp__note">
+        <span class="lbl__dot" aria-hidden="true"></span>
+        <span data-ar="مفتوح الآن — على مدار الساعة، طوال أيام الأسبوع">Open now — 24 hours, every day</span>
+      </p>
+    </div>
   </div>
 </section>
 
@@ -475,41 +528,73 @@
 
 <!-- ======================================================= FOOTER -->
 <footer class="foot">
+  <span class="foot__rule" aria-hidden="true"></span>
+  <span class="foot__glow" aria-hidden="true"></span>
+
   <div class="wrap">
     <div class="foot__top">
       <div class="foot__brand">
         <img class="foot__brand-logo" src="assets/img/Care-Plus-footer.png" alt="Care Plus For Car Accessories W.L.L" data-ar-alt="كير بلس لزينة السيارات ذ.م.م">
         <p class="foot__note" data-ar="زينة، بطاريات، كهرباء سيارات، تنجيد وتظليل زجاج — تركيب على يد متخصصين على شارع سلوى، الدوحة.">Accessories, batteries, auto electrical, upholstery and window tinting — fitted by specialists on Salwa Road, Doha.</p>
+        <p class="foot__chip">
+          <span class="lbl__dot" aria-hidden="true"></span>
+          <span data-ar="مفتوح الآن — على مدار الساعة، طوال أيام الأسبوع">Open now — 24 hours, every day</span>
+        </p>
       </div>
+
       <nav class="foot__col" aria-label="Specialities" data-ar-aria-label="التخصصات">
-        <h4 data-ar="التخصصات">Specialities</h4>
+        <h4><span data-ar="التخصصات">Specialities</span></h4>
         <a href="#services" data-ar="زينة السيارات">Car accessories</a><a href="#services" data-ar="البطاريات">Batteries</a>
         <a href="#services" data-ar="أعمال كهرباء السيارات">Auto electrical works</a><a href="#services" data-ar="التنجيد">Upholstery</a>
         <a href="#services" data-ar="تظليل الزجاج">Window tinting</a><a href="#services" data-ar="الصوتيات والإضاءة">Audio &amp; lighting</a>
       </nav>
+
       <nav class="foot__col" aria-label="Company" data-ar-aria-label="الشركة">
-        <h4 data-ar="الشركة">Company</h4>
+        <h4><span data-ar="الشركة">Company</span></h4>
         <a href="#about" data-ar="عن كير بلس">About CarePlus</a><a href="#works" data-ar="كيف نعمل">How it works</a>
         <a href="#work" data-ar="أعمال مختارة">Selected work</a><a href="#branches" data-ar="الفروع">Branches</a>
         <a href="products.html" data-ar="المنتجات">Products</a><a href="#enquire" data-ar="الاستفسارات">Enquiries</a>
       </nav>
-      <div class="foot__col">
-        <h4 data-ar="التواصل">Contact</h4>
-        <a href="tel:+97451570051">+974 5157 0051</a>
-        <a href="tel:+97440170080">+974 4017 0080</a>
-        <a href="tel:+97451570052">+974 5157 0052</a>
-        <a href="mailto:info@careplus.qa">info@careplus.qa</a>
-        <p data-ar="شارع سلوى، الدوحة، قطر">Salwa Road, Doha, Qatar</p>
+
+      <div class="foot__col foot__col--con">
+        <h4><span data-ar="التواصل">Contact</span></h4>
+
+        <a class="foot__row" href="tel:+97451570051">
+          <span class="foot__k" data-ar="المكتب">Office</span>
+          <span class="foot__v">+974 5157 0051</span>
+        </a>
+        <a class="foot__row" href="tel:+97440170080">
+          <span class="foot__k" data-ar="سلوى — هاتف ثابت">Salwa — landline</span>
+          <span class="foot__v">+974 4017 0080</span>
+        </a>
+        <a class="foot__row" href="tel:+97451570052">
+          <span class="foot__k" data-ar="سلوى — جوال">Salwa — mobile</span>
+          <span class="foot__v">+974 5157 0052</span>
+        </a>
+        <a class="foot__row" href="mailto:info@careplus.qa">
+          <span class="foot__k" data-ar="البريد الإلكتروني">Email</span>
+          <span class="foot__v">info@careplus.qa</span>
+        </a>
+
+        <a class="foot__addr" href="https://maps.app.goo.gl/kbU3nNAK5kEuT5tt9" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <span data-ar="شارع سلوى، الدوحة، قطر">Salwa Road, Doha, Qatar</span>
+        </a>
       </div>
     </div>
+
     <div class="foot__bar">
       <!-- #yr2 is written by main2.js, so only the name is translatable -->
       <p>© <span id="yr2">2026</span> <span data-ar="كير بلس لزينة السيارات ذ.م.م.">CarePlus for Car Accessories W.L.L.</span></p>
-      <p data-ar="مفتوح على مدار الساعة">Open 24 hours</p>
-      <a class="foot__up" href="#home"><span data-ar="إلى الأعلى">Back to top</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6M6 12l6-6 6 6"/></svg>
+      <a class="foot__up" href="#home">
+        <span data-ar="إلى الأعلى">Back to top</span>
+        <span class="foot__up-ring" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 19V6M6 12l6-6 6 6"/></svg>
+        </span>
       </a>
     </div>
+
+    <p class="foot__mark" aria-hidden="true">CarePlus</p>
   </div>
 </footer>
 
