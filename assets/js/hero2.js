@@ -74,7 +74,7 @@ import { RoomEnvironment } from 'https://cdn.jsdelivr.net/npm/three@0.149.0/exam
     return new THREE.CanvasTexture(c);
   }
   var shadowMesh = new THREE.Mesh(
-    new THREE.PlaneGeometry(5.0, 1.8),
+    new THREE.PlaneGeometry(5.9, 2.1),
     new THREE.MeshBasicMaterial({ map: makeShadowTexture(), transparent: true, depthWrite: false })
   );
   shadowMesh.position.set(0, -0.95, -0.4);
@@ -105,12 +105,23 @@ import { RoomEnvironment } from 'https://cdn.jsdelivr.net/npm/three@0.149.0/exam
   } catch (e) { bail(); return; }
 
   var box = new THREE.Box3().setFromObject(model);
-  var size = new THREE.Vector3(); box.getSize(size);
   var center = new THREE.Vector3(); box.getCenter(center);
   model.position.sub(center);
-  model.rotation.y = Math.PI * -0.14;   // front-3/4 angle (rear-facing default + 180°)
+  model.rotation.y = Math.PI * -0.14;   // fixed front-3/4 tilt, baked in once
 
-  var TARGET_LEN = 5.3;
+  // recompute the bounding box AFTER the tilt and recentre again — the tilt's
+  // own front/rear overhang asymmetry would otherwise leave the true visual
+  // centroid off the rig's local origin, so the dynamic group.rotation.y
+  // below (which spins around that same origin) would sweep the car
+  // off-centre by a different amount at every angle instead of turning it
+  // cleanly in place
+  model.updateMatrixWorld(true);
+  var box2 = new THREE.Box3().setFromObject(model);
+  var center2 = new THREE.Vector3(); box2.getCenter(center2);
+  model.position.sub(center2);
+
+  var size = new THREE.Vector3(); box2.getSize(size);
+  var TARGET_LEN = 6.3;
   var footprint = Math.max(size.x, size.z);
   var scale = footprint > 0 ? TARGET_LEN / footprint : 1;
   rig.scale.setScalar(scale);
@@ -186,7 +197,7 @@ import { RoomEnvironment } from 'https://cdn.jsdelivr.net/npm/three@0.149.0/exam
   function drawStatic() {
     mats.forEach(function (m) { m.opacity = 1; });
     rig.position.y = restY;
-    group.rotation.y = 0.32;
+    group.rotation.y = -0.08;
     renderer.render(scene, camera);
   }
 
@@ -210,8 +221,8 @@ import { RoomEnvironment } from 'https://cdn.jsdelivr.net/npm/three@0.149.0/exam
     // perpetual sway so the car keeps moving even without the cursor
     // over it — bounded oscillation only, with the mouse-follow
     // (ease.x/y) and scroll layer riding on top
-    group.rotation.y = 0.32 + ease.x * 0.22 + Math.sin(tm * 0.5) * 0.16;
-    group.rotation.x = -ease.y * 0.16 + Math.sin(tm * 0.38) * 0.08;
+    group.rotation.y = -0.08 + ease.x * 0.08 + Math.sin(tm * 0.5) * 0.06;
+    group.rotation.x = -ease.y * 0.08 + Math.sin(tm * 0.38) * 0.04;
     group.rotation.z = -0.05 - scrollP * 0.18 + Math.sin(tm * 0.24) * 0.04;
     group.position.y = scrollP * 0.6 + Math.sin(tm * 0.42) * 0.1;
     group.position.x = Math.sin(tm * 0.28) * 0.06;
