@@ -1,0 +1,80 @@
+/* =============================================================
+   ORYX — Terms & conditions (standalone page)
+   Extends style2.css. Like the catalogue, this page has no hero to
+   scroll past, so the header sits permanently in its solid state.
+   The clause list is deliberately plain: legal copy is read, not
+   scanned, so the only ornament is the maroon numeral and a hairline.
+   ============================================================= */
+
+#top{
+  background:rgba(244,242,240,.9);
+  backdrop-filter:blur(14px) saturate(140%);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  box-shadow:0 1px 0 var(--line-2);
+}
+
+/* ---------- intro ---------- */
+.terms{ padding:clamp(8rem,15vh,11.5rem) 0 clamp(4rem,8vh,6rem); }
+.terms__head{ max-width:60ch; }
+.terms__note{ margin:1.1rem 0 0; color:var(--mute); max-width:58ch; }
+
+/* ---------- clause list ----------
+   Numbers come from a counter, not the markup, so the list keeps
+   counting correctly whichever language is switched in. */
+.tlist{
+  counter-reset:c; max-width:88ch;
+  margin-top:clamp(2.4rem,4.5vw,3.6rem);
+  border-top:1px solid var(--line);
+}
+.tlist li{
+  display:grid; grid-template-columns:auto minmax(0,1fr);
+  gap:clamp(.9rem,2.2vw,2rem);
+  padding:clamp(1.05rem,2vw,1.55rem) clamp(.5rem,1.2vw,1rem);
+  border-bottom:1px solid var(--line-2);
+  transition:background .4s var(--e);
+}
+.tlist li:hover{ background:var(--paper-3); }
+.tlist li::before{
+  counter-increment:c; content:counter(c,decimal-leading-zero);
+  font-family:var(--f-d); font-weight:500; font-size:.92rem; line-height:1.9;
+  letter-spacing:.02em; color:var(--mar); font-variant-numeric:tabular-nums;
+  transition:color .35s;
+}
+.tlist li:hover::before{ color:var(--deep); }
+.tlist p{ margin:0; max-width:72ch; color:var(--ink-2); line-height:1.75; }
+
+/* ---------- closing card ---------- */
+.tfoot{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+  gap:1.2rem 2rem; max-width:88ch;
+  margin-top:clamp(2.2rem,4vw,3.2rem);
+  padding:clamp(1.3rem,2.6vw,2rem);
+  border:1px solid var(--line-2); border-radius:4px; background:var(--paper-3);
+}
+.tfoot__txt{ min-width:0; }
+.tfoot__k{
+  display:block; margin:0 0 .45rem; font-size:.68rem; font-weight:500;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--mute);
+}
+.tfoot__v{ margin:0; font-family:var(--f-d); font-weight:500; font-size:clamp(1.05rem,1.6vw,1.3rem); letter-spacing:-.01em; line-height:1.4; }
+.tfoot__v a{ color:var(--deep); background-image:linear-gradient(currentColor,currentColor); background-size:100% 1px; background-repeat:no-repeat; background-position:0 100%; transition:background-size .45s var(--e); }
+.tfoot__v a:hover{ background-size:0% 1px; }
+
+@media (max-width:520px){
+  .tlist li{ padding-inline:0; }
+  .tfoot{ flex-direction:column; align-items:flex-start; }
+}
+
+/* Latin runs inside Arabic clauses — "QAR 10", "24" — keep their own
+   direction so the numerals are not re-ordered by the paragraph. */
+[dir="rtl"] .tlist p{ unicode-bidi:plaintext; }
+
+/* ---------- print ----------
+   Customers do print this one; strip the chrome and keep the clauses. */
+@media print{
+  .pre,.rail,.top,.idx,.foot,.callfab,.tfoot{ display:none !important; }
+  body{ background:#fff; }
+  body::after{ display:none; }
+  .terms{ padding:0; }
+  .tlist li{ break-inside:avoid; }
+}
