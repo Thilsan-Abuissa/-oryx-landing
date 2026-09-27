@@ -1,0 +1,5 @@
+# https://www.careplus.qa/
+User-agent: *
+Allow: /
+
+Sitemap: https://www.careplus.qa/sitemap.xml

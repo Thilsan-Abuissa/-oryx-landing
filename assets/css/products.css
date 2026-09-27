@@ -55,6 +55,9 @@
   font-family:var(--f-d); font-weight:500; font-size:.98rem; line-height:1.28;
   letter-spacing:-.01em; color:var(--ink);
   display:-webkit-box; -webkit-line-clamp:2; line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+  /* always reserve both lines: every card is then the same height, which is
+     what lets the placeholders below match the real grid exactly */
+  min-height:2.56em;
 }
 
 .pcard__cta{
@@ -125,4 +128,39 @@
   .pnav{ gap:.35rem; }
   .pnav__btn{ min-width:2.3rem; height:2.3rem; font-size:.8rem; }
   .pnav__gap{ height:2.3rem; }
+}
+
+
+/* ---------- loading placeholders ----------
+   The cards arrive from products.json, so the grid would start empty and
+   everything below it — the pagination, the whole footer — would jump
+   down when they land. That jump is a Cumulative Layout Shift failure.
+   Twelve of these ship in products.html itself, occupying exactly the
+   height a real card does, so the fetch swaps content in without moving
+   anything. They live in the markup, not in products.js: the script is
+   itself a download, and on a slow link the grid would paint empty
+   before it ever ran. */
+
+.pcard--ghost{ pointer-events:none; }
+.pcard--ghost .pcard__img{ background:var(--paper-2); }
+/* .pcard__info is a flex row and .pcard__meta sizes to its text — with only
+   an &nbsp; inside, it collapses to a few pixels and takes the bars with it */
+.pcard--ghost .pcard__meta{ flex:1 1 auto; }
+.pcard--ghost .pcard__tag,
+.pcard--ghost .pcard__name{
+  /* -webkit-box would shrink to fit the &nbsp; too; height still comes from
+     the real rules, which is what keeps a placeholder exactly as tall as a
+     finished card */
+  display:block; border-radius:3px; background:var(--paper-2); color:transparent;
+}
+.pcard--ghost .pcard__tag{ width:42%; }
+.pcard--ghost .pcard__name{ width:76%; }
+.pcard--ghost .pcard__cta{
+  background:var(--paper-2); box-shadow:none;
+}
+.pcard--ghost .pcard__cta::before{ display:none; }
+
+@media (prefers-reduced-motion:no-preference){
+  .pcard--ghost{ animation:pghost 1.4s ease-in-out infinite; }
+  @keyframes pghost{ 0%,100%{ opacity:1; } 50%{ opacity:.55; } }
 }
