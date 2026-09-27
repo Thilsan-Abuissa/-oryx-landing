@@ -16,7 +16,10 @@
   /* ================= PRELOADER ================= */
   (function () {
     var fill = qs('#preFill'), body = document.body;
-    var p = 0, done = false, loaded = false;
+    var p = 0, done = false, loaded = document.readyState === 'complete';
+    /* products.js injects this file after its fetch settles, so 'load'
+       may already be gone by the time we get here — check, or the bar
+       crawls to the 5s fallback below instead of snapping shut */
     window.addEventListener('load', function () { loaded = true; });
 
     function finish() {

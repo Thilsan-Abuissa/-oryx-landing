@@ -73,3 +73,56 @@
 .pcard__cta:hover{ transform:scale(1.08); }
 .pcard__cta:hover::before{ transform:translateY(0); }
 .pcard__cta:hover svg{ transform:translateX(3px); }
+
+/* ---------- pagination ----------
+   The grid holds every product at once and pages by toggling
+   .is-hidden above — i18n.js caches the cards as it boots, so
+   re-rendering them per page would lose their Arabic. */
+.pnav{
+  display:flex; align-items:center; justify-content:center; gap:.45rem;
+  flex-wrap:wrap; margin-top:clamp(2.6rem,5vw,4rem);
+}
+.pnav[hidden]{ display:none; }
+
+.pnav__btn{
+  display:grid; place-items:center; min-width:2.6rem; height:2.6rem;
+  padding:0 .55rem; border:1px solid var(--line-2); border-radius:4px;
+  background:transparent; color:var(--mute); cursor:pointer;
+  font-family:var(--f-b); font-size:.86rem; font-weight:500; letter-spacing:.02em;
+  transition:color .35s var(--e), border-color .35s var(--e), background .35s var(--e);
+}
+.pnav__btn:hover:not(:disabled):not(.is-on){ color:var(--ink); border-color:var(--line); }
+.pnav__btn:disabled{ opacity:.32; cursor:default; }
+.pnav__btn.is-on{
+  background:var(--mar); border-color:var(--mar); color:#fff; cursor:default;
+}
+.pnav__btn[hidden]{ display:none; }
+
+.pnav__btn svg{
+  width:1.05em; height:1.05em; fill:none; stroke:currentColor;
+  stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round;
+}
+/* the arrows point along the reading direction, so mirror them in Arabic */
+[dir="rtl"] .pnav__btn svg{ transform:scaleX(-1); }
+
+.pnav__gap{
+  display:grid; place-items:center; min-width:1.6rem; height:2.6rem;
+  color:var(--mute); font-family:var(--f-b); font-size:.86rem;
+}
+.pnav__gap[hidden]{ display:none; }
+
+/* digits and an en dash only — nothing here needs translating, but the
+   run is all neutral characters, so an RTL paragraph would flip it to
+   "49 / 36-25": isolate it and keep it reading left to right */
+.pnav__count{
+  width:100%; margin:.9rem 0 0; text-align:center;
+  font-family:var(--f-b); font-size:.74rem; letter-spacing:.12em;
+  color:var(--mute); font-variant-numeric:tabular-nums;
+  direction:ltr; unicode-bidi:isolate;
+}
+
+@media (max-width:620px){
+  .pnav{ gap:.35rem; }
+  .pnav__btn{ min-width:2.3rem; height:2.3rem; font-size:.8rem; }
+  .pnav__gap{ height:2.3rem; }
+}
